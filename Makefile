@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2024/06/12 23:23:55 by anchikri         ###   ########.fr        #
+#    Updated: 2024/06/12 23:25:39 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,13 +111,13 @@ AR = ar rcs
 
 all: ${NAME}
 
-$(OBJDIR)%.o: %.c 
-	@mkdir -p $(@D)
+${OBJDIR}%.o: %.c 
+	@mkdir -p ${@D}
 	@${CC} ${CFLAGS} -c $< -o $@
 	@echo -n "${GREEN}Compiling ${CYAN}${NAME}${RESET}...\r"
 
-$(NAME): ${OBJS} 
-	@$(AR) $(NAME) $(OBJS)
+${NAME}: ${OBJS} 
+	@${AR} ${NAME} ${OBJS}
 	@echo "\n${CYAN}${NAME} ${GREEN}has been created${RESET}"
 
 clean:
