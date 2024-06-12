@@ -1,0 +1,57 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_fprintf.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/30 08:19:42 by anchikri          #+#    #+#             */
+/*   Updated: 2024/06/12 22:23:08 by anchikri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../libs/libft.h"
+
+void	ft_fformats(va_list ap, char **str, char c)
+{
+	if (c == 'c')
+		ft_putchar(str, va_arg(ap, int));
+	else if (c == 's')
+		ft_putstr(str, va_arg(ap, char *));
+	else if (c == 'd' || c == 'i')
+		ft_putnbr(str, va_arg(ap, int));
+	else if (c == 'u')
+		ft_putnbr(str, va_arg(ap, unsigned int));
+	else if (c == 'x')
+		ft_putnbr_base(str, va_arg(ap, unsigned int), "0123456789abcdef", 0);
+	else if (c == 'X')
+		ft_putnbr_base(str, va_arg(ap, unsigned int), "0123456789ABCDEF", 0);
+	else if (c == 'p')
+		ft_putnbr_base(str, va_arg(ap, unsigned long), "0123456789abcdef", 1);
+	else if (c == '%')
+		ft_putchar(str, '%');
+}
+
+int	ft_fprintf(int fd, const char *s, ...)
+{
+	int		len;
+	char	*str;
+	va_list	ap;
+
+	str = ft_strdup("");
+	if (!str)
+		return (-1);
+	va_start(ap, s);
+	while (*s)
+	{
+		if (*s == '%')
+			ft_fformats(ap, &str, *(++s));
+		else
+			ft_fputchar(&str, *s);
+		s++;
+	}
+	va_end(ap);
+	len = write(fd, str, ft_strlen(str));
+	free(str);
+	return (len);
+}
