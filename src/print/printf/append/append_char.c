@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   append_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 20:33:37 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
+/*   Created: 2024/08/14 22:57:02 by anchikri          #+#    #+#             */
+/*   Updated: 2024/08/14 23:59:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../../../include/libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	append_char(char **str, char c)
 {
-	t_list	*last;
+	size_t	len;
+	char	*tmp;
 
-	if (!*lst)
-		*lst = new;
-	else
-	{
-		last = ft_lstlast(*lst);
-		last->next = new;
-	}
+	len = ft_strlen(*str);
+	tmp = ft_realloc(*str, len, len + 2);
+	if (!tmp)
+		return ;
+	*str = tmp;
+	(*str)[len] = c;
+	(*str)[len + 1] = '\0';
 }

@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   append_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 00:02:13 by anchikri         ###   ########.fr       */
+/*   Created: 2024/08/14 22:57:35 by anchikri          #+#    #+#             */
+/*   Updated: 2024/08/14 23:59:51 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDE_H
-# define INCLUDE_H
+#include "../../../../include/libft.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdarg.h>
-# include "check.h"
-# include "convert.h"
-# include "print.h"
-# include "free.h"
-# include "garbage.h"
-# include "get_next_line.h"
-# include "list.h"
-# include "memory.h"
-# include "string.h"
-# include "libft.h"
+void	append_str(char **str, char *s)
+{
+	size_t	len_str;
+	size_t	len_s;
+	char	*tmp;
 
-#endif
+	len_str = ft_strlen(*str);
+	len_s = ft_strlen(s);
+	tmp = ft_realloc(*str, len_str, len_str + len_s + 1);
+	if (!tmp)
+		return ;
+	*str = tmp;
+	ft_memcpy(*str + len_str, s, len_s);
+	(*str)[len_str + len_s] = '\0';
+}

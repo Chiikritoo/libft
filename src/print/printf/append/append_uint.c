@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   append_uint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 20:18:37 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
+/*   Created: 2024/08/14 22:58:00 by anchikri          #+#    #+#             */
+/*   Updated: 2024/08/14 23:59:55 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../../../include/libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	append_uint(char **str, unsigned int n)
 {
-	int	count;
+	char	*nb_str;
 
-	count = 0;
-	while (lst)
-	{
-		count++;
-		lst = lst->next;
-	}
-	return (count);
+	nb_str = ft_utoa(n);
+	if (!nb_str)
+		return ;
+	append_str(str, nb_str);
+	free(nb_str);
 }

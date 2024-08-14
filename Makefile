@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2024/08/13 03:53:44 by anchikri         ###   ########.fr        #
+#    Updated: 2024/08/15 01:07:56 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,17 +18,28 @@ SRC_CHECK =		src/check/ft_isalnum.c \
 				src/check/ft_isalpha.c \
 				src/check/ft_isascii.c \
 				src/check/ft_isdigit.c \
-				src/check/ft_isprint.c
+				src/check/ft_isprint.c \
+				src/check/ft_isspace.c \
 
 SRC_CONVERT =	src/convert/ft_atoi.c \
 				src/convert/ft_itoa.c \
 				src/convert/ft_toupper.c \
-				src/convert/ft_tolower.c
+				src/convert/ft_tolower.c \
+				src/convert/ft_utoa.c \
 
-SRC_FD =		src/fd/ft_putchar_fd.c \
-				src/fd/ft_putendl_fd.c \
-				src/fd/ft_putnbr_fd.c \
-				src/fd/ft_putstr_fd.c
+SRC_PRINT =		src/print/ft_putchar_fd.c \
+				src/print/ft_putendl_fd.c \
+				src/print/ft_putnbr_fd.c \
+				src/print/ft_putstr_fd.c \
+				src/print/printf/ft_printf.c \
+				src/print/printf/ft_dprintf.c \
+				src/print/printf/handle_format.c \
+				src/print/printf/append/append_char.c \
+				src/print/printf/append/append_str.c \
+				src/print/printf/append/append_int.c \
+				src/print/printf/append/append_uint.c \
+				src/print/printf/append/append_base.c \
+				src/print/printf/append/append_ptr.c \
 
 SRC_FREE =		src/free/ft_free_ptr.c \
 				src/free/ft_free_double_ptr.c \
@@ -38,25 +49,25 @@ SRC_DPRINTF =	src/ft_dprintf/ft_dprintf.c \
 				src/ft_dprintf/ft_dprint_nbr.c \
 				src/ft_dprintf/ft_dprint.c
 
-SRC_PRINTF =	src/ft_printf/ft_printf.c \
-				src/ft_printf/ft_print_nbr.c \
-				src/ft_printf/ft_print.c
+SRC_PRINTF =	
 
-SRC_GARBAGE =	src/garbage/ft_clear_garbage.c \
-				src/garbage/ft_garbage.c \
-				src/garbage/ft_gc_calloc.c
+SRC_GARBAGE =	src/garbage/gc_alloc.c \
+				src/garbage/gc_clear.c \
+				src/garbage/gc_free.c \
+				src/garbage/gc_destroy.c \
+				src/garbage/gc_init.c \
 
 SRC_GNL =		src/get_next_line/get_next_line.c \
 
-SRC_LIST =		src/list/ft_lstnew_bonus.c \
-				src/list/ft_lstadd_front_bonus.c \
-				src/list/ft_lstsize_bonus.c \
-				src/list/ft_lstlast_bonus.c \
-				src/list/ft_lstadd_back_bonus.c \
-				src/list/ft_lstdelone_bonus.c \
-				src/list/ft_lstclear_bonus.c \
-				src/list/ft_lstiter_bonus.c \
-				src/list/ft_lstmap_bonus.c
+SRC_LIST =		src/list/ft_lstnew.c \
+				src/list/ft_lstadd_front.c \
+				src/list/ft_lstsize.c \
+				src/list/ft_lstlast.c \
+				src/list/ft_lstadd_back.c \
+				src/list/ft_lstdelone.c \
+				src/list/ft_lstclear.c \
+				src/list/ft_lstiter.c \
+				src/list/ft_lstmap.c
 
 SRC_MEMORY =	src/memory/ft_bzero.c \
 				src/memory/ft_calloc.c \
@@ -77,7 +88,7 @@ SRC_STRING =	src/string/ft_strchr.c \
 				src/string/ft_strnstr.c \
 				src/string/ft_strrchr.c \
 				src/string/ft_strjoin.c \
-				src/string/ft_strjoin_gnl.c \
+				src/string/ft_strjoin_free.c \
 				src/string/ft_strmapi.c \
 				src/string/ft_strtrim.c \
 				src/string/ft_substr.c \
@@ -86,9 +97,8 @@ SRC_STRING =	src/string/ft_strchr.c \
 
 src =			${SRC_CHECK} \
 				${SRC_CONVERT} \
-				${SRC_FD} \
+				${SRC_PRINT} \
 				${SRC_FREE} \
-				${SRC_DPRINTF} \
 				${SRC_PRINTF} \
 				${SRC_GNL} \
 				${SRC_GARBAGE} \
@@ -103,7 +113,7 @@ OBJS =			${src:%.c=${OBJDIR}%.o}
 # ==================== FLAGS ==================== #
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g
+CFLAGS = -Wall -Werror -Wextra -g3
 RM = rm -rf
 AR = ar rcs
 

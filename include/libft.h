@@ -14,9 +14,6 @@
 // Check if the library LIBFT_H is define or not
 #ifndef LIBFT_H
 # define LIBFT_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
-# endif
 
 # include "include.h"
 

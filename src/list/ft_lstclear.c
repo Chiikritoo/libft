@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clear_garbage.c                                 :+:      :+:    :+:   */
+/*   ft_lstclear.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 01:48:24 by anchikri          #+#    #+#             */
+/*   Created: 2023/10/21 21:07:36 by anchikri          #+#    #+#             */
 /*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-void	ft_clear_garbage(t_garbage **garbage)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_garbage	*tmp;
+	t_list	*temp;
 
-	if (garbage)
+	if (!lst || !del)
+		return ;
+	while (*lst)
 	{
-		while (*garbage)
-		{
-			tmp = (*garbage)->next;
-			ft_free_ptr((*garbage)->ptr);
-			ft_free_ptr((void *)(*garbage));
-			*garbage = tmp;
-		}
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
 	}
+	*lst = NULL;
 }

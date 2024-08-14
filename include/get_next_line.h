@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:33:44 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:52:53 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/14 21:46:30 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,9 @@
 # include "include.h"
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 32
+#  define BUFFER_SIZE 1024
 # endif
 
-// =================
-//   GET_NEXT_LINE
-// =================
 char	*get_next_line( int fd);
 
 #endif

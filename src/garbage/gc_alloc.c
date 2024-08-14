@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   gc_alloc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 20:44:13 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
+/*   Created: 2024/06/10 01:31:56 by anchikri          #+#    #+#             */
+/*   Updated: 2024/08/15 01:28:31 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	*gc_alloc(t_gc_context *ctx, size_t nmemb, size_t size)
 {
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free(lst);
+	void		*ptr;
+	t_garbage	*node;
+
+	if (!ctx || !nmemb || !size)
+		return (NULL);
+	ptr = ft_calloc(nmemb, size);
+	if (!ptr)
+		return (NULL);
+	node = ft_calloc(1, sizeof(t_garbage));
+	if (!node)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	node->ptr = ptr;
+	node->next = ctx->head;
+	ctx->head = node;
+	return (ptr);
 }

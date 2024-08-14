@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_gc_calloc.c                                     :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 01:31:56 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
+/*   Created: 2024/08/14 21:52:18 by anchikri          #+#    #+#             */
+/*   Updated: 2024/08/14 21:55:18 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-void	*ft_gc_calloc(size_t nmemb, size_t size)
+// function who checks for a white-space character
+int	ft_isspace(int c)
 {
-	void	*ptr;
-
-	ptr = ft_calloc(nmemb, size);
-	if (!ptr)
-		return (NULL);
-	return (ptr);
+	if (c == '\t' || c == '\n' || c == '\v' || \
+		c == '\f' || c == '\r' || c == ' ')
+		return (1);
+	return (0);
 }

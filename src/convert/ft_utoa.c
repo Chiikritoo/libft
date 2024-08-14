@@ -1,20 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 21:05:24 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
+/*   Created: 2024/08/14 23:28:32 by anchikri          #+#    #+#             */
+/*   Updated: 2024/08/14 23:31:11 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	len_uint(unsigned int n)
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
+	int	len;
+
+	len = 0;
+	while (n)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_utoa(unsigned int n)
+{
+	int		len;
+	char	*tab;
+
+	len = len_uint(n);
+	tab = ft_calloc(len + 1, sizeof(char));
+	if (!tab)
+		return (NULL);
+	while (len > 0)
+	{
+		len--;
+		tab[len] = (n % 10) + 48;
+		n /= 10;
+	}
+	return (tab);
 }

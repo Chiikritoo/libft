@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -48,7 +48,7 @@ static void	ft_read(int fd, char **line, char *buffer, int *br)
 			return ;
 		}
 		buffer[*br] = '\0';
-		*line = ft_strjoin_gnl(*line, buffer);
+		*line = ft_strjoin_free(*line, buffer);
 		if (!*line)
 			return ;
 	}
@@ -74,7 +74,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = NULL;
 	if (buffer[fd][0] != '\0')
-		line = ft_strjoin_gnl(NULL, buffer[fd]);
+		line = ft_strjoin_free(NULL, buffer[fd]);
 	ft_read(fd, &line, buffer[fd], &br);
 	if (!ft_check(br, &line))
 		return (NULL);

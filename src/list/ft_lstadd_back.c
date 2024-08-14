@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_garbage.c                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 01:32:39 by anchikri          #+#    #+#             */
-/*   Updated: 2024/06/10 01:49:51 by anchikri         ###   ########.fr       */
+/*   Created: 2023/10/21 20:33:37 by anchikri          #+#    #+#             */
+/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-void	*ft_garbage(t_garbage **garbage, size_t nmemb, size_t size)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_garbage	*new;
-	t_garbage	*temp;
+	t_list	*last;
 
-	new = (t_garbage *)ft_gc_calloc(1, sizeof(t_garbage));
-	if (!new)
-		return (NULL);
-	new->ptr = ft_gc_calloc(nmemb, size);
-	if (!new->ptr)
+	if (!*lst)
+		*lst = new;
+	else
 	{
-		ft_free_ptr(new);
-		return (NULL);
+		last = ft_lstlast(*lst);
+		last->next = new;
 	}
-	if (!*garbage)
-	{
-		*garbage = new;
-		return (new->ptr);
-	}
-	temp = *garbage;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = new;
-	return (new->ptr);
 }
