@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2024/08/15 01:07:56 by anchikri         ###   ########.fr        #
+#    Updated: 2024/08/15 02:44:28 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,12 +44,6 @@ SRC_PRINT =		src/print/ft_putchar_fd.c \
 SRC_FREE =		src/free/ft_free_ptr.c \
 				src/free/ft_free_double_ptr.c \
 				src/free/ft_free_triple_ptr.c
-
-SRC_DPRINTF =	src/ft_dprintf/ft_dprintf.c \
-				src/ft_dprintf/ft_dprint_nbr.c \
-				src/ft_dprintf/ft_dprint.c
-
-SRC_PRINTF =	
 
 SRC_GARBAGE =	src/garbage/gc_alloc.c \
 				src/garbage/gc_clear.c \
@@ -95,6 +89,18 @@ SRC_STRING =	src/string/ft_strchr.c \
 				src/string/ft_split.c \
 				src/string/ft_striteri.c
 
+SRC_GC =		src_gc/convert/gc_itoa.c \
+				src_gc/convert/gc_utoa.c \
+				src_gc/get_next_line/gc_get_next_line.c \
+				src_gc/string/gc_strdup.c \
+				src_gc/string/gc_strjoin.c \
+				src_gc/string/gc_strjoin_free.c \
+				src_gc/string/gc_strtrim.c \
+				src_gc/string/gc_substr.c \
+				src_gc/string/gc_split.c \
+				src_gc/memory/gc_calloc.c \
+				src_gc/memory/gc_realloc.c
+
 src =			${SRC_CHECK} \
 				${SRC_CONVERT} \
 				${SRC_PRINT} \
@@ -104,7 +110,8 @@ src =			${SRC_CHECK} \
 				${SRC_GARBAGE} \
 				${SRC_LIST} \
 				${SRC_MEMORY} \
-				${SRC_STRING}
+				${SRC_STRING} \
+				${SRC_GC}
 
 OBJDIR =		build/
 
