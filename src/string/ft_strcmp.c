@@ -6,13 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 21:53:20 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:35:15 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/string.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(char const *s1, char const *s2)
 {
 	size_t	i;
 

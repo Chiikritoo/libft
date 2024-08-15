@@ -1,55 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                  :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 21:59:25 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
+/*   Created: 2024/08/15 17:00:01 by anchikri          #+#    #+#             */
+/*   Updated: 2024/08/15 17:13:21 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/list.h"
 
-static t_list	*add_node(t_list *content, void (*del)(void *))
+static t_lst	*add_node(void *content, void (*del)(void *))
 {
-	t_list	*new_node;
+	t_lst	*node;
 
-	new_node = ft_lstnew(content);
-	if (!new_node)
+	node = ft_lstnew(content);
+	if (!node)
 	{
 		del(content);
 		return (NULL);
 	}
-	return (new_node);
+	return (node);
 }
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_lst_ctx	*ft_lstmap(t_lst_ctx *ctx, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_lst;
-	t_list	*current;
-	void	*content;
+	t_lst_ctx	*new_ctx;
+	t_lst		*tmp;
+	t_lst		*node;
 
-	if (!lst || !f || !del)
+	if (!ctx || !f)
 		return (NULL);
-	content = f(lst->content);
-	new_lst = add_node(content, del);
-	if (!new_lst)
+	new_ctx = ft_ctx_init();
+	if (!new_ctx)
 		return (NULL);
-	current = new_lst;
-	lst = lst->next;
-	while (lst)
+	tmp = ctx->head;
+	while (tmp)
 	{
-		content = f(lst->content);
-		current->next = add_node(content, del);
-		if (!current->next)
+		node = add_node(f(tmp->content), del);
+		if (!node)
 		{
-			ft_lstclear(&new_lst, del);
+			ft_ctx_destroy(new_ctx);
 			return (NULL);
 		}
-		current = current->next;
-		lst = lst->next;
+		ft_lstadd_back(new_ctx, node);
+		tmp = tmp->next;
 	}
-	return (new_lst);
+	return (new_ctx);
 }

@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:20:22 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 02:27:28 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:31:47 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/garbage.h"
 
 char	*gc_strdup(t_gc_ctx *ctx, const char *s)
 {

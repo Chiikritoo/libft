@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:58:16 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/14 23:59:48 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:30:55 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../include/libft.h"
+#include "../../../../include/print.h"
 
 void	append_ptr(char **str, unsigned long n)
 {

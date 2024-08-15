@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:06:38 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:27:00 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/check.h"
 
 // function who checks for an ASCII character
 int	ft_isascii(int c)

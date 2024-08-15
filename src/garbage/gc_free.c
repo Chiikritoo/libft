@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 00:54:26 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 02:28:01 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 17:54:35 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/garbage.h"
 
 void	gc_free(t_gc_ctx *ctx, void *ptr)
 {
@@ -31,6 +31,7 @@ void	gc_free(t_gc_ctx *ctx, void *ptr)
 				ctx->head = current->next;
 			ft_free_ptr(current->ptr);
 			ft_free_ptr((void *)current);
+			ctx->size--;
 			return ;
 		}
 		prev = current;

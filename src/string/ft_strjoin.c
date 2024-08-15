@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:26:24 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 00:22:59 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:31:12 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/string.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

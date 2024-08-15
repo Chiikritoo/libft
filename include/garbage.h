@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:31:59 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 02:43:48 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 17:57:47 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_gc		t_gc;
 struct s_gc_ctx
 {
 	t_gc	*head;
+	size_t	size;
 };
 
 struct s_gc
@@ -31,9 +32,9 @@ struct s_gc
 
 void		*gc_alloc(t_gc_ctx *ctx, size_t nmemb, size_t size);
 void		gc_clear(t_gc_ctx *ctx);
-void		gc_destroy(t_gc_ctx *ctx);
+void		gc_ctx_destroy(t_gc_ctx *ctx);
 void		gc_free(t_gc_ctx *ctx, void *ptr);
-t_gc_ctx	*gc_init(void);
+t_gc_ctx	*gc_ctx_init(void);
 
 char		*gc_itoa(t_gc_ctx *ctx, int n);
 char		*gc_utoa(t_gc_ctx *ctx, unsigned int n);

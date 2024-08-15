@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:00:11 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:30:35 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/memory.h"
 
 //	function who allocates memory for an array of nmemb elements of size bytes
 //	and returns a pointer to the allocated memory. The memory is set to zero

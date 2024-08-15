@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:33:36 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 02:11:27 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:31:47 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/garbage.h"
 
 char	*gc_strtrim(t_gc_ctx *ctx, char const *s1, char const *set)
 {

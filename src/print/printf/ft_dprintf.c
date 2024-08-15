@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 08:19:42 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/14 23:59:23 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:30:55 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../../../include/print.h"
 
 int	ft_dprintf(int fd, const char *s, ...)
 {

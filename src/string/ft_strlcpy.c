@@ -6,13 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:27:56 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:35:41 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/string.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, char const *src, size_t size)
 {
 	size_t	i;
 

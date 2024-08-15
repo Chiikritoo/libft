@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gc_init.c                                          :+:      :+:    :+:   */
+/*   ft_memdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 00:40:16 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 02:07:19 by anchikri         ###   ########.fr       */
+/*   Created: 2024/08/15 17:50:44 by anchikri          #+#    #+#             */
+/*   Updated: 2024/08/15 17:51:10 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/memory.h"
 
-t_gc_ctx	*gc_init(void)
+void	*ft_memdup(void const *src, size_t size)
 {
-	t_gc_ctx	*ctx;
+	void	*dst;
 
-	ctx = ft_calloc(1, sizeof(t_gc_ctx));
-	if (!ctx)
+	dst = ft_calloc(size, sizeof(char));
+	if (!dst)
 		return (NULL);
-	return (ctx);
+	ft_memcpy(dst, src, size);
+	return (dst);
 }

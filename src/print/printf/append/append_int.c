@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:57:44 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/14 23:59:45 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:30:55 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../include/libft.h"
+#include "../../../../include/print.h"
 
 void	append_int(char **str, int n)
 {

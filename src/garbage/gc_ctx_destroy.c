@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   append_char.c                                      :+:      :+:    :+:   */
+/*   gc_ctx_destroy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 22:57:02 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:30:55 by anchikri         ###   ########.fr       */
+/*   Created: 2024/08/15 01:05:36 by anchikri          #+#    #+#             */
+/*   Updated: 2024/08/15 17:58:47 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../include/print.h"
+#include "../../include/garbage.h"
 
-void	append_char(char **str, char c)
+void	gc_ctx_destroy(t_gc_ctx *ctx)
 {
-	size_t	len;
-	char	*tmp;
-
-	len = ft_strlen(*str);
-	tmp = ft_realloc(*str, len, len + 2);
-	if (!tmp)
-		return ;
-	*str = tmp;
-	(*str)[len] = c;
-	(*str)[len + 1] = '\0';
+	gc_clear(ctx);
+	ft_free_ptr((void *)ctx);
 }

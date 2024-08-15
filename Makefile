@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2024/08/15 02:44:28 by anchikri         ###   ########.fr        #
+#    Updated: 2024/08/15 17:57:47 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,8 +48,8 @@ SRC_FREE =		src/free/ft_free_ptr.c \
 SRC_GARBAGE =	src/garbage/gc_alloc.c \
 				src/garbage/gc_clear.c \
 				src/garbage/gc_free.c \
-				src/garbage/gc_destroy.c \
-				src/garbage/gc_init.c \
+				src/garbage/gc_ctx_destroy.c \
+				src/garbage/gc_ctx_init.c \
 
 SRC_GNL =		src/get_next_line/get_next_line.c \
 
@@ -61,7 +61,9 @@ SRC_LIST =		src/list/ft_lstnew.c \
 				src/list/ft_lstdelone.c \
 				src/list/ft_lstclear.c \
 				src/list/ft_lstiter.c \
-				src/list/ft_lstmap.c
+				src/list/ft_lstmap.c \
+				src/list/ft_ctx_init.c \
+				src/list/ft_ctx_destroy.c
 
 SRC_MEMORY =	src/memory/ft_bzero.c \
 				src/memory/ft_calloc.c \

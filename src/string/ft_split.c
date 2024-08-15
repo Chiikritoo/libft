@@ -6,13 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:48:28 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:34:18 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/string.h"
 
-static int	ft_count_words(char const *str, char sep)
+static int	count_words(char const *str, char sep)
 {
 	size_t	i;
 	size_t	words;
@@ -31,7 +31,7 @@ static int	ft_count_words(char const *str, char sep)
 	return (words);
 }
 
-static int	ft_subcpy(char *str, char **tab, size_t len, int index)
+static int	subcpy(char *str, char **tab, size_t len, int index)
 {
 	tab[index] = ft_substr(str, 0, len);
 	if (!tab[index])
@@ -59,17 +59,17 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	k = 0;
-	tab = ft_calloc(ft_count_words(s, c) + 1, sizeof(char *));
+	tab = ft_calloc(count_words(s, c) + 1, sizeof(char *));
 	if (!tab)
 		return (NULL);
-	while (s[i] && k < ft_count_words(s, c))
+	while (s[i] && k < count_words(s, c))
 	{
 		while (s[i] && s[i] == c)
 			i++;
 		j = i;
 		while (s[i] && s[i] != c)
 			i++;
-		if (i != j && !ft_subcpy((char *)s + j, tab, i - j, k++))
+		if (i != j && !subcpy((char *)s + j, tab, i - j, k++))
 			return (NULL);
 	}
 	return (tab);

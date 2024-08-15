@@ -6,17 +6,19 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 23:28:32 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/14 23:31:11 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:41:07 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/convert.h"
 
 int	len_uint(unsigned int n)
 {
 	int	len;
 
 	len = 0;
+	if (n == 0)
+		return (1);
 	while (n)
 	{
 		n /= 10;

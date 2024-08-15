@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:57:58 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/14 23:59:36 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:30:55 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../include/libft.h"
+#include "../../../../include/print.h"
 
 static int	len_base(unsigned long long n, int base_len)
 {

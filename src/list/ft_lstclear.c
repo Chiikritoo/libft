@@ -10,19 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/list.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_lst_ctx *ctx, void (*del)(void *))
 {
-	t_list	*temp;
+	t_lst	*tmp;
 
-	if (!lst || !del)
+	if (!ctx || !del)
 		return ;
-	while (*lst)
+	while (ctx->head)
 	{
-		temp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = temp;
+		tmp = ctx->head;
+		ft_lstdelone(ctx, tmp, del);
 	}
-	*lst = NULL;
+	ctx->tail = NULL;
+	ctx->size = 0;
 }

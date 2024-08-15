@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 05:34:51 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 02:50:44 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:31:47 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/garbage.h"
 
 void	*gc_realloc(t_gc_ctx *ctx, void *ptr, size_t old_size, size_t new_size)
 {

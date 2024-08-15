@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/get_next_line.h"
 
-static void	ft_update_line_and_buffer(char **line, char *buffer)
+static void	update_line_and_buffer(char **line, char *buffer)
 {
 	int		i;
 	int		len;
@@ -34,7 +34,7 @@ static void	ft_update_line_and_buffer(char **line, char *buffer)
 	}
 }
 
-static void	ft_read(int fd, char **line, char *buffer, int *br)
+static void	read_file(int fd, char **line, char *buffer, int *br)
 {
 	*br = 1;
 	while (!ft_strchr(buffer, '\n') && *br != 0)
@@ -54,7 +54,7 @@ static void	ft_read(int fd, char **line, char *buffer, int *br)
 	}
 }
 
-static int	ft_check(int br, char **line)
+static int	check(int br, char **line)
 {
 	if (br == -1 || !(*line) || (*line)[0] == '\0')
 	{
@@ -75,11 +75,11 @@ char	*get_next_line(int fd)
 	line = NULL;
 	if (buffer[fd][0] != '\0')
 		line = ft_strjoin_free(NULL, buffer[fd]);
-	ft_read(fd, &line, buffer[fd], &br);
-	if (!ft_check(br, &line))
+	read_file(fd, &line, buffer[fd], &br);
+	if (!check(br, &line))
 		return (NULL);
 	if (br <= 0)
 		return (line);
-	ft_update_line_and_buffer(&line, buffer[fd]);
+	update_line_and_buffer(&line, buffer[fd]);
 	return (line);
 }

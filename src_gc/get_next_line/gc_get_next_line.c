@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/garbage.h"
 
 static void	update_line_and_buffer(t_gc_ctx *ctx, char **line, char *buffer)
 {

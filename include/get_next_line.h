@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:33:44 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/14 21:46:30 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 17:36:32 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@
 #  define BUFFER_SIZE 1024
 # endif
 
-char	*get_next_line( int fd);
+char	*get_next_line(int fd);
 
 #endif

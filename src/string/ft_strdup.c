@@ -6,25 +6,19 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:20:22 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/13 03:03:38 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 16:24:54 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/string.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(char const *s)
 {
-	int		i;
 	char	*dup;
 
-	i = 0;
 	dup = ft_calloc(ft_strlen(s) + 1, sizeof(char));
 	if (!dup)
 		return (NULL);
-	while (s[i])
-	{
-		dup[i] = s[i];
-		i++;
-	}
+	ft_strlcpy(dup, s, ft_strlen(s) + 1);
 	return (dup);
 }

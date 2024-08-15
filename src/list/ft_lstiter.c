@@ -10,15 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/list.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_lst_ctx *ctx, void (*f)(void *))
 {
-	if (!lst || !f)
+	t_lst	*tmp;
+
+	if (!ctx || !f)
 		return ;
-	while (lst)
+	tmp = ctx->head;
+	while (tmp)
 	{
-		f(lst->content);
-		lst = lst->next;
+		f(tmp->content);
+		tmp = tmp->next;
 	}
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/garbage.h"
 
 char	*gc_strjoin_free(t_gc_ctx *ctx, char *s1, char const *s2)
 {

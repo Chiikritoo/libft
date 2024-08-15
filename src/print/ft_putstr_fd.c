@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 21:05:24 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/14 22:45:20 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:30:55 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/print.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

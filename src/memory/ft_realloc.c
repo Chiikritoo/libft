@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 05:34:51 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/14 23:10:46 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 15:30:35 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../include/memory.h"
 
 void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 {
