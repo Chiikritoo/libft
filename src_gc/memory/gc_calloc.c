@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gc_alloc.c                                         :+:      :+:    :+:   */
+/*   gc_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 01:31:56 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 02:37:02 by anchikri         ###   ########.fr       */
+/*   Created: 2023/10/17 17:00:11 by anchikri          #+#    #+#             */
+/*   Updated: 2024/08/15 02:36:46 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-void	*gc_alloc(t_gc_ctx *ctx, size_t nmemb, size_t size)
+//	function who allocates memory for an array of nmemb elements of size bytes
+//	and returns a pointer to the allocated memory. The memory is set to zero
+void	*gc_calloc(t_gc_ctx *ctx, size_t nmemb, size_t size)
 {
-	void	*ptr;
-	t_gc	*node;
+	char	*tab;
+	size_t	len;
 
-	if (!ctx)
+	if (!nmemb || !size)
+		return (gc_alloc(ctx, 0, 0));
+	len = nmemb * size;
+	if (len / size != nmemb)
 		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (!ptr)
+	tab = gc_alloc(ctx, len, sizeof(char));
+	if (!tab)
 		return (NULL);
-	node = malloc(sizeof(t_gc));
-	if (!node)
-	{
-		free(ptr);
-		return (NULL);
-	}
-	node->ptr = ptr;
-	node->next = ctx->head;
-	ctx->head = node;
-	return (ptr);
+	ft_memset(tab, 0, len);
+	return (tab);
 }

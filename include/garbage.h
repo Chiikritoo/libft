@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:31:59 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 01:06:39 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 02:43:48 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,35 @@
 
 # include "include.h"
 
-typedef struct s_gc_context	t_gc_context;
-typedef struct s_garbage	t_garbage;
+typedef struct s_gc_ctx	t_gc_ctx;
+typedef struct s_gc		t_gc;
 
-struct s_gc_context
+struct s_gc_ctx
 {
-	t_garbage	*head;
+	t_gc	*head;
 };
 
-struct s_garbage
+struct s_gc
 {
-	void				*ptr;
-	struct s_garbage	*next;
+	void		*ptr;
+	struct s_gc	*next;
 };
 
-void			*gc_alloc(t_gc_context *ctx, size_t nmemb, size_t size);
-void			gc_clear(t_gc_context *ctx);
-void			gc_destroy(t_gc_context *ctx);
-void			gc_free(t_gc_context *ctx, void *ptr);
-t_gc_context	*gc_init(void);
+void		*gc_alloc(t_gc_ctx *ctx, size_t nmemb, size_t size);
+void		gc_clear(t_gc_ctx *ctx);
+void		gc_destroy(t_gc_ctx *ctx);
+void		gc_free(t_gc_ctx *ctx, void *ptr);
+t_gc_ctx	*gc_init(void);
+
+char		*gc_itoa(t_gc_ctx *ctx, int n);
+char		*gc_utoa(t_gc_ctx *ctx, unsigned int n);
+char		*gc_strjoin(t_gc_ctx *ctx, char const *s1, char const *s2);
+char		*gc_strjoin_free(t_gc_ctx *ctx, char *s1, char const *s2);
+char		*gc_substr(t_gc_ctx *ctx, char const *s, unsigned int st, size_t l);
+char		*gc_strdup(t_gc_ctx *ctx, const char *s);
+char		*gc_get_next_line(t_gc_ctx *ctx, int fd);
+void		*gc_calloc(t_gc_ctx *ctx, size_t nmemb, size_t size);
+void		*gc_realloc(t_gc_ctx *ctx, void *ptr, size_t old_s, size_t new_s);
+char		*gc_get_next_line(t_gc_ctx *ctx, int fd);
 
 #endif

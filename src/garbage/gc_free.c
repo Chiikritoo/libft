@@ -6,16 +6,16 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 00:54:26 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 01:22:07 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 02:28:01 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-void	gc_free(t_gc_context *ctx, void *ptr)
+void	gc_free(t_gc_ctx *ctx, void *ptr)
 {
-	t_garbage	*current;
-	t_garbage	*prev;
+	t_gc	*current;
+	t_gc	*prev;
 
 	if (!ctx || !ptr)
 		return ;

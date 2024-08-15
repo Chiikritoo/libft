@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gc_destroy.c                                       :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 01:05:36 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 02:07:19 by anchikri         ###   ########.fr       */
+/*   Created: 2024/06/10 05:34:51 by anchikri          #+#    #+#             */
+/*   Updated: 2024/08/15 02:38:34 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-void	gc_destroy(t_gc_ctx *ctx)
+void	*gc_realloc(t_gc_ctx *ctx, void *ptr, size_t old_size, size_t new_size)
 {
-	gc_clear(ctx);
-	ft_free_ptr((void *)ctx);
+	void	*new;
+
+	if (!ptr)
+		return (gc_alloc(ctx, new_size, 1));
+	if (!new_size)
+	{
+		ft_free_ptr(ptr);
+		return (NULL);
+	}
+	new = gc_alloc(ctx, new_size, 1);
+	if (!new)
+		return (NULL);
+	if (old_size < new_size)
+		ft_memcpy(new, ptr, old_size);
+	else
+		ft_memcpy(new, ptr, new_size);
+	ft_free_ptr(ptr);
+	return (new);
 }
