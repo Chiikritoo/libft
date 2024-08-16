@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:33:24 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 04:26:16 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdarg.h>
+# include <fcntl.h>
+# include <sys/wait.h>
 # include "check.h"
 # include "convert.h"
 # include "print.h"
