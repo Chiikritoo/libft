@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2024/08/15 20:19:25 by anchikri         ###   ########.fr        #
+#    Updated: 2024/08/17 00:13:48 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,8 @@ SRC_MEMORY =	src/memory/ft_bzero.c \
 				src/memory/ft_memset.c \
 				src/memory/ft_realloc.c
 
-SRC_STRING =	src/string/ft_strchr.c \
+SRC_STRING =	src/string/ft_getenv.c \
+				src/string/ft_strchr.c \
 				src/string/ft_strcmp.c \
 				src/string/ft_strdup.c \
 				src/string/ft_strlcat.c \

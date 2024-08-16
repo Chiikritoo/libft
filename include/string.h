@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:36:41 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 02:20:47 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/17 00:13:18 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "include.h"
 
+char	*ft_getenv(char *name, char **env);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(char const *s, int c);
 int		ft_strcmp(char const *s1, char const *s2);
