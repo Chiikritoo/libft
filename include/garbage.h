@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:31:59 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 20:19:25 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/17 00:16:37 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void		gc_ctx_destroy(t_gc_ctx *ctx);
 void		gc_free(t_gc_ctx *ctx, void *ptr);
 t_gc_ctx	*gc_ctx_init(void);
 
+char		**gc_split(t_gc_ctx *ctx, char const *s, char c);
 char		*gc_itoa(t_gc_ctx *ctx, int n);
 char		*gc_utoa(t_gc_ctx *ctx, unsigned int n);
 char		*gc_strjoin(t_gc_ctx *ctx, char const *s1, char const *s2);
