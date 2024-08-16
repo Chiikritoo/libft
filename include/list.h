@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:35:15 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 17:01:50 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:20:27 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define LIST_H
 
 # include "include.h"
-
-// ==================
-//   LIST FUNCTIONS
-// ==================
 
 typedef struct s_lst_ctx	t_lst_ctx;
 typedef struct s_lst		t_lst;

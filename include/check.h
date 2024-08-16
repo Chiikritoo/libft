@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:17:01 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/14 21:53:06 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:19:45 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include "include.h"
 
-// =================
-//  CHECK FUNCTIONS
-// =================
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);

@@ -6,12 +6,14 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:27:56 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:35:41 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:15:05 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/string.h"
 
+// function who copies the string 'src' to 'dst'
+// with the size 'size'
 size_t	ft_strlcpy(char *dst, char const *src, size_t size)
 {
 	size_t	i;

@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:57:58 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:30:55 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:11:28 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../../include/print.h"
 
+// function who calculates the length of the number 'n' in the base 'base_len'
 static int	len_base(unsigned long long n, int base_len)
 {
 	int	len;
@@ -25,6 +26,7 @@ static int	len_base(unsigned long long n, int base_len)
 	return (len);
 }
 
+// function who converts an unsigned long long to a string in the base 'base'
 static char	*ft_ultoa_base(unsigned long long n, char *base)
 {
 	int		len;
@@ -45,6 +47,7 @@ static char	*ft_ultoa_base(unsigned long long n, char *base)
 	return (tab);
 }
 
+// function who appends the string 'nb_str' to the string 'str'
 void	append_base(char **str, unsigned long long n, char *base)
 {
 	char	*nb_str;

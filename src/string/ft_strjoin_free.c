@@ -12,6 +12,7 @@
 
 #include "../../include/string.h"
 
+// function who concatenates the strings 's1' and 's2' and frees 's1'
 char	*ft_strjoin_free(char *s1, char const *s2)
 {
 	size_t	len_s1;

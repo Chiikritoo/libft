@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:14:08 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:45:53 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:15:52 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/string.h"
 
+// function who allocates and returns a substring from the string 's'
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*sub;

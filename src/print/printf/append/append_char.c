@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:57:02 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:30:55 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:11:34 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../../include/print.h"
 
+// function who appends the character 'c' to the string 'str'
 void	append_char(char **str, char c)
 {
 	size_t	len;

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:18:27 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 00:01:50 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:20:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include "include.h"
 
-// ==================
-//  APPEND FUNCTIONS
-// ==================
 void	append_char(char **str, char c);
 void	append_str(char **str, char *s);
 void	append_int(char **str, int n);
@@ -29,9 +26,6 @@ int		ft_printf(const char *s, ...);
 int		ft_dprintf(int fd, const char *s, ...);
 void	handle_format(va_list ap, char **str, char c);
 
-// ==============
-//  FD FUNCTIONS
-// ==============
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);

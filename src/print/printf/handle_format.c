@@ -6,12 +6,14 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:56:13 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:30:55 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:10:23 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/print.h"
 
+// function who handles the format specifier 
+// 'c', 's', 'd', 'i', 'u', 'x', 'X', 'p', '%'
 void	handle_format(va_list ap, char **str, char c)
 {
 	if (c == 'c')

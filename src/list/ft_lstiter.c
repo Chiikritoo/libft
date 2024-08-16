@@ -12,6 +12,7 @@
 
 #include "../../include/list.h"
 
+// function who applies the function 'f' to each content of the list 
 void	ft_lstiter(t_lst_ctx *ctx, void (*f)(void *))
 {
 	t_lst	*tmp;

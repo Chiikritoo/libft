@@ -12,6 +12,7 @@
 
 #include "../../include/get_next_line.h"
 
+// function who updates the line and the buffer
 static void	update_line_and_buffer(char **line, char *buffer)
 {
 	int		i;
@@ -34,6 +35,7 @@ static void	update_line_and_buffer(char **line, char *buffer)
 	}
 }
 
+// function who reads the file and updates the line
 static void	read_file(int fd, char **line, char *buffer, int *br)
 {
 	*br = 1;
@@ -54,6 +56,7 @@ static void	read_file(int fd, char **line, char *buffer, int *br)
 	}
 }
 
+// function who checks if the file is empty or if the line is empty
 static int	check(int br, char **line)
 {
 	if (br == -1 || !(*line) || (*line)[0] == '\0')
@@ -64,6 +67,7 @@ static int	check(int br, char **line)
 	return (1);
 }
 
+// function who reads a file line by line
 char	*get_next_line(int fd)
 {
 	static char		buffer[1024][BUFFER_SIZE + 1];

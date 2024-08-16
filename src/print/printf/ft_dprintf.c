@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 08:19:42 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:30:55 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:09:54 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/print.h"
 
+// function who writes the string and the arguments to the file descriptor 'fd'
 int	ft_dprintf(int fd, const char *s, ...)
 {
 	int		len;

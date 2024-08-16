@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:50:40 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:31:12 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:15:16 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/string.h"
 
+// function who applies the function 'f' to each character of the string 's'
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;

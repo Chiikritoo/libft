@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 23:28:32 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:41:07 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 01:59:04 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/convert.h"
 
+// function who calculates the length of an unsigned integer
 int	len_uint(unsigned int n)
 {
 	int	len;
@@ -27,6 +28,7 @@ int	len_uint(unsigned int n)
 	return (len);
 }
 
+// function who converts an unsigned integer to a string
 char	*ft_utoa(unsigned int n)
 {
 	int		len;

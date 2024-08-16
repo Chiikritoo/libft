@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:49:29 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:31:47 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:16:22 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/garbage.h"
 
+// function who calculates the length of the integer 'n'
 static int	len_int(int n)
 {
 	int	len;
@@ -27,6 +28,7 @@ static int	len_int(int n)
 	return (len);
 }
 
+// function who converts the integer 'n' to a string
 char	*gc_itoa(t_gc_ctx *ctx, int n)
 {
 	int		len;

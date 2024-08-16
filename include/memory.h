@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:35:44 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 17:51:30 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:20:33 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include "include.h"
 
-// ==================
-//  MEMORY FUNCTIONS
-// ==================
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);

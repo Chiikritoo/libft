@@ -6,47 +6,37 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 17:00:01 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 17:13:21 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:06:16 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/list.h"
 
-static t_lst	*add_node(void *content, void (*del)(void *))
-{
-	t_lst	*node;
-
-	node = ft_lstnew(content);
-	if (!node)
-	{
-		del(content);
-		return (NULL);
-	}
-	return (node);
-}
-
+// function who creates a new list context and applies 
+// the function f to each conrent of the list
 t_lst_ctx	*ft_lstmap(t_lst_ctx *ctx, void *(*f)(void *), void (*del)(void *))
 {
 	t_lst_ctx	*new_ctx;
-	t_lst		*tmp;
-	t_lst		*node;
+	t_lst		*new_lst;
+	t_lst		*current;
 
-	if (!ctx || !f)
+	if (!ctx || !f || !del)
 		return (NULL);
 	new_ctx = ft_ctx_init();
 	if (!new_ctx)
 		return (NULL);
-	tmp = ctx->head;
-	while (tmp)
+	current = ctx->head;
+	while (current)
 	{
-		node = add_node(f(tmp->content), del);
-		if (!node)
+		new_lst = ft_lstnew(f(current->content));
+		if (!new_lst)
 		{
 			ft_ctx_destroy(new_ctx);
 			return (NULL);
 		}
-		ft_lstadd_back(new_ctx, node);
-		tmp = tmp->next;
+		ft_lstadd_back(new_ctx, new_lst);
+		current = current->next;
 	}
+	ft_lstclear(ctx, del);
 	return (new_ctx);
 }

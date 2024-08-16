@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 17:58:27 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 17:58:29 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 01:59:39 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/garbage.h"
 
+// function who initializes the garbage collector
 t_gc_ctx	*gc_ctx_init(void)
 {
 	t_gc_ctx	*ctx;

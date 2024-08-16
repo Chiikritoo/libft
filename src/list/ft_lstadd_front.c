@@ -12,6 +12,7 @@
 
 #include "../../include/list.h"
 
+// function who adds the node 'new' at the beginning of the list
 void	ft_lstadd_front(t_lst_ctx *ctx, t_lst *new)
 {
 	if (!ctx || !new)

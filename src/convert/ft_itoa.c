@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:49:29 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:27:27 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 01:58:49 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/convert.h"
 
+// function who calculates the length of an integer
 static int	len_int(int n)
 {
 	int	len;
@@ -27,6 +28,7 @@ static int	len_int(int n)
 	return (len);
 }
 
+// function who converts an integer to a string
 char	*ft_itoa(int n)
 {
 	int		len;

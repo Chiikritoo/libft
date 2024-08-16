@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:41:37 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:35:54 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:15:21 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/string.h"
 
+// function who compares the first 'n' characters of the strings 's1' and 's2'
 int	ft_strncmp(char const *s1, char const *s2, size_t n)
 {
 	size_t	i;

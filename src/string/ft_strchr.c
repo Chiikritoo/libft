@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:41:37 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:35:09 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:13:22 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/string.h"
 
+// function who locates the first occurrence of 'c' in the string 's'
 char	*ft_strchr(char const *s, int c)
 {
 	int	i;

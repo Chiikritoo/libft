@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 21:09:57 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:30:55 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:08:38 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/print.h"
 
+// function who writes the integer 'n' to the file descriptor 'fd'
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)

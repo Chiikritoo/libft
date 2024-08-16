@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:03:04 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:30:35 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 20:38:14 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 //	for the first instance of c
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t		i;
-	const char	*s1;
+	size_t	i;
+	char	*str;
 
 	i = 0;
-	s1 = (const char *)s;
+	str = (char *)s;
 	while (i < n)
 	{
-		if (s1[i] == (char)c)
-			return ((void *) &((const char *)s)[i]);
+		if (str[i] == c)
+			return ((void *)str + i);
 		i++;
 	}
 	return (NULL);

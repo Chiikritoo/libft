@@ -12,6 +12,7 @@
 
 #include "../../include/list.h"
 
+// function who deletes the node 'lst' and his content with the function 'del'
 void	ft_lstdelone(t_lst_ctx *ctx, t_lst *lst, void (*del)(void *))
 {
 	if (!ctx || !lst || !del)

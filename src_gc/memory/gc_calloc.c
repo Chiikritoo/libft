@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:00:11 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:31:47 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 20:31:35 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	*gc_calloc(t_gc_ctx *ctx, size_t nmemb, size_t size)
 	size_t	len;
 
 	if (!nmemb || !size)
-		return (gc_alloc(ctx, 0, 0));
+		return (gc_malloc(ctx, 0, 0));
 	len = nmemb * size;
 	if (len / size != nmemb)
 		return (NULL);
-	tab = gc_alloc(ctx, len, sizeof(char));
+	tab = gc_malloc(ctx, len, sizeof(char));
 	if (!tab)
 		return (NULL);
-	ft_memset(tab, 0, len);
+	ft_bzero(tab, len);
 	return (tab);
 }

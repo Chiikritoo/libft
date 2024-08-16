@@ -12,6 +12,7 @@
 
 #include "../../include/list.h"
 
+// function who adds the node 'new' at the end of the list
 void	ft_lstadd_back(t_lst_ctx *ctx, t_lst *new)
 {
 	if (!ctx || !new)

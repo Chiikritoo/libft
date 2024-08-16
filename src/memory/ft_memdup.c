@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 17:50:44 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 17:51:10 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:07:55 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/memory.h"
 
+// function who duplicates the memory of 'src' with the size 'size'
 void	*ft_memdup(void const *src, size_t size)
 {
 	void	*dst;

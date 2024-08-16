@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:33:36 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:31:12 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:18:20 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/string.h"
 
+// function who trims the string 's1' with the characters in 'set'
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;

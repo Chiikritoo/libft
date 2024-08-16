@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:31:59 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 17:57:47 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 20:19:25 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ struct s_gc
 	struct s_gc	*next;
 };
 
-void		*gc_alloc(t_gc_ctx *ctx, size_t nmemb, size_t size);
+void		*gc_malloc(t_gc_ctx *ctx, size_t nmemb, size_t size);
 void		gc_clear(t_gc_ctx *ctx);
 void		gc_ctx_destroy(t_gc_ctx *ctx);
 void		gc_free(t_gc_ctx *ctx, void *ptr);

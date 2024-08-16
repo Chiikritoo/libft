@@ -12,6 +12,7 @@
 
 #include "../../include/garbage.h"
 
+// function who updates the line and the buffer
 static void	update_line_and_buffer(t_gc_ctx *ctx, char **line, char *buffer)
 {
 	int		i;
@@ -34,6 +35,7 @@ static void	update_line_and_buffer(t_gc_ctx *ctx, char **line, char *buffer)
 	}
 }
 
+// function who reads the file and updates the line
 static int	read_file(t_gc_ctx *ctx, int fd, char **line, char *buffer)
 {
 	int	br;
@@ -57,6 +59,7 @@ static int	read_file(t_gc_ctx *ctx, int fd, char **line, char *buffer)
 	return (br);
 }
 
+// function who checks if the line is valid
 static int	check(int br, char **line)
 {
 	if (br == -1 || !(*line) || (*line)[0] == '\0')
@@ -67,6 +70,7 @@ static int	check(int br, char **line)
 	return (1);
 }
 
+// function who reads the file and returns the next line
 char	*gc_get_next_line(t_gc_ctx *ctx, int fd)
 {
 	static char		buffer[1024][BUFFER_SIZE + 1];

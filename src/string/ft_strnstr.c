@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:38:49 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:35:59 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:15:34 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/string.h"
 
+// function who locates the first occurrence of the string 'little'
 char	*ft_strnstr(char const *big, char const *little, size_t len)
 {
 	size_t	i;

@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2024/08/15 17:57:47 by anchikri         ###   ########.fr        #
+#    Updated: 2024/08/15 20:19:25 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ SRC_FREE =		src/free/ft_free_ptr.c \
 				src/free/ft_free_double_ptr.c \
 				src/free/ft_free_triple_ptr.c
 
-SRC_GARBAGE =	src/garbage/gc_alloc.c \
+SRC_GARBAGE =	src/garbage/gc_malloc.c \
 				src/garbage/gc_clear.c \
 				src/garbage/gc_free.c \
 				src/garbage/gc_ctx_destroy.c \

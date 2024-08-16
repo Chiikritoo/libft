@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:00:11 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:30:35 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/15 20:31:46 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	tab = malloc(len);
 	if (!tab)
 		return (NULL);
-	ft_memset(tab, 0, len);
+	ft_bzero(tab, len);
 	return (tab);
 }

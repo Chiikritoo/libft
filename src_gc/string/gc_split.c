@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:48:28 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:31:47 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:17:35 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/garbage.h"
 
+// function who counts the number of words in the string separated by the 'sep'
 static int	count_words(char const *str, char sep)
 {
 	size_t	i;

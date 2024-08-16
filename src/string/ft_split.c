@@ -6,12 +6,13 @@
 /*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:48:28 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:34:18 by anchikri         ###   ########.fr       */
+/*   Updated: 2024/08/16 02:13:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/string.h"
 
+// function who counts the number of words in the string separated by 'sep'
 static int	count_words(char const *str, char sep)
 {
 	size_t	i;
@@ -31,6 +32,7 @@ static int	count_words(char const *str, char sep)
 	return (words);
 }
 
+// function who copies the substring of 'str' to the 'tab' at the index 'index'
 static int	subcpy(char *str, char **tab, size_t len, int index)
 {
 	tab[index] = ft_substr(str, 0, len);
@@ -47,6 +49,7 @@ static int	subcpy(char *str, char **tab, size_t len, int index)
 	return (1);
 }
 
+// function who splits the string 's' using the character 'c' as a delimiter
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
