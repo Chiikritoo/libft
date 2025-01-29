@@ -13,7 +13,7 @@
 #include "../../include/garbage.h"
 
 // function who concatenates the strings 's1' and 's2' and free 's1'
-char	*gc_strjoin_free(t_gc_ctx *ctx, char *s1, char const *s2)
+char	*gc_strjoin_gnl(t_gc_ctx *ctx, char *s1, char const *s2)
 {
 	size_t	len_s1;
 	size_t	len_s2;
@@ -21,7 +21,7 @@ char	*gc_strjoin_free(t_gc_ctx *ctx, char *s1, char const *s2)
 
 	if (!s1)
 	{
-		s1 = gc_malloc(ctx, 1, sizeof(char));
+		s1 = gc_calloc(ctx, 1, sizeof(char));
 		if (!s1)
 			return (NULL);
 	}

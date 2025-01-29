@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   string.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:36:41 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/17 00:13:18 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 14:45:31 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ char	*ft_strchr(char const *s, int c);
 int		ft_strcmp(char const *s1, char const *s2);
 char	*ft_strdup(char const *s);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-char	*ft_strjoin_free(char *s1, char const *s2);
+char	*ft_strjoin_gnl(char *s1, char const *s2);
+char	*ft_strjoin_f1(char *s1, char const *s2);
+char	*ft_strjoin_f2(char const *s1, char *s2);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, char const *src, size_t size);
 size_t	ft_strlcpy(char *dst, char const *src, size_t size);

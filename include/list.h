@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:35:15 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 02:20:27 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:46:25 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 typedef struct s_lst_ctx	t_lst_ctx;
 typedef struct s_lst		t_lst;
+typedef struct s_pool		t_pool;
 
 struct s_lst_ctx
 {

@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gc_ctx_destroy.c                                   :+:      :+:    :+:   */
+/*   gc_hash.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 01:05:36 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 01:59:32 by anchikri         ###   ########.fr       */
+/*   Created: 2025/01/29 15:10:37 by anchikri          #+#    #+#             */
+/*   Updated: 2025/01/29 15:22:22 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/garbage.h"
 
-// function who destroys the garbage collector
-void	gc_ctx_destroy(t_gc_ctx *ctx)
+unsigned int	gc_hash(void *ptr)
 {
-	gc_clear(ctx);
-	ft_free_ptr(ctx);
+	unsigned long	addr;
+
+	if (!ptr)
+		return (0);
+	addr = (unsigned long)ptr;
+	addr ^= (addr >> 16);
+	return (addr % HASH_SIZE);
 }

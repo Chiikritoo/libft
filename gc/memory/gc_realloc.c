@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gc_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 05:34:51 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 02:17:17 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:30:24 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	*gc_realloc(t_gc_ctx *ctx, void *ptr, size_t old_size, size_t new_size)
 	void	*new;
 
 	if (!ptr)
-		return (gc_malloc(ctx, new_size, 1));
+		return (gc_calloc(ctx, new_size, 1));
 	if (!new_size)
 	{
 		ft_free_ptr(ptr);
 		return (NULL);
 	}
-	new = gc_malloc(ctx, new_size, 1);
+	new = gc_calloc(ctx, new_size, 1);
 	if (!new)
 		return (NULL);
 	if (old_size < new_size)

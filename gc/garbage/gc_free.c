@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gc_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 00:54:26 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 01:59:52 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:59:56 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 // function who frees a node from the garbage collector
 void	gc_free(t_gc_ctx *ctx, void *ptr)
 {
+	int		index;
 	t_gc	*current;
 	t_gc	*prev;
 
 	if (!ctx || !ptr)
 		return ;
-	current = ctx->head;
+	index = gc_hash(ptr);
+	current = ctx->hashmap[index];
 	prev = NULL;
 	while (current)
 	{
@@ -29,9 +31,10 @@ void	gc_free(t_gc_ctx *ctx, void *ptr)
 			if (prev)
 				prev->next = current->next;
 			else
-				ctx->head = current->next;
-			ft_free_ptr(current->ptr);
-			ft_free_ptr(current);
+				ctx->hashmap[index] = current->next;
+			ft_free_ptr((void **)&current->ptr);
+			current->next = NULL;
+			gc_pool_add(ctx, current);
 			ctx->size--;
 			return ;
 		}

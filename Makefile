@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+         #
+#    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2024/08/17 00:13:48 by anchikri         ###   ########.fr        #
+#    Updated: 2025/01/29 16:30:32 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,12 +45,6 @@ SRC_FREE =		src/free/ft_free_ptr.c \
 				src/free/ft_free_double_ptr.c \
 				src/free/ft_free_triple_ptr.c
 
-SRC_GARBAGE =	src/garbage/gc_malloc.c \
-				src/garbage/gc_clear.c \
-				src/garbage/gc_free.c \
-				src/garbage/gc_ctx_destroy.c \
-				src/garbage/gc_ctx_init.c \
-
 SRC_GNL =		src/get_next_line/get_next_line.c \
 
 SRC_LIST =		src/list/ft_lstnew.c \
@@ -85,26 +79,37 @@ SRC_STRING =	src/string/ft_getenv.c \
 				src/string/ft_strnstr.c \
 				src/string/ft_strrchr.c \
 				src/string/ft_strjoin.c \
-				src/string/ft_strjoin_free.c \
+				src/string/ft_strjoin_f1.c \
+				src/string/ft_strjoin_f2.c \
+				src/string/ft_strjoin_gnl.c \
 				src/string/ft_strmapi.c \
 				src/string/ft_strtrim.c \
 				src/string/ft_substr.c \
 				src/string/ft_split.c \
 				src/string/ft_striteri.c
 
-SRC_GC =		src_gc/convert/gc_itoa.c \
-				src_gc/convert/gc_utoa.c \
-				src_gc/get_next_line/gc_get_next_line.c \
-				src_gc/string/gc_strdup.c \
-				src_gc/string/gc_strjoin.c \
-				src_gc/string/gc_strjoin_free.c \
-				src_gc/string/gc_strtrim.c \
-				src_gc/string/gc_substr.c \
-				src_gc/string/gc_split.c \
-				src_gc/memory/gc_calloc.c \
-				src_gc/memory/gc_realloc.c
+GC =			gc/garbage/gc_calloc.c \
+				gc/garbage/gc_clear.c \
+				gc/garbage/gc_free.c \
+				gc/garbage/gc_ctx_destroy.c \
+				gc/garbage/gc_ctx_init.c \
+				gc/garbage/gc_node.c \
+				gc/garbage/gc_hash.c \
+				gc/convert/gc_itoa.c \
+				gc/convert/gc_utoa.c \
+				gc/get_next_line/gc_get_next_line.c \
+				gc/string/gc_strdup.c \
+				gc/string/gc_strjoin.c \
+				gc/string/gc_strjoin_f1.c \
+				gc/string/gc_strjoin_f2.c \
+				gc/string/gc_strjoin_gnl.c \
+				gc/string/gc_strtrim.c \
+				gc/string/gc_substr.c \
+				gc/string/gc_split.c \
+				gc/memory/gc_calloc.c \
+				gc/memory/gc_realloc.c
 
-src =			${SRC_CHECK} \
+SRC =			${SRC_CHECK} \
 				${SRC_CONVERT} \
 				${SRC_PRINT} \
 				${SRC_FREE} \
@@ -114,11 +119,11 @@ src =			${SRC_CHECK} \
 				${SRC_LIST} \
 				${SRC_MEMORY} \
 				${SRC_STRING} \
-				${SRC_GC}
+				${GC}
 
 OBJDIR =		build/
 
-OBJS =			${src:%.c=${OBJDIR}%.o}
+OBJS =			${SRC:%.c=${OBJDIR}%.o}
 
 # ==================== FLAGS ==================== #
 
@@ -134,21 +139,21 @@ all: ${NAME}
 ${OBJDIR}%.o: %.c 
 	@mkdir -p ${@D}
 	@${CC} ${CFLAGS} -c $< -o $@
-	@echo -n "${GREEN}Compiling ${CYAN}${NAME}${RESET}...\r"
+	@printf "${GREEN}Compiling ${CYAN}${NAME}${RESET}...\r"
 
 ${NAME}: ${OBJS} 
 	@mkdir -p bin
 	@${AR} ${NAME} ${OBJS}
 	@mv ${NAME} bin
-	@echo "\n${CYAN}${NAME} ${GREEN}has been created${RESET}"
+	@printf "\n${CYAN}${NAME} ${GREEN}has been created${RESET}"
 
 clean:
 	@${RM} ${OBJDIR}
-	@echo "${YELLOW}objs ${RED}deleted${RESET}"
+	@printf "${YELLOW}objs ${RED}deleted${RESET}\n"
 
 fclean:	clean
 	@${RM} bin
-	@echo "${CYAN}${NAME} ${RED}deleted${RESET}"
+	@printf "${CYAN}${NAME} ${RED}deleted${RESET}\n"
 
 re:		fclean all
 

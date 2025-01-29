@@ -52,7 +52,7 @@ static int	read_file(t_gc_ctx *ctx, int fd, char **line, char *buffer)
 			return (br);
 		}
 		buffer[br] = '\0';
-		*line = gc_strjoin_free(ctx, *line, buffer);
+		*line = gc_strjoin_gnl(ctx, *line, buffer);
 		if (!*line)
 			return (br);
 	}
@@ -81,7 +81,7 @@ char	*gc_get_next_line(t_gc_ctx *ctx, int fd)
 		return (NULL);
 	line = NULL;
 	if (buffer[fd][0] != '\0')
-		line = ft_strjoin_free(NULL, buffer[fd]);
+		line = ft_strjoin_gnl(NULL, buffer[fd]);
 	br = read_file(ctx, fd, &line, buffer[fd]);
 	if (!check(br, &line))
 		return (NULL);

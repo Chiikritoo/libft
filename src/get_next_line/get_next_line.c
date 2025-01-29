@@ -50,7 +50,7 @@ static void	read_file(int fd, char **line, char *buffer, int *br)
 			return ;
 		}
 		buffer[*br] = '\0';
-		*line = ft_strjoin_free(*line, buffer);
+		*line = ft_strjoin_gnl(*line, buffer);
 		if (!*line)
 			return ;
 	}
@@ -78,7 +78,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = NULL;
 	if (buffer[fd][0] != '\0')
-		line = ft_strjoin_free(NULL, buffer[fd]);
+		line = ft_strjoin_gnl(NULL, buffer[fd]);
 	read_file(fd, &line, buffer[fd], &br);
 	if (!check(br, &line))
 		return (NULL);
