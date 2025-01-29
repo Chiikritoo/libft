@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:41:00 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:45:34 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,8 @@
 /*                            STANDARD INCLUSIONS                            */
 /* ************************************************************************* */
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# include <fcntl.h>
-# include <sys/wait.h>
-# include <errno.h>
 
 /* ************************************************************************* */
 /*                              CHECK FUNCTIONS                              */
