@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/01/29 16:30:32 by anchikri         ###   ########.fr        #
+#    Updated: 2025/01/29 18:01:48 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,9 +121,9 @@ SRC =			${SRC_CHECK} \
 				${SRC_STRING} \
 				${GC}
 
-OBJDIR =		build/
+BUILD =			build/
 
-OBJS =			${SRC:%.c=${OBJDIR}%.o}
+OBJS =			${SRC:%.c=${BUILD}%.o}
 
 # ==================== FLAGS ==================== #
 
@@ -132,23 +132,29 @@ CFLAGS = -Wall -Werror -Wextra -g3
 RM = rm -rf
 AR = ar rcs
 
+# ==================== COUNTER ==================== #
+
+COUNTER = 0
+TOTAL = $(words $(SRC))
+
 # ==================== RULES ==================== #
 
 all: ${NAME}
 
-${OBJDIR}%.o: %.c 
+${BUILD}%.o: %.c 
 	@mkdir -p ${@D}
+	$(eval COUNTER := $(shell echo $$(($(COUNTER)+1))))
+	@printf "${CYAN}libft ${YELLOW}[${COUNTER}/${TOTAL}]${RESET}\r"
 	@${CC} ${CFLAGS} -c $< -o $@
-	@printf "${GREEN}Compiling ${CYAN}${NAME}${RESET}...\r"
 
 ${NAME}: ${OBJS} 
 	@mkdir -p bin
 	@${AR} ${NAME} ${OBJS}
 	@mv ${NAME} bin
-	@printf "\n${CYAN}${NAME} ${GREEN}has been created${RESET}"
+	@printf "\n"
 
 clean:
-	@${RM} ${OBJDIR}
+	@${RM} ${BUILD}
 	@printf "${YELLOW}objs ${RED}deleted${RESET}\n"
 
 fclean:	clean
