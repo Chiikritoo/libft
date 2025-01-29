@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_triple_ptr.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 01:28:45 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:27:55 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:30 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/free.h"
+#include "../../include/libft.h"
 
 // function who free a triple pointer
 void	ft_free_triple_ptr(void ***ptr)

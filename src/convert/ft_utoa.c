@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 23:28:32 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 01:59:04 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:23 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/convert.h"
+#include "../../include/libft.h"
 
 // function who calculates the length of an unsigned integer
 int	len_uint(unsigned int n)

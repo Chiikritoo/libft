@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 16:46:52 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:03:29 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/garbage.h"
+#include "../../include/libft.h"
 
 // function to resize the pool
 void	gc_pool_resize(t_gc_ctx *ctx)

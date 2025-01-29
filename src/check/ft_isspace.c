@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:52:18 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:27:09 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/check.h"
+#include "../../include/libft.h"
 
 // function who checks for a white-space character
 int	ft_isspace(int c)

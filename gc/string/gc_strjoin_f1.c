@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:46:25 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 14:49:13 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/garbage.h"
+#include "../../include/libft.h"
 
 // function who concatenates the strings 's1' and 's2' and frees 's1'
 char	*gc_strjoin_f1(t_gc_ctx *ctx, char *s1, char const *s2)

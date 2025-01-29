@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:20:22 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 02:14:11 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:48 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/string.h"
+#include "../../include/libft.h"
 
 // function who duplicates the string 's'
 char	*ft_strdup(char const *s)

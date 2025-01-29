@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 15:31:29 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 16:14:08 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/garbage.h"
+#include "../../include/libft.h"
 
 // function who adds the pointer to the hash table
 void	gc_add(t_gc_ctx *ctx, t_gc *node, void *ptr)

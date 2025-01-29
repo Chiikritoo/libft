@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/string.h"
+#include "../../include/libft.h"
 
 // function who concatenates the strings 's1' and 's2' and frees 's1'
 char	*ft_strjoin_gnl(char *s1, char const *s2)

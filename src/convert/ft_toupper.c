@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:37:58 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:40:24 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:23 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/convert.h"
+#include "../../include/libft.h"
 
 //	functions convert lowercase letters to uppercase
 int	ft_toupper(int c)

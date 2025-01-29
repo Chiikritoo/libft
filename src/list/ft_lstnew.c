@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/list.h"
+#include "../../include/libft.h"
 
 // function who creates a new node with the content 'content'
 t_lst	*ft_lstnew(void *content)

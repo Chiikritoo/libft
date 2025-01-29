@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/list.h"
+#include "../../include/libft.h"
 
 // function who adds the node 'new' at the end of the list
 void	ft_lstadd_back(t_lst_ctx *ctx, t_lst *new)

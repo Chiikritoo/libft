@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 00:11:11 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/17 00:12:19 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:41:26 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/include.h"
+#include "../../include/libft.h"
 
 char	*ft_getenv(char *name, char **env)
 {

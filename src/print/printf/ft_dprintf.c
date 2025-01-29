@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 08:19:42 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 02:09:54 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:26:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/print.h"
+#include "../../../include/libft.h"
 
 // function who writes the string and the arguments to the file descriptor 'fd'
 int	ft_dprintf(int fd, const char *s, ...)

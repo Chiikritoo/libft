@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:41:37 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 02:15:21 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:48 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/string.h"
+#include "../../include/libft.h"
 
 // function who compares the first 'n' characters of the strings 's1' and 's2'
 int	ft_strncmp(char const *s1, char const *s2, size_t n)

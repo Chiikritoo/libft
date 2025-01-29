@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:50:40 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 02:15:16 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:48 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/string.h"
+#include "../../include/libft.h"
 
 // function who applies the function 'f' to each character of the string 's'
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))

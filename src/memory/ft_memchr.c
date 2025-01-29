@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:03:04 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 20:38:14 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:53 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/memory.h"
+#include "../../include/libft.h"
 
 //	function who scans the initial n bytes of the memory area pointed to by s
 //	for the first instance of c

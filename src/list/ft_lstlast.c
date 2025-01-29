@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/list.h"
+#include "../../include/libft.h"
 
 // function who returns the last node of the list
 t_lst	*ft_lstlast(t_lst_ctx *ctx)

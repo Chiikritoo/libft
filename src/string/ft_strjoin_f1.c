@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:41:41 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 14:45:19 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:48 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/string.h"
+#include "../../include/libft.h"
 
 // function who concatenates the strings 's1' and 's2' and frees 's1'
 char	*ft_strjoin_f1(char *s1, char const *s2)

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:25:38 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 15:39:08 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:23 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/convert.h"
+#include "../../include/libft.h"
 
 // function who converts the the string pointed by nptr to int
 int	ft_atoi(const char *nptr)

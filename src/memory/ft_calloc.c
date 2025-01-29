@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:00:11 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/15 20:31:46 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:53 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/memory.h"
+#include "../../include/libft.h"
 
 //	function who allocates memory for an array of nmemb elements of size bytes
 //	and returns a pointer to the allocated memory. The memory is set to zero

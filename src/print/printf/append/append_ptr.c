@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   append_ptr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:58:16 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 02:11:43 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:26:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../include/print.h"
+#include "../../../../include/libft.h"
 
 // function who appends the pointer 'n' to the string 'str'
 void	append_ptr(char **str, unsigned long n)

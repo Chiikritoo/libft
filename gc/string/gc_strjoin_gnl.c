@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/garbage.h"
+#include "../../include/libft.h"
 
 // function who concatenates the strings 's1' and 's2' and free 's1'
 char	*gc_strjoin_gnl(t_gc_ctx *ctx, char *s1, char const *s2)

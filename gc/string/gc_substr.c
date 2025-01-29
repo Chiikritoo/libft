@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   gc_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:14:08 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 02:18:50 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/garbage.h"
+#include "../../include/libft.h"
 
 // function who allocates and returns a substring from the string 's'
 char	*gc_substr(t_gc_ctx *ctx, char const *s, unsigned int start, size_t len)

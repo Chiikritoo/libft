@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 17:00:01 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 02:06:16 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:26:04 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/list.h"
+#include "../../include/libft.h"
 
 // function who creates a new list context and applies 
 // the function f to each conrent of the list

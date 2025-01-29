@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 17:58:27 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:14:28 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/garbage.h"
+#include "../../include/libft.h"
 
 // function who initializes the pool of the garbage collector
 void	gc_pool_init(t_gc_ctx *ctx)

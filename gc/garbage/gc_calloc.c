@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 01:31:56 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 16:59:06 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/garbage.h"
+#include "../../include/libft.h"
 
 // function who allocates memory and adds it to the garbage collector
 void	*gc_calloc(t_gc_ctx *ctx, size_t nmemb, size_t size)

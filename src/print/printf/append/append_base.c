@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   append_base.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anchikri <anchikri@student.42mulhouse.f    +#+  +:+       +#+        */
+/*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:57:58 by anchikri          #+#    #+#             */
-/*   Updated: 2024/08/16 02:11:28 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:26:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../include/print.h"
+#include "../../../../include/libft.h"
 
 // function who calculates the length of the number 'n' in the base 'base_len'
 static int	len_base(unsigned long long n, int base_len)

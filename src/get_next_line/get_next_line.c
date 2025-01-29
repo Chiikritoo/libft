@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/get_next_line.h"
+#include "../../include/libft.h"
 
 // function who updates the line and the buffer
 static void	update_line_and_buffer(char **line, char *buffer)
