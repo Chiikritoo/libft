@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:45:34 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/30 02:27:46 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ char			*gc_strjoin_f2(t_gc_ctx *ctx, char const *s1, char *s2);
 char			*gc_strjoin_gnl(t_gc_ctx *ctx, char *s1, char const *s2);
 char			*gc_substr(t_gc_ctx *ctx, char const *s, unsigned int st, size_t l);
 char			*gc_strdup(t_gc_ctx *ctx, const char *s);
+char			*gc_strcdup(t_gc_ctx *ctx, const char *s, char c);
+char			*gc_strndup(t_gc_ctx *ctx, const char *s, size_t n);
 char			*gc_get_next_line(t_gc_ctx *ctx, int fd);
 void			*gc_calloc(t_gc_ctx *ctx, size_t nmemb, size_t size);
 void			*gc_realloc(t_gc_ctx *ctx, void *ptr, size_t old_s, size_t new_s);
@@ -182,6 +184,8 @@ char	**ft_split(char const *s, char c);
 char	*ft_strchr(char const *s, int c);
 int		ft_strcmp(char const *s1, char const *s2);
 char	*ft_strdup(char const *s);
+char	*ft_strcdup(char const *s, char c);
+char	*ft_strndup(char const *s, size_t n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin_gnl(char *s1, char const *s2);
 char	*ft_strjoin_f1(char *s1, char const *s2);

@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/01/29 18:01:48 by anchikri         ###   ########.fr        #
+#    Updated: 2025/01/30 02:37:16 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,8 @@ SRC_STRING =	src/string/ft_getenv.c \
 				src/string/ft_strchr.c \
 				src/string/ft_strcmp.c \
 				src/string/ft_strdup.c \
+				src/string/ft_strcdup.c \
+				src/string/ft_strndup.c \
 				src/string/ft_strlcat.c \
 				src/string/ft_strlcpy.c \
 				src/string/ft_strlen.c \
@@ -95,10 +97,13 @@ GC =			gc/garbage/gc_calloc.c \
 				gc/garbage/gc_ctx_init.c \
 				gc/garbage/gc_node.c \
 				gc/garbage/gc_hash.c \
+				gc/garbage/gc_pool.c \
 				gc/convert/gc_itoa.c \
 				gc/convert/gc_utoa.c \
 				gc/get_next_line/gc_get_next_line.c \
 				gc/string/gc_strdup.c \
+				gc/string/gc_strcdup.c \
+				gc/string/gc_strndup.c \
 				gc/string/gc_strjoin.c \
 				gc/string/gc_strjoin_f1.c \
 				gc/string/gc_strjoin_f2.c \
@@ -123,7 +128,7 @@ SRC =			${SRC_CHECK} \
 
 BUILD =			build/
 
-OBJS =			${SRC:%.c=${BUILD}%.o}
+OBJ =			${SRC:%.c=${BUILD}%.o}
 
 # ==================== FLAGS ==================== #
 
@@ -147,9 +152,9 @@ ${BUILD}%.o: %.c
 	@printf "${CYAN}libft ${YELLOW}[${COUNTER}/${TOTAL}]${RESET}\r"
 	@${CC} ${CFLAGS} -c $< -o $@
 
-${NAME}: ${OBJS} 
+${NAME}: ${OBJ} 
 	@mkdir -p bin
-	@${AR} ${NAME} ${OBJS}
+	@${AR} ${NAME} ${OBJ}
 	@mv ${NAME} bin
 	@printf "\n"
 

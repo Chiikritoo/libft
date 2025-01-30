@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 16:46:52 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/30 02:37:32 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 // function to resize the pool
 void	gc_pool_resize(t_gc_ctx *ctx)
 {
-	int		i;
-	t_gc	*node;
+	size_t		i;
+	t_gc		*node;
 
 	ctx->pool_size = POOL_SIZE * 2;
 	ctx->pool = gc_calloc(ctx, ctx->pool_size, sizeof(t_gc));
