@@ -81,7 +81,7 @@ char	*gc_get_next_line(t_gc_ctx *ctx, int fd)
 		return (NULL);
 	line = NULL;
 	if (buffer[fd][0] != '\0')
-		line = ft_strjoin_gnl(NULL, buffer[fd]);
+		line = gc_strjoin_gnl(ctx, line, buffer[fd]);
 	br = read_file(ctx, fd, &line, buffer[fd]);
 	if (!check(br, &line))
 		return (NULL);
