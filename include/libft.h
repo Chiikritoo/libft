@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/01 04:35:22 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/01 04:38:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int				gc_add(t_gc_ctx *ctx, t_gc *node, void *ptr);
 void			*gc_calloc(t_gc_ctx *ctx, size_t nmemb, size_t size);
 void			*gc_calloc_temporary(t_gc_ctx *ctx, size_t nmemb, size_t size);
 void			gc_clear(t_gc_ctx *ctx);
+void			gc_clear_temporary(t_gc_ctx *ctx);
 void			gc_ctx_destroy(t_gc_ctx *ctx);
 void			gc_free(t_gc_ctx *ctx, void *ptr);
 t_gc_ctx		*gc_ctx_init(void);
