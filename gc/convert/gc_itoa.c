@@ -6,27 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:49:29 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/01 00:17:58 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
-
-// function who calculates the length of the integer 'n'
-static int	len_int(int n)
-{
-	int	len;
-
-	len = 0;
-	if (n <= 0)
-		len = 1;
-	while (n)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
 
 // function who converts the integer 'n' to a string
 char	*gc_itoa(t_gc_ctx *ctx, int n)

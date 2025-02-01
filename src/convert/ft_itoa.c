@@ -6,14 +6,14 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:49:29 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:23 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/01/30 03:11:00 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
 // function who calculates the length of an integer
-static int	len_int(int n)
+int	len_int(int n)
 {
 	int	len;
 

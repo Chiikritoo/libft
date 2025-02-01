@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/01 04:13:30 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/01 04:14:14 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		ft_isspace(int c);
 /*                             CONVERT FUNCTIONS                             */
 /* ************************************************************************* */
 int		ft_atoi(const char *str);
+int		len_int(int n);
 char	*ft_itoa(int n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
