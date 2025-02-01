@@ -6,39 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 00:59:19 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/01 04:38:24 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/01 04:48:18 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
-
-// function who clears the temporary garbage collector
-void	gc_clear_temporary(t_gc_ctx *ctx)
-{
-	t_gc	*current;
-	t_gc	*next;
-	int		i;
-
-	i = 0;
-	while (i < HASH_SIZE)
-	{
-		current = ctx->hashmap[i];
-		while (current)
-		{
-			if (current->temporary)
-			{
-				next = current->next;
-				ft_free_ptr((void *)&current->ptr);
-				gc_pool_add(ctx, current);
-				current = next;
-			}
-			else
-				current = current->next;
-		}
-		ctx->hashmap[i] = NULL;
-		i++;
-	}
-}
 
 // function who clears the garbage collector
 void	gc_clear(t_gc_ctx *ctx)
