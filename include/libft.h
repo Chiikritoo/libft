@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/01 04:14:14 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/01 04:25:30 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ struct s_gc
 	void	*ptr;
 	t_gc	*next;
 	t_gc	*hash_next;
+	bool	temporary;
 };
 
 t_gc			*gc_pool_get(t_gc_ctx *ctx);
