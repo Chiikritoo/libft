@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 01:31:56 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/01 04:00:56 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/01 04:13:26 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	*gc_calloc(t_gc_ctx *ctx, size_t nmemb, size_t size)
 			return (NULL);
 		}
 	}
-	node->used = true;
 	if (!gc_add(ctx, node, node->ptr))
 	{
 		if (!ctx->pool)
