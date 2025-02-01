@@ -6,14 +6,14 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 15:31:29 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/01 04:03:46 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
 // function who adds the pointer to the hash table
-void	gc_add(t_gc_ctx *ctx, t_gc *node, void *ptr)
+int	gc_add(t_gc_ctx *ctx, t_gc *node, void *ptr)
 {
 	unsigned int	index;
 	t_gc			*current;
@@ -24,12 +24,13 @@ void	gc_add(t_gc_ctx *ctx, t_gc *node, void *ptr)
 	{
 		if (current->ptr == ptr)
 		{
-			ft_free_ptr((void *)node);
-			return ;
+			gc_pool_add(ctx, node);
+			return (0);
 		}
 		current = current->next;
 	}
 	node->ptr = ptr;
 	node->next = ctx->hashmap[index];
 	ctx->hashmap[index] = node;
+	return (1);
 }
