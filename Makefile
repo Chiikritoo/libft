@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/01/30 02:37:16 by anchikri         ###   ########.fr        #
+#    Updated: 2025/02/15 06:33:40 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC_CHECK =		src/check/ft_isalnum.c \
 				src/check/ft_isspace.c \
 
 SRC_CONVERT =	src/convert/ft_atoi.c \
+				src/convert/ft_atoll.c \
 				src/convert/ft_itoa.c \
 				src/convert/ft_toupper.c \
 				src/convert/ft_tolower.c \

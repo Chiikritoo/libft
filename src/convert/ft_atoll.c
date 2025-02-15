@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 18:25:38 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/15 06:31:42 by anchikri         ###   ########.fr       */
+/*   Created: 2025/02/15 06:31:13 by anchikri          #+#    #+#             */
+/*   Updated: 2025/02/15 06:33:12 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-// function who converts the the string pointed by nptr to int
-int	ft_atoi(const char *nptr)
+long long	ft_atoll(const char *nptr)
 {
-	int	i;
-	int	op;
-	int	nb;
+	int			i;
+	long long	nb;
+	int			op;
 
 	i = 0;
-	op = 1;
 	nb = 0;
+	op = 1;
 	while (ft_isspace(nptr[i]))
 		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
 			op = -1;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-		nb = (nb * 10) + nptr[i++] - '0';
-	return (op * nb);
+	while (ft_isdigit(nptr[i]))
+		nb = nb * 10 + nptr[i++] - 48;
+	return (nb * op);
 }
