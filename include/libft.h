@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/15 06:56:22 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/17 07:49:14 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,6 @@ void			ft_putstr_fd(char *s, int fd);
 /* ************************************************************************** */
 /*                              STRING FUNCTIONS                              */
 /* ************************************************************************** */
-char			*ft_getenv(char *name, char **env);
 char			**ft_split(char const *s, char c);
 char			*ft_strchr(char const *s, int c);
 int				ft_strcmp(char const *s1, char const *s2);
