@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 02:26:46 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/30 02:27:00 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 20:15:45 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*gc_strcdup(t_gc_ctx *ctx, char const *s, char c)
 	char	*dup;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	while (s[i] && s[i] != c)
 		i++;

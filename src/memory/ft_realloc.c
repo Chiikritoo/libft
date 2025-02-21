@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 05:34:51 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/30 03:20:08 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 20:21:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 		return (malloc(new_size));
 	if (!new_size)
 	{
-		ft_free_ptr(ptr);
+		ft_free_ptr(&ptr);
 		return (NULL);
 	}
 	new = malloc(new_size);

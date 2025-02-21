@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 00:59:19 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/01 04:48:18 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 19:59:48 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	gc_clear(t_gc_ctx *ctx)
 		{
 			next = current->next;
 			ft_free_ptr((void *)&current->ptr);
-			gc_pool_add(ctx, current);
+			free(current);
 			current = next;
 		}
 		ctx->hashmap[i] = NULL;

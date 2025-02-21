@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 15:31:29 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/01 04:03:46 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 19:57:16 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,12 @@ int	gc_add(t_gc_ctx *ctx, t_gc *node, void *ptr)
 	while (current)
 	{
 		if (current->ptr == ptr)
-		{
-			gc_pool_add(ctx, node);
 			return (0);
-		}
 		current = current->next;
 	}
 	node->ptr = ptr;
-	node->next = ctx->hashmap[index];
+	node->hash_next = ctx->hashmap[index];
 	ctx->hashmap[index] = node;
+	ctx->size++;
 	return (1);
 }

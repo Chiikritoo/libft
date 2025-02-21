@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 01:31:56 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/01 04:47:43 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 19:55:24 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,33 +19,15 @@ void	*gc_calloc(t_gc_ctx *ctx, size_t nmemb, size_t size)
 
 	if (!ctx)
 		return (NULL);
-	if (!ctx->pool)
-	{
-		node = ft_calloc(1, sizeof(t_gc));
-		if (!node)
-			return (NULL);
-	}
-	else
-	{
-		node = gc_pool_get(ctx);
-		if (!node)
-			return (NULL);
-	}
+	node = (t_gc *)ft_calloc(1, sizeof(t_gc));
+	if (!node)
+		return (NULL);
+	node->ptr = ft_calloc(nmemb, size);
 	if (!node->ptr)
 	{
-		node->ptr = ft_calloc(nmemb, size);
-		if (!node->ptr)
-		{
-			gc_pool_add(ctx, node);
-			return (NULL);
-		}
-	}
-	if (!gc_add(ctx, node, node->ptr))
-	{
-		if (!ctx->pool)
-			ft_free_ptr(&node->ptr);
-		gc_pool_add(ctx, node);
+		free(node);
 		return (NULL);
 	}
+	gc_add(ctx, node, node->ptr);
 	return (node->ptr);
 }

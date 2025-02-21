@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:48:28 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 20:15:17 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	**gc_split(t_gc_ctx *ctx, char const *s, char c)
 		while (s[i] && s[i] != c)
 			i++;
 		if (i != j && !subcpy(ctx, (char *)s + j, tab + k++, i - j))
-			return (ft_free_double_ptr((void **)tab), NULL);
+			return (ft_free_double_ptr((void ***)&tab), NULL);
 	}
 	return (tab);
 }

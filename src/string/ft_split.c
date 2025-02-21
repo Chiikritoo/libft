@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:48:28 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:48 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 20:19:20 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,7 @@ static int	subcpy(char *str, char **tab, size_t len, int index)
 	tab[index] = ft_substr(str, 0, len);
 	if (!tab[index])
 	{
-		while (index > 0)
-		{
-			index--;
-			free(tab[index]);
-		}
-		free(tab);
+		ft_free_double_ptr((void ***)&tab);
 		return (0);
 	}
 	return (1);

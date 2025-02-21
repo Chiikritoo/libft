@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/17 07:49:14 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 20:14:36 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,8 @@ char			*ft_utoa(unsigned int n);
 /* ************************************************************************** */
 /*                               FREE FUNCTIONS                               */
 /* ************************************************************************** */
-void			ft_free_double_ptr(void **ptr);
+void			ft_free_double_ptr(void ***ptr);
 void			ft_free_ptr(void **ptr);
-void			ft_free_triple_ptr(void ***ptr);
 
 /* ************************************************************************* */
 /*                             GARBAGE FUNCTIONS                             */
@@ -66,7 +65,6 @@ typedef struct s_gc		t_gc;
 struct s_gc_ctx
 {
 	t_gc	*hashmap[HASH_SIZE];
-	t_gc	*pool;
 	size_t	size;
 };
 
@@ -77,8 +75,6 @@ struct s_gc
 	t_gc	*hash_next;
 };
 
-t_gc			*gc_pool_get(t_gc_ctx *ctx);
-void			gc_pool_add(t_gc_ctx *ctx, t_gc *node);
 unsigned int	gc_hash(void *ptr);
 int				gc_add(t_gc_ctx *ctx, t_gc *node, void *ptr);
 void			*gc_calloc(t_gc_ctx *ctx, size_t nmemb, size_t size);

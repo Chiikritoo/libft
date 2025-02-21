@@ -36,7 +36,7 @@ static void	update_line_and_buffer(t_gc_ctx *ctx, char **line, char *buffer)
 }
 
 // function who reads the file and updates the line
-static int	read_file(t_gc_ctx *ctx, int fd, char **line, char *buffer)
+static int	read_file(int fd, char **line, char *buffer)
 {
 	int	br;
 
@@ -52,7 +52,7 @@ static int	read_file(t_gc_ctx *ctx, int fd, char **line, char *buffer)
 			return (br);
 		}
 		buffer[br] = '\0';
-		*line = gc_strjoin_gnl(ctx, *line, buffer);
+		*line = ft_strjoin_gnl(*line, buffer);
 		if (!*line)
 			return (br);
 	}
@@ -82,7 +82,7 @@ char	*gc_get_next_line(t_gc_ctx *ctx, int fd)
 	line = NULL;
 	if (buffer[fd][0] != '\0')
 		line = gc_strjoin_gnl(ctx, line, buffer[fd]);
-	br = read_file(ctx, fd, &line, buffer[fd]);
+	br = read_file(fd, &line, buffer[fd]);
 	if (!check(br, &line))
 		return (NULL);
 	if (br <= 0)

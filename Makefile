@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/02/17 07:49:30 by anchikri         ###   ########.fr        #
+#    Updated: 2025/02/21 20:29:28 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ SRC_PRINT =		src/print/ft_putchar_fd.c \
 
 SRC_FREE =		src/free/ft_free_ptr.c \
 				src/free/ft_free_double_ptr.c \
-				src/free/ft_free_triple_ptr.c
 
 SRC_GNL =		src/get_next_line/get_next_line.c \
 
@@ -97,7 +96,6 @@ GC =			gc/garbage/gc_calloc.c \
 				gc/garbage/gc_ctx_init.c \
 				gc/garbage/gc_node.c \
 				gc/garbage/gc_hash.c \
-				gc/garbage/gc_pool.c \
 				gc/convert/gc_itoa.c \
 				gc/convert/gc_utoa.c \
 				gc/get_next_line/gc_get_next_line.c \
