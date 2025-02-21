@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:58:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:26:09 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 21:37:54 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	append_uint(char **str, unsigned int n)
 {
 	char	*nb_str;
 
+	if (!str)
+		return ;
 	nb_str = ft_utoa(n);
 	if (!nb_str)
 		return ;

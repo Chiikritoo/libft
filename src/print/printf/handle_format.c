@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:56:13 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:26:09 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 21:41:13 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 // 'c', 's', 'd', 'i', 'u', 'x', 'X', 'p', '%'
 void	handle_format(va_list ap, char **str, char c)
 {
+	if (!str || !*str)
+		return ;
 	if (c == 'c')
 		append_char(str, va_arg(ap, int));
 	else if (c == 's')

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:57:44 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:26:09 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 21:37:27 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	append_int(char **str, int n)
 {
 	char	*nb_str;
 
+	if (!str)
+		return ;
 	nb_str = ft_itoa(n);
 	if (!nb_str)
 		return ;

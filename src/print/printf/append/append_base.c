@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:57:58 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:26:09 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 21:46:17 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static char	*ft_ultoa_base(unsigned long long n, char *base)
 	char	*tab;
 	int		base_len;
 
+	if (!base || ft_strlen(base) < 2)
+		return (NULL);
 	base_len = ft_strlen(base);
 	len = len_base(n, base_len);
 	tab = ft_calloc(len + 1, sizeof(char));

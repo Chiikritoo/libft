@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 08:19:42 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:26:09 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/21 20:33:17 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	ft_dprintf(int fd, const char *s, ...)
 	char	*str;
 	va_list	ap;
 
-	str = ft_strdup("");
+	str = ft_calloc(1, sizeof(char));
 	if (!str)
 		return (-1);
 	va_start(ap, s);
 	while (*s)
 	{
-		if (*s == '%')
+		if (*s == '%' && *(s + 1))
 			handle_format(ap, &str, *(++s));
 		else
 			append_char(&str, *s);
