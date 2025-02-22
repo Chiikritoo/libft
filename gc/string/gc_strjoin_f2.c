@@ -6,13 +6,13 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:48:01 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/22 00:34:18 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-// function who concatenates the strings 's1' and 's2' and frees 's2'// function who concatenates the strings 's1' and 's2' and frees 's1'
+// function who concatenates the strings 's1' and 's2' and frees 's2'
 char	*gc_strjoin_f2(t_gc_ctx *ctx, char const *s1, char *s2)
 {
 	size_t	len_s1;

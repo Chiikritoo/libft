@@ -6,34 +6,33 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:57:35 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/21 21:40:49 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/22 01:14:16 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../../include/libft.h"
 
 // function who appends the string 's' to the string 'str'
-void	append_str(char **str, char *s)
+void	append_str(t_buffer *buf, char *s)
 {
-	size_t	len_str;
-	size_t	len_s;
-	char	*tmp;
+	size_t	len;
+	size_t	to_copy;
 
-	if (!str)
+	if (!buf)
 		return ;
 	if (!s)
 		s = "(null)";
-	if (!*str)
+	len = ft_strlen(s);
+	while (len)
 	{
-		*str = ft_strdup(s);
-		return ;
+		if (buf->length == buf->capacity)
+			buffer_flush(buf);
+		to_copy = buf->capacity - buf->length;
+		if (to_copy > len)
+			to_copy = len;
+		ft_memcpy(buf->data + buf->length, s, to_copy);
+		buf->length += to_copy;
+		s += to_copy;
+		len -= to_copy;
 	}
-	len_str = ft_strlen(*str);
-	len_s = ft_strlen(s);
-	tmp = ft_realloc(*str, len_str, len_str + len_s + 1);
-	if (!tmp)
-		return ;
-	*str = tmp;
-	ft_memcpy(*str + len_str, s, len_s);
-	(*str)[len_str + len_s] = '\0';
 }
