@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/22 01:17:50 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/22 01:20:00 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,7 +178,6 @@ typedef struct s_buffer
 	char					data[BUFFER_SIZE];
 	size_t					capacity;
 	size_t					length;
-	size_t					start;
 }							t_buffer;
 
 void						append_char(t_buffer *buf, char c);
