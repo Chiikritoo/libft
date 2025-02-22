@@ -87,5 +87,3 @@ char	*get_next_line(int fd)
 	update_line_and_buffer(&line, buffer[fd]);
 	return (line);
 }
-
-
