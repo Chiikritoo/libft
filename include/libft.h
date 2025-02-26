@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/22 01:20:00 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/02/26 01:12:49 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,7 +216,7 @@ char						*ft_strjoin_f2(char const *s1, char *s2);
 char						*ft_strjoin(char const *s1, char const *s2);
 size_t						ft_strlcat(char *dst, char const *src, size_t size);
 size_t						ft_strlcpy(char *dst, char const *src, size_t size);
-size_t						ft_strlen(char const *s);
+ssize_t						ft_strlen(char const *s);
 char						*ft_strmapi(char const *s, char (*f)(unsigned int,
 									char));
 int							ft_strncmp(char const *s1, char const *s2,
