@@ -6,13 +6,14 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 15:10:37 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/06/19 11:29:52 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-unsigned int	gc_hash(void *ptr)
+// function who hashes the pointer with the capacity
+unsigned int	gc_hash(void *ptr, size_t capacity)
 {
 	unsigned long	addr;
 
@@ -20,5 +21,5 @@ unsigned int	gc_hash(void *ptr)
 		return (0);
 	addr = (unsigned long)ptr;
 	addr ^= (addr >> 16);
-	return (addr % HASH_SIZE);
+	return (addr % capacity);
 }

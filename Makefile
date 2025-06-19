@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/02/21 20:29:28 by anchikri         ###   ########.fr        #
+#    Updated: 2025/06/19 11:28:19 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,7 @@ GC =			gc/garbage/gc_calloc.c \
 				gc/garbage/gc_ctx_init.c \
 				gc/garbage/gc_node.c \
 				gc/garbage/gc_hash.c \
+				gc/garbage/gc_resize.c \
 				gc/convert/gc_itoa.c \
 				gc/convert/gc_utoa.c \
 				gc/get_next_line/gc_get_next_line.c \

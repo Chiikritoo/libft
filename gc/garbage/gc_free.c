@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 00:54:26 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/21 19:59:06 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/06/19 11:29:51 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	gc_free(t_gc_ctx *ctx, void *ptr)
 
 	if (!ctx || !ptr)
 		return ;
-	index = gc_hash(ptr);
+	index = gc_hash(ptr, ctx->capacity);
 	current = ctx->hashmap[index];
 	prev = NULL;
 	while (current)
@@ -29,15 +29,15 @@ void	gc_free(t_gc_ctx *ctx, void *ptr)
 		if (current->ptr == ptr)
 		{
 			if (prev)
-				prev->next = current->next;
+				prev->hash_next = current->hash_next;
 			else
-				ctx->hashmap[index] = current->next;
+				ctx->hashmap[index] = current->hash_next;
 			ft_free_ptr((void **)&current->ptr);
-			current->next = NULL;
+			free(current);
 			ctx->size--;
 			return ;
 		}
 		prev = current;
-		current = current->next;
+		current = current->hash_next;
 	}
 }
