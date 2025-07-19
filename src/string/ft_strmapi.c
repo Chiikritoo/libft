@@ -6,14 +6,14 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:50:40 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:48 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/19 22:29:46 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
 // function who applies the function 'f' to each character of the string 's'
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
 	char			*str;
@@ -30,4 +30,20 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		i++;
 	}
 	return (str);
+}
+
+char	*safe_strmapi(t_libft *libft, const char *s, char (*f)(unsigned int, char))
+{
+	char	*result;
+
+	if (!libft)
+		return (NULL);
+	result = ft_strmapi(s, f);
+	if (!result)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
+			"ft_strmapi() failed for string '%s'", s);
+		PRINT_ERROR(libft->error_ctx);
+	}
+	return (result);
 }

@@ -1,38 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 12:30:53 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:18:06 by anchikri         ###   ########.fr       */
+/*   Created: 2025/07/19 20:35:00 by anchikri          #+#    #+#             */
+/*   Updated: 2025/07/19 22:21:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-// function who checks for a digit character
-int	ft_isdigit(int c)
+bool	is_error_type_valid(t_error_type type)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
-}
-
-// safe version with error handling
-int	safe_isdigit(t_libft *libft, int c)
-{
-	int	result;
-
-	if (!libft)
-		return (0);
-	result = ft_isdigit(c);
-	if (result == 0)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"character '%c' is not a digit", c);
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
+	return (type > ERROR_NONE && type <= ERROR_UNKNOWN);
 }

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:27:56 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:48 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/19 22:29:14 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // function who copies the string 'src' to 'dst'
 // with the size 'size'
-size_t	ft_strlcpy(char *dst, char const *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 

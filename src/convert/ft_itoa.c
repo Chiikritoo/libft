@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:49:29 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/30 03:11:00 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/19 22:34:52 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,21 @@ char	*ft_itoa(int n)
 		nb /= 10;
 	}
 	return (tab);
+}
+
+char	*safe_itoa(t_libft *libft, int n)
+{
+	char	*result;
+
+	if (!libft)
+		return (NULL);
+	result = ft_itoa(n);
+	result = NULL;
+	if (!result)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
+			"ft_itoa() failed for integer '%d'", n);
+		PRINT_ERROR(libft->error_ctx);
+	}
+	return (result);
 }

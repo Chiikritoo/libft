@@ -6,13 +6,22 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/06/19 11:28:19 by anchikri         ###   ########.fr        #
+#    Updated: 2025/07/19 22:33:49 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 # ==================== SOURCES ==================== #
+
+SRC_CORE =		src/core/libft_init.c \
+				src/core/libft_destroy.c
+
+SRC_ERROR =		src/error/ctx.c \
+				src/error/set.c \
+				src/error/get.c \
+				src/error/print.c \
+				src/error/utils.c
 
 SRC_CHECK =		src/check/ft_isalnum.c \
 				src/check/ft_isalpha.c \
@@ -34,6 +43,7 @@ SRC_PRINT =		src/print/ft_putchar_fd.c \
 				src/print/ft_putstr_fd.c \
 				src/print/printf/ft_printf.c \
 				src/print/printf/ft_dprintf.c \
+				src/print/printf/ft_vsnprintf.c \
 				src/print/printf/handle_format.c \
 				src/print/printf/append/append_char.c \
 				src/print/printf/append/append_str.c \
@@ -64,6 +74,7 @@ SRC_MEMORY =	src/memory/ft_bzero.c \
 				src/memory/ft_memchr.c \
 				src/memory/ft_memcmp.c \
 				src/memory/ft_memcpy.c \
+				src/memory/ft_memdup.c \
 				src/memory/ft_memmove.c \
 				src/memory/ft_memset.c \
 				src/memory/ft_realloc.c
@@ -113,26 +124,28 @@ GC =			gc/garbage/gc_calloc.c \
 				gc/memory/gc_calloc.c \
 				gc/memory/gc_realloc.c
 
-SRC =			${SRC_CHECK} \
-				${SRC_CONVERT} \
-				${SRC_PRINT} \
-				${SRC_FREE} \
-				${SRC_PRINTF} \
-				${SRC_GNL} \
-				${SRC_GARBAGE} \
-				${SRC_LIST} \
-				${SRC_MEMORY} \
-				${SRC_STRING} \
-				${GC}
+SRC =			$(SRC_CORE) \
+				$(SRC_ERROR) \
+				$(SRC_CHECK) \
+				$(SRC_CONVERT) \
+				$(SRC_PRINT) \
+				$(SRC_FREE) \
+				$(SRC_GNL) \
+				$(SRC_LIST) \
+				$(SRC_MEMORY) \
+				$(SRC_STRING) \
+				$(GC)
 
 BUILD =			build/
 
-OBJ =			${SRC:%.c=${BUILD}%.o}
+OBJ =			$(SRC:%.c=$(BUILD)%.o)
+DEPS =			$(SRC:%.c=$(BUILD)%.d)
 
 # ==================== FLAGS ==================== #
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g3
+DEPFLAGS = -MMD -MP
 RM = rm -rf
 AR = ar rcs
 
@@ -143,31 +156,35 @@ TOTAL = $(words $(SRC))
 
 # ==================== RULES ==================== #
 
-all: ${NAME}
+all: $(NAME)
 
-${BUILD}%.o: %.c 
-	@mkdir -p ${@D}
+$(BUILD)%.o: %.c 
+	@mkdir -p $(@D)
 	$(eval COUNTER := $(shell echo $$(($(COUNTER)+1))))
-	@printf "${CYAN}libft ${YELLOW}[${COUNTER}/${TOTAL}]${RESET}\r"
-	@${CC} ${CFLAGS} -c $< -o $@
+	@printf "$(CYAN)libft $(YELLOW)[$(COUNTER)/$(TOTAL)]$(RESET)\r"
+	@$(CC) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
 
-${NAME}: ${OBJ} 
+$(NAME): $(OBJ) 
 	@mkdir -p bin
-	@${AR} ${NAME} ${OBJ}
-	@mv ${NAME} bin
+	@$(AR) $(NAME) $(OBJ)
+	@mv $(NAME) bin
 	@printf "\n"
 
 clean:
-	@${RM} ${BUILD}
-	@printf "${YELLOW}objs ${RED}deleted${RESET}\n"
+	@$(RM) $(BUILD)
+	@printf "$(YELLOW)objs $(RED)deleted$(RESET)\n"
 
 fclean:	clean
-	@${RM} bin
-	@printf "${CYAN}${NAME} ${RED}deleted${RESET}\n"
+	@$(RM) bin
+	@printf "$(CYAN)$(NAME) $(RED)deleted$(RESET)\n"
 
 re:		fclean all
 
 .PHONY: all clean fclean re bonus
+
+# ==================== DEPENDENCIES ==================== #
+
+-include $(DEPS)
 
 # ==================== COLORS ==================== #
 

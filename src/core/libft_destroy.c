@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   libft_destroy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 12:30:53 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:18:02 by anchikri         ###   ########.fr       */
+/*   Created: 2025/07/19 21:15:00 by anchikri          #+#    #+#             */
+/*   Updated: 2025/07/19 22:09:37 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-// function who checks for a printable character
-int	ft_isprint(int c)
+void	libft_destroy(t_libft *libft)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	return (0);
-}
-
-// safe version with error handling
-int	safe_isprint(t_libft *libft, int c)
-{
-	int	result;
-
 	if (!libft)
-		return (0);
-	result = ft_isprint(c);
-	if (result == 0)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"character '%c' is not printable", c);
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
-}
+		return ;
+	if (libft->error_ctx)
+		error_ctx_destroy(libft->error_ctx);
+	ft_free_ptr((void **)&libft);
+} 

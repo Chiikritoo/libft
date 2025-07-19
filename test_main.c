@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   test_main.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 20:50:05 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 17:58:35 by anchikri         ###   ########.fr       */
+/*   Created: 2025/07/19 17:40:00 by anchikri          #+#    #+#             */
+/*   Updated: 2025/07/19 22:34:35 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "include/libft.h"
 
-// function who writes the character 'c' to the file descriptor 'fd'
-void	ft_putchar_fd(char c, int fd)
+int	main(void)
 {
-	write(fd, &c, 1);
+	t_libft	*libft;
+	char	*result;
+
+	libft = libft_init();
+	if (!libft)
+	{
+		printf("Failed to initialize libft\n");
+		return (1);
+	}
+	
+	// Test volontairement incorrect avec un caractère non-alphabétique
+	result = safe_itoa(libft, 5);
+	printf("Result for '5': %s\n", result);
+	
+	// Nettoyage
+	libft_destroy(libft);
+	
+	return (0);
 }

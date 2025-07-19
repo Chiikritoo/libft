@@ -6,14 +6,14 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:38:49 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:48 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/19 22:30:24 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
 // function who locates the first occurrence of the string 'little'
-char	*ft_strnstr(char const *big, char const *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 
@@ -29,4 +29,20 @@ char	*ft_strnstr(char const *big, char const *little, size_t len)
 		i++;
 	}
 	return (NULL);
+}
+
+char	*safe_strnstr(t_libft *libft, const char *big, const char *little, size_t len)
+{
+	char	*result;
+
+	if (!libft)
+		return (NULL);
+	result = ft_strnstr(big, little, len);
+	if (!result)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_LOGIC, EINVAL,
+			"ft_strnstr() failed for string '%s' and '%s'", big, little);
+		PRINT_ERROR(libft->error_ctx);
+	}
+	return (result);
 }
