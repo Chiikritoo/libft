@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 02:35:14 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 15:22:53 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 17:06:48 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,94 +14,94 @@
 
 static void	init_safe_check_functions(t_libft *libft)
 {
-	libft->check.isalpha = safe_isalpha;
-	libft->check.isdigit = safe_isdigit;
-	libft->check.isalnum = safe_isalnum;
-	libft->check.isascii = safe_isascii;
-	libft->check.isprint = safe_isprint;
+	libft->check.sisalpha = safe_isalpha;
+	libft->check.sisdigit = safe_isdigit;
+	libft->check.sisalnum = safe_isalnum;
+	libft->check.sisascii = safe_isascii;
+	libft->check.sisprint = safe_isprint;
 }
 
 static void	init_safe_convert_functions(t_libft *libft)
 {
-	libft->convert.atoi = safe_atoi;
-	libft->convert.atoll = safe_atoll;
-	libft->convert.itoa = safe_itoa;
-	libft->convert.tolower = safe_tolower;
-	libft->convert.toupper = safe_toupper;
-	libft->convert.utoa = safe_utoa;
+	libft->convert.satoi = safe_atoi;
+	libft->convert.satoll = safe_atoll;
+	libft->convert.sitoa = safe_itoa;
+	libft->convert.stolower = safe_tolower;
+	libft->convert.stoupper = safe_toupper;
+	libft->convert.sutoa = safe_utoa;
 }
 
 static void	init_safe_free_functions(t_libft *libft)
 {
-	libft->free.free_ptr = safe_free_ptr;
-	libft->free.free_double_ptr = safe_free_double_ptr;
+	libft->free.sfree_ptr = safe_free_ptr;
+	libft->free.sfree_double_ptr = safe_free_double_ptr;
 }
 
 static void	init_safe_gnl_functions(t_libft *libft)
 {
-	libft->gnl.get_next_line = get_next_line;
+	libft->gnl.sget_next_line = safe_get_next_line;
 }
 
 static void	init_safe_list_functions(t_libft *libft)
 {
-	libft->list.ctx_destroy = safe_ctx_destroy;
-	libft->list.ctx_init = safe_ctx_init;
-	libft->list.add_back = safe_lstadd_back;
-	libft->list.add_front = safe_lstadd_front;
-	libft->list.clear = safe_lstclear;
-	libft->list.delone = safe_lstdelone;
-	libft->list.iter = safe_lstiter;
-	libft->list.last = safe_lstlast;
-	libft->list.map = safe_lstmap;
-	libft->list.new = safe_lstnew;
-	libft->list.size = safe_lstsize;
+	libft->list.sctx_destroy = safe_ctx_destroy;
+	libft->list.sctx_init = safe_ctx_init;
+	libft->list.sadd_back = safe_lstadd_back;
+	libft->list.sadd_front = safe_lstadd_front;
+	libft->list.sclear = safe_lstclear;
+	libft->list.sdelone = safe_lstdelone;
+	libft->list.siter = safe_lstiter;
+	libft->list.slast = safe_lstlast;
+	libft->list.smap = safe_lstmap;
+	libft->list.snew = safe_lstnew;
+	libft->list.ssize = safe_lstsize;
 }
 
 static void	init_safe_memory_functions(t_libft *libft)
 {
-	libft->memory.bzero = safe_bzero;
-	libft->memory.calloc = safe_calloc;
-	libft->memory.memchr = safe_memchr;
-	libft->memory.memcmp = safe_memcmp;
-	libft->memory.memcpy = safe_memcpy;
-	libft->memory.memdup = safe_memdup;
-	libft->memory.memmove = safe_memmove;
-	libft->memory.memset = safe_memset;
-	libft->memory.realloc = safe_realloc;
+	libft->memory.sbzero = safe_bzero;
+	libft->memory.scalloc = safe_calloc;
+	libft->memory.smemchr = safe_memchr;
+	libft->memory.smemcmp = safe_memcmp;
+	libft->memory.smemcpy = safe_memcpy;
+	libft->memory.smemdup = safe_memdup;
+	libft->memory.smemmove = safe_memmove;
+	libft->memory.smemset = safe_memset;
+	libft->memory.srealloc = safe_realloc;
 }
 
 static void	init_safe_print_functions(t_libft *libft)
 {
-	libft->print.printf = ft_printf;
-	libft->print.dprintf = ft_dprintf;
-	libft->print.putchar_fd = ft_putchar_fd;
-	libft->print.putendl_fd = ft_putendl_fd;
-	libft->print.putnbr_fd = ft_putnbr_fd;
-	libft->print.putstr_fd = ft_putstr_fd;
+	libft->print.sprintf = safe_printf;
+	libft->print.sdprintf = safe_dprintf;
+	libft->print.sputchar_fd = safe_putchar_fd;
+	libft->print.sputendl_fd = safe_putendl_fd;
+	libft->print.sputnbr_fd = safe_putnbr_fd;
+	libft->print.sputstr_fd = safe_putstr_fd;
 }
 
 static void	init_safe_string_functions(t_libft *libft)
 {
-	libft->string.split = safe_split;
-	libft->string.strcdup = safe_strcdup;
-	libft->string.strchr = safe_strchr;
-	libft->string.strcmp = safe_strcmp;
-	libft->string.strdup = safe_strdup;
-	libft->string.striteri = safe_striteri;
-	libft->string.strjoin_f1 = safe_strjoin_f1;
-	libft->string.strjoin_f2 = safe_strjoin_f2;
-	libft->string.strjoin_gnl = safe_strjoin_gnl;
-	libft->string.strjoin = safe_strjoin;
-	libft->string.strlcat = safe_strlcat;
-	libft->string.strlcpy = safe_strlcpy;
-	libft->string.strlen = safe_strlen;
-	libft->string.strmapi = safe_strmapi;
-	libft->string.strncmp = safe_strncmp;
-	libft->string.strndup = safe_strndup;
-	libft->string.strnstr = safe_strnstr;
-	libft->string.strrchr = safe_strrchr;
-	libft->string.strtrim = safe_strtrim;
-	libft->string.substr = safe_substr;
+	libft->string.ssplit = safe_split;
+	libft->string.sstrcdup = safe_strcdup;
+	libft->string.sstrchr = safe_strchr;
+	libft->string.sstrcmp = safe_strcmp;
+	libft->string.sstrdup = safe_strdup;
+	libft->string.sstriteri = safe_striteri;
+	libft->string.sstrjoin_f1 = safe_strjoin_f1;
+	libft->string.sstrjoin_f2 = safe_strjoin_f2;
+	libft->string.sstrjoin_gnl = safe_strjoin_gnl;
+	libft->string.sstrjoin = safe_strjoin;
+	libft->string.sstrlcat = safe_strlcat;
+	libft->string.sstrlcpy = safe_strlcpy;
+	libft->string.sstrlen = safe_strlen;
+	libft->string.sstrmapi = safe_strmapi;
+	libft->string.sstrncmp = safe_strncmp;
+	libft->string.sstrndup = safe_strndup;
+	libft->string.sstrnstr = safe_strnstr;
+	libft->string.sstrrchr = safe_strrchr;
+	libft->string.sstrtrim = safe_strtrim;
+	libft->string.ssubstr = safe_substr;
 }
 
 static void	init_safe_gc_functions(t_libft *libft)
@@ -128,32 +128,42 @@ static void	init_safe_gc_functions(t_libft *libft)
 
 static void	init_safe_file_functions(t_libft *libft)
 {
-	libft->file.get_file = safe_get_file;
-	libft->file.size = safe_file_size;
-	libft->file.exists = safe_file_exists;
-	libft->file.line_count = safe_file_line_count;
+	libft->file.sget_file = safe_get_file;
+	libft->file.ssize = safe_file_size;
+	libft->file.sexists = safe_file_exists;
+	libft->file.sline_count = safe_file_line_count;
 }
 
 static void	init_safe_math_functions(t_libft *libft)
 {
-	libft->math.max = safe_max;
-	libft->math.min = safe_min;
-	libft->math.max_ll = safe_max_ll;
-	libft->math.min_ll = safe_min_ll;
-	libft->math.abs = safe_abs;
-	libft->math.abs_ll = safe_abs_ll;
-	libft->math.pow = safe_pow;
-	libft->math.powf = safe_powf;
-	libft->math.sqrt = safe_sqrt;
-	libft->math.sqrt_precise = safe_sqrt_precise;
-	libft->math.factorial = safe_factorial;
-	libft->math.dfactorial = safe_dfactorial;
-	libft->math.gcd = safe_gcd;
-	libft->math.lcm = safe_lcm;
-	libft->math.sin = safe_sin;
-	libft->math.cos = safe_cos;
-	libft->math.sinf = safe_sinf;
-	libft->math.cosf = safe_cosf;
+	libft->math.smax = safe_max;
+	libft->math.smin = safe_min;
+	libft->math.smax_ll = safe_max_ll;
+	libft->math.smin_ll = safe_min_ll;
+	libft->math.sabs = safe_abs;
+	libft->math.sabs_ll = safe_abs_ll;
+	libft->math.spow = safe_pow;
+	libft->math.spowf = safe_powf;
+	libft->math.ssqrt = safe_sqrt;
+	libft->math.ssqrt_precise = safe_sqrt_precise;
+	libft->math.sfactorial = safe_factorial;
+	libft->math.sdfactorial = safe_dfactorial;
+	libft->math.spgcd = safe_gcd;
+	libft->math.slcm = safe_lcm;
+	libft->math.ssin = safe_sin;
+	libft->math.scos = safe_cos;
+	libft->math.ssinf = safe_sinf;
+	libft->math.scosf = safe_cosf;
+	libft->math.sasin = safe_asin;
+	libft->math.sacos = safe_acos;
+	libft->math.satan = safe_atan;
+	libft->math.satan2 = safe_atan2;
+	libft->math.ssinf = safe_sinf;
+	libft->math.scosf = safe_cosf;
+	libft->math.sasinf = safe_asinf;
+	libft->math.sacosf = safe_acosf;
+	libft->math.satanf = safe_atanf;
+	libft->math.satan2f = safe_atan2f;
 }
 
 t_libft	*safe_libft_init(void)

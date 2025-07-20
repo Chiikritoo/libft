@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 03:06:15 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 15:23:07 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 19:33:49 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ long long	safe_factorial(t_libft *libft, int n)
 	return (ft_factorial(n));
 }
 
-long long	safe_dfactorial(t_libft *libft, int n)
+long long	`safe_dfactorial(t_libft *libft, int n)
 {
 	if (!libft)
 	{

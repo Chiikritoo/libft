@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 15:27:15 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 18:27:10 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,6 +252,8 @@ int							ft_abs(int n);
 long long					ft_abs_ll(long long n);
 double						ft_pow(double x, double y);
 float						ft_powf(float x, float y);
+double						ft_round(double x);
+float						ft_roundf(float x);
 int							ft_sqrt(int n);
 double						ft_sqrt_precise(double n, int precision);
 long long					ft_factorial(int n);
@@ -332,129 +334,411 @@ void						*get_error_data(const t_error_ctx *ctx);
 const char					*get_error_type_name(t_error_type type);
 bool						is_error_type_valid(t_error_type type);
 
-typedef struct s_libft
+typedef struct s_libft t_libft;
+
+struct s_libft
 {
 	struct			s_check
 	{
-		int			(*isalpha)(int c);
-		int			(*isdigit)(int c);
-		int			(*isalnum)(int c);
-		int			(*isascii)(int c);
-		int			(*isprint)(int c);
+		union {
+			int			(*isalpha)(int c);
+			int			(*sisalpha)(t_libft *libft, int c);
+		};
+		union {
+			int			(*isdigit)(int c);
+			int			(*sisdigit)(t_libft *libft, int c);
+		};
+		union {
+			int			(*isalnum)(int c);
+			int			(*sisalnum)(t_libft *libft, int c);
+		};
+		union {
+			int			(*isascii)(int c);
+			int			(*sisascii)(t_libft *libft, int c);
+		};
+		union {
+			int			(*isprint)(int c);
+			int			(*sisprint)(t_libft *libft, int c);
+		};
 	} check;
 	struct			s_convert
 	{
-		int			(*atoi)(const char *str);
-		long long	(*atoll)(const char *str);
-		char		*(*itoa)(int n);
-		int			(*tolower)(int c);
-		int			(*toupper)(int c);
-		char		*(*utoa)(unsigned int n);
+		union {
+			int			(*atoi)(const char *str);
+			int			(*satoi)(t_libft *libft, const char *str);
+		};
+		union {
+			long long	(*atoll)(const char *str);
+			long long	(*satoll)(t_libft *libft, const char *str);
+		};
+		union {
+			char		*(*itoa)(int n);
+			char		*(*sitoa)(t_libft *libft, int n);
+		};
+		union {
+			int			(*tolower)(int c);
+			int			(*stolower)(t_libft *libft, int c);
+		};
+		union {
+			int			(*toupper)(int c);
+			int			(*stoupper)(t_libft *libft, int c);
+		};
+		union {
+			char		*(*utoa)(unsigned int n);
+			char		*(*sutoa)(t_libft *libft, unsigned int n);
+		};
 	} convert;
 	struct			s_free
 	{
-		void		(*free_ptr)(void **ptr);
-		void		(*free_double_ptr)(void ***ptr);
+		union {
+			void		(*free_ptr)(void **ptr);
+			void		(*sfree_ptr)(t_libft *libft, void **ptr);
+		};
+		union {
+			void		(*free_double_ptr)(void ***ptr);
+			void		(*sfree_double_ptr)(t_libft *libft, void ***ptr);
+		};
 	} free;
 	struct			s_gnl
 	{
-		char		*(*get_next_line)(int fd);
+		union {
+			char		*(*get_next_line)(int fd);
+			char		*(*sget_next_line)(t_libft *libft, int fd);
+		};
 	} gnl;
 	struct			s_list
 	{
-		void		(*ctx_destroy)(t_lst_ctx *ctx);
-		t_lst_ctx	*(*ctx_init)(void);
-		void		(*add_back)(t_lst_ctx *ctx, t_lst *new);
-		void		(*add_front)(t_lst_ctx *ctx, t_lst *new);
-		void		(*clear)(t_lst_ctx *ctx, void (*del)(void *));
-		void		(*delone)(t_lst_ctx *ctx, t_lst *lst, void (*del)(void *));
-		void		(*iter)(t_lst_ctx *ctx, void (*f)(void *));
-		t_lst		*(*last)(t_lst_ctx *ctx);
-		t_lst_ctx	*(*map)(t_lst_ctx *ctx, void *(*f)(void *), \
+		union {
+			void		(*ctx_destroy)(t_lst_ctx *ctx);
+			void		(*sctx_destroy)(t_libft *libft, t_lst_ctx *ctx);
+		};
+		union {
+			t_lst_ctx	*(*ctx_init)(void);
+			t_lst_ctx	*(*sctx_init)(t_libft *libft);
+		};
+		union {
+			void		(*add_back)(t_lst_ctx *ctx, t_lst *new_node);
+			void		(*sadd_back)(t_libft *libft, t_lst_ctx *ctx, t_lst *new_node);
+		};
+		union {
+			void		(*add_front)(t_lst_ctx *ctx, t_lst *new_node);
+			void		(*sadd_front)(t_libft *libft, t_lst_ctx *ctx, t_lst *new_node);
+		};
+		union {
+			void		(*clear)(t_lst_ctx *ctx, void (*del)(void *));
+			void		(*sclear)(t_libft *libft, t_lst_ctx *ctx, void (*del)(void *));
+		};
+		union {
+			void		(*delone)(t_lst_ctx *ctx, t_lst *lst, void (*del)(void *));
+			void		(*sdelone)(t_libft *libft, t_lst_ctx *ctx, t_lst *lst, void (*del)(void *));
+		};
+		union {
+			void		(*iter)(t_lst_ctx *ctx, void (*f)(void *));
+			void		(*siter)(t_libft *libft, t_lst_ctx *ctx, void (*f)(void *));
+		};
+		union {
+			t_lst		*(*last)(t_lst_ctx *ctx);
+			t_lst		*(*slast)(t_libft *libft, t_lst_ctx *ctx);
+		};
+		union {
+			t_lst_ctx	*(*map)(t_lst_ctx *ctx, void *(*f)(void *), \
 						void (*del)(void *));
-		t_lst		*(*new)(void *content);
-		int			(*size)(t_lst_ctx *ctx);
+			t_lst_ctx	*(*smap)(t_libft *libft, t_lst_ctx *ctx, void *(*f)(void *), \
+						void (*del)(void *));
+		};
+		union {
+			t_lst		*(*new)(void *content);
+			t_lst		*(*snew)(t_libft *libft, void *content);
+		};
+		union {
+			int			(*size)(t_lst_ctx *ctx);
+			int			(*ssize)(t_libft *libft, t_lst_ctx *ctx);
+		};
 	} list;
 	struct			s_memory
 	{
-		void		(*bzero)(void *s, size_t n);
-		void		*(*calloc)(size_t nmemb, size_t size);
-		void		*(*memchr)(const void *s, int c, size_t n);
-		int			(*memcmp)(const void *s1, const void *s2, size_t n);
-		void		*(*memcpy)(void *dest, const void *src, size_t n);
-		void		*(*memdup)(const void *src, size_t size);
-		void		*(*memmove)(void *dest, const void *src, size_t n);
-		void		*(*memset)(void *s, int c, size_t n);
-		void		*(*realloc)(void *ptr, size_t old_size, size_t new_size);
+		union {
+			void		(*bzero)(void *s, size_t n);
+			void		(*sbzero)(t_libft *libft, void *s, size_t n);
+		};
+		union {
+			void		*(*calloc)(size_t nmemb, size_t size);
+			void		*(*scalloc)(t_libft *libft, size_t nmemb, size_t size);
+		};
+		union {
+			void		*(*memchr)(const void *s, int c, size_t n);
+			void		*(*smemchr)(t_libft *libft, const void *s, int c, size_t n);
+		};
+		union {
+			int			(*memcmp)(const void *s1, const void *s2, size_t n);
+			int			(*smemcmp)(t_libft *libft, const void *s1, const void *s2, size_t n);
+		};
+		union {
+			void		*(*memcpy)(void *dest, const void *src, size_t n);
+			void		*(*smemcpy)(t_libft *libft, void *dest, const void *src, size_t n);
+		};
+		union {
+			void		*(*memdup)(const void *src, size_t size);
+			void		*(*smemdup)(t_libft *libft, const void *src, size_t size);
+		};
+		union {
+			void		*(*memmove)(void *dest, const void *src, size_t n);
+			void		*(*smemmove)(t_libft *libft, void *dest, const void *src, size_t n);
+		};
+		union {
+			void		*(*memset)(void *s, int c, size_t n);
+			void		*(*smemset)(t_libft *libft, void *s, int c, size_t n);
+		};
+		union {
+			void		*(*realloc)(void *ptr, size_t old_size, size_t new_size);
+			void		*(*srealloc)(t_libft *libft, void *ptr, size_t old_size, size_t new_size);
+		};
 	} memory;
 	struct			s_print
 	{
-		int			(*printf)(const char *s, ...);
-		int			(*dprintf)(int fd, const char *s, ...);
-		void		(*putchar_fd)(char c, int fd);
-		void		(*putendl_fd)(char *s, int fd);
-		void		(*putnbr_fd)(int n, int fd);
-		void		(*putstr_fd)(char *s, int fd);
+		union {
+			int			(*printf)(const char *s, ...);
+			int			(*sprintf)(t_libft *libft, const char *s, ...);
+		};
+		union {
+			int			(*dprintf)(int fd, const char *s, ...);
+			int			(*sdprintf)(t_libft *libft, int fd, const char *s, ...);
+		};
+		union {
+			void		(*putchar_fd)(char c, int fd);
+			void		(*sputchar_fd)(t_libft *libft, char c, int fd);
+		};
+		union {
+			void		(*putendl_fd)(char *s, int fd);
+			void		(*sputendl_fd)(t_libft *libft, char *s, int fd);
+		};
+		union {
+			void		(*putnbr_fd)(int n, int fd);
+			void		(*sputnbr_fd)(t_libft *libft, int n, int fd);
+		};
+		union {
+			void		(*putstr_fd)(char *s, int fd);
+			void		(*sputstr_fd)(t_libft *libft, char *s, int fd);
+		};
 	} print;
 	struct			s_string
 	{
-		char		**(*split)(const char *s, char c);
-		char		*(*strcdup)(const char *s, char c);
-		char		*(*strchr)(const char *s, int c);
-		int			(*strcmp)(const char *s1, const char *s2);
-		char		*(*strdup)(const char *s);
-		void		(*striteri)(char *s, void (*f)(unsigned int, char *));
-		char		*(*strjoin_f1)(char *s1, const char *s2);
-		char		*(*strjoin_f2)(const char *s1, char *s2);
-		char		*(*strjoin_gnl)(char *s1, const char *s2);
-		char		*(*strjoin)(const char *s1, const char *s2);
-		size_t		(*strlcat)(char *dst, const char *src, size_t size);
-		size_t		(*strlcpy)(char *dst, const char *src, size_t size);
-		ssize_t		(*strlen)(const char *s);
-		char		*(*strmapi)(const char *s, char (*f)(unsigned int, char));
-		int			(*strncmp)(const char *s1, const char *s2, size_t n);
-		char		*(*strndup)(const char *s, size_t n);
-		char		*(*strnstr)(const char *big, const char *little, \
+		union {
+			char		**(*split)(const char *s, char c);
+			char		**(*ssplit)(t_libft *libft, const char *s, char c);
+		};
+		union {
+			char		*(*strcdup)(const char *s, char c);
+			char		*(*sstrcdup)(t_libft *libft, const char *s, char c);
+		};
+		union {
+			char		*(*strchr)(const char *s, int c);
+			char		*(*sstrchr)(t_libft *libft, const char *s, int c);
+		};
+		union {
+			int			(*strcmp)(const char *s1, const char *s2);
+			int			(*sstrcmp)(t_libft *libft, const char *s1, const char *s2);
+		};
+		union {
+			char		*(*strdup)(const char *s);
+			char		*(*sstrdup)(t_libft *libft, const char *s);
+		};
+		union {
+			void		(*striteri)(char *s, void (*f)(unsigned int, char *));
+			void		(*sstriteri)(t_libft *libft, char *s, void (*f)(unsigned int, char *));
+		};
+		union {
+			char		*(*strjoin_f1)(char *s1, const char *s2);
+			char		*(*sstrjoin_f1)(t_libft *libft, char *s1, const char *s2);
+		};
+		union {
+			char		*(*strjoin_f2)(const char *s1, char *s2);
+			char		*(*sstrjoin_f2)(t_libft *libft, const char *s1, char *s2);
+		};
+		union {
+			char		*(*strjoin_gnl)(char *s1, const char *s2);
+			char		*(*sstrjoin_gnl)(t_libft *libft, char *s1, const char *s2);
+		};
+		union {
+			char		*(*strjoin)(const char *s1, const char *s2);
+			char		*(*sstrjoin)(t_libft *libft, const char *s1, const char *s2);
+		};
+		union {
+			size_t		(*strlcat)(char *dst, const char *src, size_t size);
+			size_t		(*sstrlcat)(t_libft *libft, char *dst, const char *src, size_t size);
+		};
+		union {
+			size_t		(*strlcpy)(char *dst, const char *src, size_t size);
+			size_t		(*sstrlcpy)(t_libft *libft, char *dst, const char *src, size_t size);
+		};
+		union {
+			ssize_t		(*strlen)(const char *s);
+			ssize_t		(*sstrlen)(t_libft *libft, const char *s);
+		};
+		union {
+			char		*(*strmapi)(const char *s, char (*f)(unsigned int, char));
+			char		*(*sstrmapi)(t_libft *libft, const char *s, char (*f)(unsigned int, char));
+		};
+		union {
+			int			(*strncmp)(const char *s1, const char *s2, size_t n);
+			int			(*sstrncmp)(t_libft *libft, const char *s1, const char *s2, size_t n);
+		};
+		union {
+			char		*(*strndup)(const char *s, size_t n);
+			char		*(*sstrndup)(t_libft *libft, const char *s, size_t n);
+		};
+		union {
+			char		*(*strnstr)(const char *big, const char *little, \
 						size_t len);
-		char		*(*strrchr)(const char *s, int c);
-		char		*(*strtrim)(const char *s1, const char *set);
-		char		*(*substr)(const char *s, unsigned int start, size_t len);
+			char		*(*sstrnstr)(t_libft *libft, const char *big, const char *little, \
+						size_t len);
+		};
+		union {
+			char		*(*strrchr)(const char *s, int c);
+			char		*(*sstrrchr)(t_libft *libft, const char *s, int c);
+		};
+		union {
+			char		*(*strtrim)(const char *s1, const char *set);
+			char		*(*sstrtrim)(t_libft *libft, const char *s1, const char *set);
+		};
+		union {
+			char		*(*substr)(const char *s, unsigned int start, size_t len);
+			char		*(*ssubstr)(t_libft *libft, const char *s, unsigned int start, size_t len);
+		};
 	} string;
 	struct			s_file
 	{
-		char		**(*get_file)(const char *filename);
-		long long	(*size)(const char *filename);
-		int			(*exists)(const char *filename);
-		int			(*line_count)(const char *filename);
+		union {
+			char		**(*get_file)(const char *filename);
+			char		**(*sget_file)(t_libft *libft, const char *filename);
+		};
+		union {
+			long long	(*size)(const char *filename);
+			long long	(*ssize)(t_libft *libft, const char *filename);
+		};
+		union {
+			int			(*exists)(const char *filename);
+			int			(*sexists)(t_libft *libft, const char *filename);
+		};
+		union {
+			int			(*line_count)(const char *filename);
+			int			(*sline_count)(t_libft *libft, const char *filename);
+		};
 	} file;
 	struct			s_math
 	{
-		int			(*max)(int a, int b);
-		int			(*min)(int a, int b);
-		long long	(*max_ll)(long long a, long long b);
-		long long	(*min_ll)(long long a, long long b);
-		int			(*abs)(int n);
-		long long	(*abs_ll)(long long n);
-		double		(*pow)(double x, double y);
-		float		(*powf)(float x, float y);
-		int			(*sqrt)(int n);
-		double		(*sqrt_precise)(double n, int precision);
-		long long	(*factorial)(int n);
-		double		(*dfactorial)(int n);
-		int			(*pgcd)(int a, int b);
-		long long	(*lcm)(int a, int b);
-		double		(*sin)(double x);
-		double		(*cos)(double x);
-		double		(*asin)(double x);
-		double		(*acos)(double x);
-		double		(*atan)(double x);
-		double		(*atan2)(double y, double x);
-		float		(*sinf)(float x);
-		float		(*cosf)(float x);
-		float		(*asinf)(float x);
-		float		(*acosf)(float x);
-		float		(*atanf)(float x);
-		float		(*atan2f)(float y, float x);
+		union {
+			int			(*max)(int a, int b);
+			int			(*smax)(t_libft *libft, int a, int b);
+		};
+		union {
+			int			(*min)(int a, int b);
+			int			(*smin)(t_libft *libft, int a, int b);
+		};
+		union {
+			long long	(*max_ll)(long long a, long long b);
+			long long	(*smax_ll)(t_libft *libft, long long a, long long b);
+		};
+		union {
+			long long	(*min_ll)(long long a, long long b);
+			long long	(*smin_ll)(t_libft *libft, long long a, long long b);
+		};
+		union {
+			int			(*abs)(int n);
+			int			(*sabs)(t_libft *libft, int n);
+		};
+		union {
+			long long	(*abs_ll)(long long n);
+			long long	(*sabs_ll)(t_libft *libft, long long n);
+		};
+		union {
+			double		(*pow)(double x, double y);
+			double		(*spow)(t_libft *libft, double x, double y);
+		};
+		union {
+			float		(*powf)(float x, float y);
+			float		(*spowf)(t_libft *libft, float x, float y);
+		};
+		union {
+			double		(*round)(double x);
+			double		(*sround)(t_libft *libft, double x);
+		};
+		union {
+			float		(*roundf)(float x);
+			float		(*sroundf)(t_libft *libft, float x);
+		};
+		union {
+			int			(*sqrt)(int n);
+			int			(*ssqrt)(t_libft *libft, int n);
+		};
+		union {
+			double		(*sqrt_precise)(double n, int precision);
+			double		(*ssqrt_precise)(t_libft *libft, double n, int precision);
+		};
+		union {
+			long long	(*factorial)(int n);
+			long long	(*sfactorial)(t_libft *libft, int n);
+		};
+		union {
+			double		(*dfactorial)(int n);
+			double		(*sdfactorial)(t_libft *libft, int n);
+		};
+		union {
+			int			(*pgcd)(int a, int b);
+			int			(*spgcd)(t_libft *libft, int a, int b);
+		};
+		union {
+			long long	(*lcm)(int a, int b);
+			long long	(*slcm)(t_libft *libft, int a, int b);
+		};
+		union {
+			double		(*sin)(double x);
+			double		(*ssin)(t_libft *libft, double x);
+		};
+		union {
+			double		(*cos)(double x);
+			double		(*scos)(t_libft *libft, double x);
+		};
+		union {
+			double		(*asin)(double x);
+			double		(*sasin)(t_libft *libft, double x);
+		};
+		union {
+			double		(*acos)(double x);
+			double		(*sacos)(t_libft *libft, double x);
+		};
+		union {
+			double		(*atan)(double x);
+			double		(*satan)(t_libft *libft, double x);
+		};
+		union {
+			double		(*atan2)(double y, double x);
+			double		(*satan2)(t_libft *libft, double y, double x);
+		};
+		union {
+			float		(*sinf)(float x);
+			float		(*ssinf)(t_libft *libft, float x);
+		};
+		union {
+			float		(*cosf)(float x);
+			float		(*scosf)(t_libft *libft, float x);
+		};
+		union {
+			float		(*asinf)(float x);
+			float		(*sasinf)(t_libft *libft, float x);
+		};
+		union {
+			float		(*acosf)(float x);
+			float		(*sacosf)(t_libft *libft, float x);
+		};
+		union {
+			float		(*atanf)(float x);
+			float		(*satanf)(t_libft *libft, float x);
+		};
+		union {
+			float		(*atan2f)(float y, float x);
+			float		(*satan2f)(t_libft *libft, float y, float x);
+		};
 	} math;
 	struct			s_gc_functions
 	{
@@ -479,7 +763,7 @@ typedef struct s_libft
 	} gc;
 	t_error_ctx		*error_ctx;
 	t_gc_ctx		*gc_ctx;
-}					t_libft;
+};
 
 /* ************************************************************************** */
 /*                                    CORE                                    */
@@ -496,8 +780,11 @@ char						**gc_get_file(t_gc_ctx *ctx, const char *filename);
 long long					safe_file_size(t_libft *libft, const char *filename);
 int							safe_file_exists(t_libft *libft, const char *filename);
 int							safe_file_line_count(t_libft *libft, const char *filename);
+char						*safe_get_next_line(t_libft *libft, int fd);
 
-// Safe math functions
+/* ************************************************************************* */
+/*                            SAFE MATH FUNCTIONS                            */
+/* ************************************************************************* */
 int							safe_max(t_libft *libft, int a, int b);
 int							safe_min(t_libft *libft, int a, int b);
 double						safe_pow(t_libft *libft, double x, double y);
@@ -582,6 +869,8 @@ int							safe_abs(t_libft *libft, int n);
 long long					safe_abs_ll(t_libft *libft, long long n);
 double						safe_pow(t_libft *libft, double x, double y);
 float						safe_powf(t_libft *libft, float x, float y);
+double						safe_round(t_libft *libft, double x);
+float						safe_roundf(t_libft *libft, float x);
 double						safe_sin(t_libft *libft, double x);
 float						safe_sinf(t_libft *libft, float x);
 double						safe_cos(t_libft *libft, double x);
@@ -597,7 +886,18 @@ float						safe_atan2f(t_libft *libft, float y, float x);
 int							safe_sqrt(t_libft *libft, int n);
 double						safe_sqrt_precise(t_libft *libft, double n, int precision);
 long long					safe_factorial(t_libft *libft, int n);
+long long					safe_dfactorial(t_libft *libft, int n);
 int							safe_gcd(t_libft *libft, int a, int b);
 long long					safe_lcm(t_libft *libft, int a, int b);
+
+/* ************************************************************************* */
+/*                              SAFE PRINT FUNCTIONS                         */
+/* ************************************************************************* */
+int							safe_printf(t_libft *libft, const char *s, ...);
+int							safe_dprintf(t_libft *libft, int fd, const char *s, ...);
+void						safe_putchar_fd(t_libft *libft, char c, int fd);
+void						safe_putendl_fd(t_libft *libft, char *s, int fd);
+void						safe_putnbr_fd(t_libft *libft, int n, int fd);
+void						safe_putstr_fd(t_libft *libft, char *s, int fd);
 
 #endif

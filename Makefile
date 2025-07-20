@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/07/20 15:27:13 by anchikri         ###   ########.fr        #
+#    Updated: 2025/07/20 16:49:07 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = libft.a
 # ==================== SOURCES ==================== #
 
 SRC_CORE =		src/core/libft_init.c \
+				src/core/libft_init_safe.c \
 				src/core/libft_destroy.c
 
 SRC_ERROR =		src/error/ctx.c \
@@ -107,6 +108,7 @@ SRC_MATH =		src/math/ft_max.c \
 				src/math/ft_min.c \
 				src/math/ft_abs.c \
 				src/math/ft_pow.c \
+				src/math/ft_round.c \
 				src/math/ft_sqrt.c \
 				src/math/ft_factorial.c \
 				src/math/ft_pgcd.c \
