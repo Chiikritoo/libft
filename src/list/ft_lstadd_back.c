@@ -30,3 +30,24 @@ void	ft_lstadd_back(t_lst_ctx *ctx, t_lst *new)
 	}
 	ctx->size++;
 }
+
+void	safe_lstadd_back(t_libft *libft, t_lst_ctx *ctx, t_lst *new)
+{
+	if (!libft)
+		return ;
+	if (!ctx)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"list context is null");
+		PRINT_ERROR(libft->error_ctx);
+		return ;
+	}
+	if (!new)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"new node is null");
+		PRINT_ERROR(libft->error_ctx);
+		return ;
+	}
+	ft_lstadd_back(ctx, new);
+}

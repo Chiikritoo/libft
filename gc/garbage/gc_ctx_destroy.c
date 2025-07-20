@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 01:05:36 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/30 03:18:11 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 02:25:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 // function who destroys the garbage collector
 void	gc_ctx_destroy(t_gc_ctx *ctx)
 {
+	if (!ctx)
+		return ;
 	gc_clear(ctx);
-	ft_free_ptr((void **)&ctx);
+	if (ctx->hashmap)
+		free(ctx->hashmap);
+	free(ctx);
 }

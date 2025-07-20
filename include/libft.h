@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:32:27 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 02:29:34 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int							ft_isspace(int c);
 int							ft_atoi(const char *str);
 long long					ft_atoll(const char *str);
 int							len_int(int n);
+int							len_uint(unsigned int n);
 char						*ft_itoa(int n);
 int							ft_tolower(int c);
 int							ft_toupper(int c);
@@ -377,8 +378,29 @@ typedef struct s_libft
 		char		*(*strtrim)(const char *s1, const char *set);
 		char		*(*substr)(const char *s, unsigned int start, size_t len);
 	} string;
-	// t_error			error;
+	struct			s_gc_functions
+	{
+		t_gc_ctx		*(*ctx_init)(void);
+		void			(*ctx_destroy)(t_gc_ctx *ctx);
+		void			*(*calloc)(t_gc_ctx *ctx, size_t nmemb, size_t size);
+		void			*(*realloc)(t_gc_ctx *ctx, void *ptr, size_t old_s, size_t new_s);
+		void			(*clear)(t_gc_ctx *ctx);
+		void			(*free)(t_gc_ctx *ctx, void *ptr);
+		char			*(*strdup)(t_gc_ctx *ctx, const char *s);
+		char			*(*strcdup)(t_gc_ctx *ctx, const char *s, char c);
+		char			*(*strndup)(t_gc_ctx *ctx, const char *s, size_t n);
+		char			*(*strjoin)(t_gc_ctx *ctx, const char *s1, const char *s2);
+		char			*(*strjoin_f1)(t_gc_ctx *ctx, char *s1, const char *s2);
+		char			*(*strjoin_f2)(t_gc_ctx *ctx, const char *s1, char *s2);
+		char			*(*strjoin_gnl)(t_gc_ctx *ctx, char *s1, const char *s2);
+		char			*(*substr)(t_gc_ctx *ctx, const char *s, unsigned int st, size_t l);
+		char			**(*split)(t_gc_ctx *ctx, const char *s, char c);
+		char			*(*itoa)(t_gc_ctx *ctx, int n);
+		char			*(*utoa)(t_gc_ctx *ctx, unsigned int n);
+		char			*(*get_next_line)(t_gc_ctx *ctx, int fd);
+	} gc;
 	t_error_ctx		*error_ctx;
+	t_gc_ctx		*gc_ctx;
 }					t_libft;
 
 /* ************************************************************************** */
@@ -407,6 +429,7 @@ char						*safe_strcdup(t_libft *libft, const char *s, char c);
 char						*safe_strdup(t_libft *libft, const char *s);
 char						*safe_strndup(t_libft *libft, const char *s, size_t n);
 void						safe_striteri(t_libft *libft, char *s, void (*f)(unsigned int, char *));
+char						*safe_strjoin(t_libft *libft, const char *s1, const char *s2);
 char						*safe_strjoin_f1(t_libft *libft, char *s1, const char *s2);
 char						*safe_strjoin_f2(t_libft *libft, const char *s1, char *s2);
 char						*safe_strjoin_gnl(t_libft *libft, char *s1, const char *s2);
@@ -415,7 +438,44 @@ char						*safe_strtrim(t_libft *libft, const char *s1, const char *set);
 char						*safe_strmapi(t_libft *libft, const char *s, char (*f)(unsigned int, char));
 char						*safe_strnstr(t_libft *libft, const char *big, const char *little, size_t len);
 char						*safe_strrchr(t_libft *libft, const char *s, int c);
-char						*safe_strtrim(t_libft *libft, const char *s1, const char *set);
-char						*safe_substr(t_libft *libft, const char *s, unsigned int start, size_t len);
+	char						*safe_strchr(t_libft *libft, const char *s, int c);
+size_t						safe_strlcat(t_libft *libft, char *dst, const char *src, size_t size);
+size_t						safe_strlcpy(t_libft *libft, char *dst, const char *src, size_t size);
+ssize_t						safe_strlen(t_libft *libft, const char *s);
+int							safe_strncmp(t_libft *libft, const char *s1, const char *s2, size_t n);
+
+/* ************************************************************************* */
+/*                              SAFE LIST FUNCTIONS                           */
+/* ************************************************************************* */
+t_lst_ctx					*safe_ctx_init(t_libft *libft);
+void						safe_ctx_destroy(t_libft *libft, t_lst_ctx *ctx);
+t_lst						*safe_lstnew(t_libft *libft, void *content);
+void						safe_lstadd_front(t_libft *libft, t_lst_ctx *ctx, t_lst *new);
+void						safe_lstadd_back(t_libft *libft, t_lst_ctx *ctx, t_lst *new);
+int							safe_lstsize(t_libft *libft, t_lst_ctx *ctx);
+t_lst						*safe_lstlast(t_libft *libft, t_lst_ctx *ctx);
+void						safe_lstdelone(t_libft *libft, t_lst_ctx *ctx, t_lst *lst, void (*del)(void *));
+void						safe_lstclear(t_libft *libft, t_lst_ctx *ctx, void (*del)(void *));
+void						safe_lstiter(t_libft *libft, t_lst_ctx *ctx, void (*f)(void *));
+t_lst_ctx					*safe_lstmap(t_libft *libft, t_lst_ctx *ctx, void *(*f)(void *), void (*del)(void *));
+
+/* ************************************************************************* */
+/*                              SAFE MEMORY FUNCTIONS                         */
+/* ************************************************************************* */
+void						*safe_calloc(t_libft *libft, size_t nmemb, size_t size);
+void						*safe_realloc(t_libft *libft, void *ptr, size_t old_size, size_t new_size);
+void						*safe_memcpy(t_libft *libft, void *dest, const void *src, size_t n);
+void						*safe_memmove(t_libft *libft, void *dest, const void *src, size_t n);
+void						*safe_memset(t_libft *libft, void *s, int c, size_t n);
+void						safe_bzero(t_libft *libft, void *s, size_t n);
+void						*safe_memchr(t_libft *libft, const void *s, int c, size_t n);
+int							safe_memcmp(t_libft *libft, const void *s1, const void *s2, size_t n);
+void						*safe_memdup(t_libft *libft, const void *src, size_t size);
+
+/* ************************************************************************* */
+/*                              SAFE FREE FUNCTIONS                           */
+/* ************************************************************************* */
+void						safe_free_ptr(t_libft *libft, void **ptr);
+void						safe_free_double_ptr(t_libft *libft, void ***ptr);
 
 #endif

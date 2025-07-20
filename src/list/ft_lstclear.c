@@ -27,3 +27,24 @@ void	ft_lstclear(t_lst_ctx *ctx, void (*del)(void *))
 	ctx->tail = NULL;
 	ctx->size = 0;
 }
+
+void	safe_lstclear(t_libft *libft, t_lst_ctx *ctx, void (*del)(void *))
+{
+	if (!libft)
+		return ;
+	if (!ctx)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"list context is null");
+		PRINT_ERROR(libft->error_ctx);
+		return ;
+	}
+	if (!del)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"delete function is null");
+		PRINT_ERROR(libft->error_ctx);
+		return ;
+	}
+	ft_lstclear(ctx, del);
+}

@@ -19,3 +19,20 @@ int	ft_lstsize(t_lst_ctx *ctx)
 		return (0);
 	return (ctx->size);
 }
+
+int	safe_lstsize(t_libft *libft, t_lst_ctx *ctx)
+{
+	int	result;
+
+	if (!libft)
+		return (0);
+	if (!ctx)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"list context is null");
+		PRINT_ERROR(libft->error_ctx);
+		return (0);
+	}
+	result = ft_lstsize(ctx);
+	return (result);
+}

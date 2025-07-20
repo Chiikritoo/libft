@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 01:28:33 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/21 20:12:08 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 02:29:27 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,18 @@ void	ft_free_double_ptr(void ***ptr)
 		}
 		ft_free_ptr((void **)ptr);
 	}
+}
+
+void	safe_free_double_ptr(t_libft *libft, void ***ptr)
+{
+	if (!libft)
+		return ;
+	if (!ptr)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"pointer to double pointer is null");
+		PRINT_ERROR(libft->error_ctx);
+		return ;
+	}
+	ft_free_double_ptr(ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:49:29 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:34:52 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 02:10:42 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ char	*safe_itoa(t_libft *libft, int n)
 	if (!libft)
 		return (NULL);
 	result = ft_itoa(n);
-	result = NULL;
 	if (!result)
 	{
 		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:25:38 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:23:04 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 02:11:17 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,21 @@ int	ft_atoi(const char *nptr)
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 		nb = (nb * 10) + nptr[i++] - '0';
 	return (op * nb);
+}
+
+int	safe_atoi(t_libft *libft, const char *str)
+{
+	int	result;
+
+	if (!libft)
+		return (0);
+	if (!str)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"string is null");
+		PRINT_ERROR(libft->error_ctx);
+		return (0);
+	}
+	result = ft_atoi(str);
+	return (result);
 }

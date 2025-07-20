@@ -29,3 +29,31 @@ void	ft_lstdelone(t_lst_ctx *ctx, t_lst *lst, void (*del)(void *))
 	free(lst);
 	ctx->size--;
 }
+
+void	safe_lstdelone(t_libft *libft, t_lst_ctx *ctx, t_lst *lst, void (*del)(void *))
+{
+	if (!libft)
+		return ;
+	if (!ctx)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"list context is null");
+		PRINT_ERROR(libft->error_ctx);
+		return ;
+	}
+	if (!lst)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"list node is null");
+		PRINT_ERROR(libft->error_ctx);
+		return ;
+	}
+	if (!del)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"delete function is null");
+		PRINT_ERROR(libft->error_ctx);
+		return ;
+	}
+	ft_lstdelone(ctx, lst, del);
+}

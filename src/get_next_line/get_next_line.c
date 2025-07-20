@@ -87,3 +87,33 @@ char	*get_next_line(int fd)
 	update_line_and_buffer(&line, buffer[fd]);
 	return (line);
 }
+
+char	*safe_get_next_line(t_libft *libft, int fd)
+{
+	char	*result;
+
+	if (!libft)
+		return (NULL);
+	if (fd < 0 || fd >= 1024)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"file descriptor is invalid");
+		PRINT_ERROR(libft->error_ctx);
+		return (NULL);
+	}
+	if (BUFFER_SIZE <= 0)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"buffer size is invalid");
+		PRINT_ERROR(libft->error_ctx);
+		return (NULL);
+	}
+	result = get_next_line(fd);
+	if (!result)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
+			"get_next_line() failed for file descriptor %d", fd);
+		PRINT_ERROR(libft->error_ctx);
+	}
+	return (result);
+}

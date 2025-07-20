@@ -23,3 +23,19 @@ t_lst	*ft_lstnew(void *content)
 	new->content = content;
 	return (new);
 }
+
+t_lst	*safe_lstnew(t_libft *libft, void *content)
+{
+	t_lst	*result;
+
+	if (!libft)
+		return (NULL);
+	result = ft_lstnew(content);
+	if (!result)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
+			"ft_lstnew() failed to create new list node");
+		PRINT_ERROR(libft->error_ctx);
+	}
+	return (result);
+}

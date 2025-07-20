@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 20:11:25 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:48 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 02:11:46 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,25 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		(*f)(i, &s[i]);
 		i++;
 	}
+}
+
+void	safe_striteri(t_libft *libft, char *s, void (*f)(unsigned int, char*))
+{
+	if (!libft)
+		return ;
+	if (!s)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"string is null");
+		PRINT_ERROR(libft->error_ctx);
+		return ;
+	}
+	if (!f)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"function pointer is null");
+		PRINT_ERROR(libft->error_ctx);
+		return ;
+	}
+	ft_striteri(s, f);
 }

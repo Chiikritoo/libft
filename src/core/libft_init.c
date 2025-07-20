@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 21:10:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:19:58 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 02:18:35 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,28 @@ static void	init_string_functions(t_libft *libft)
 	libft->string.substr = ft_substr;
 }
 
+static void	init_gc_functions(t_libft *libft)
+{
+	libft->gc.ctx_init = gc_ctx_init;
+	libft->gc.ctx_destroy = gc_ctx_destroy;
+	libft->gc.calloc = gc_calloc;
+	libft->gc.realloc = gc_realloc;
+	libft->gc.clear = gc_clear;
+	libft->gc.free = gc_free;
+	libft->gc.strdup = gc_strdup;
+	libft->gc.strcdup = gc_strcdup;
+	libft->gc.strndup = gc_strndup;
+	libft->gc.strjoin = gc_strjoin;
+	libft->gc.strjoin_f1 = gc_strjoin_f1;
+	libft->gc.strjoin_f2 = gc_strjoin_f2;
+	libft->gc.strjoin_gnl = gc_strjoin_gnl;
+	libft->gc.substr = gc_substr;
+	libft->gc.split = gc_split;
+	libft->gc.itoa = gc_itoa;
+	libft->gc.utoa = gc_utoa;
+	libft->gc.get_next_line = gc_get_next_line;
+}
+
 t_libft	*libft_init(void)
 {
 	t_libft	*libft;
@@ -117,6 +139,13 @@ t_libft	*libft_init(void)
 		ft_free_ptr((void **)&libft);
 		return (NULL);
 	}
+	libft->gc_ctx = gc_ctx_init();
+	if (!libft->gc_ctx)
+	{
+		error_ctx_destroy(libft->error_ctx);
+		ft_free_ptr((void **)&libft);
+		return (NULL);
+	}
 	// init_error_functions(&libft->error);
 	init_check_functions(libft);
 	init_convert_functions(libft);
@@ -126,5 +155,6 @@ t_libft	*libft_init(void)
 	init_memory_functions(libft);
 	init_print_functions(libft);
 	init_string_functions(libft);
+	init_gc_functions(libft);
 	return (libft);
 } 

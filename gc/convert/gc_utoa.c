@@ -6,25 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 23:28:32 by anchikri          #+#    #+#             */
-/*   Updated: 2025/01/29 17:25:42 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 02:21:52 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
-
-// function who calculates the length of the unsigned integer 'n'
-int	len_uint(unsigned int n)
-{
-	int	len;
-
-	len = 0;
-	while (n)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
 
 // function who converts the unsigned integer 'n' to a string
 char	*gc_utoa(t_gc_ctx *ctx, unsigned int n)
