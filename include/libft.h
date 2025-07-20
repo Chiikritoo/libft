@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 03:11:33 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 15:27:15 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 /* ************************************************************************* */
 /*                            STANDARD INCLUSIONS                            */
 /* ************************************************************************* */
+# define _GNU_SOURCE
 # include <stdarg.h>
 # include <stdbool.h>
 # include <stdio.h>
@@ -25,6 +26,7 @@
 # include <errno.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <math.h>
 
 /* ************************************************************************* */
 /*                              CHECK FUNCTIONS                              */
@@ -248,12 +250,26 @@ long long					ft_max_ll(long long a, long long b);
 long long					ft_min_ll(long long a, long long b);
 int							ft_abs(int n);
 long long					ft_abs_ll(long long n);
-long long					ft_pow(int base, int exponent);
+double						ft_pow(double x, double y);
+float						ft_powf(float x, float y);
 int							ft_sqrt(int n);
 double						ft_sqrt_precise(double n, int precision);
 long long					ft_factorial(int n);
-int							ft_gcd(int a, int b);
+double						ft_dfactorial(int n);
+int							ft_pgcd(int a, int b);
 long long					ft_lcm(int a, int b);
+	double						ft_sin(double x);
+	double						ft_cos(double x);
+	double						ft_asin(double x);
+	double						ft_acos(double x);
+	double						ft_atan(double x);
+	double						ft_atan2(double y, double x);
+	float						ft_sinf(float x);
+	float						ft_cosf(float x);
+	float						ft_asinf(float x);
+	float						ft_acosf(float x);
+	float						ft_atanf(float x);
+	float						ft_atan2f(float y, float x);
 
 /* ************************************************************************* */
 /*                              ERROR FUNCTIONS                              */
@@ -419,12 +435,26 @@ typedef struct s_libft
 		long long	(*min_ll)(long long a, long long b);
 		int			(*abs)(int n);
 		long long	(*abs_ll)(long long n);
-		long long	(*pow)(int base, int exponent);
+		double		(*pow)(double x, double y);
+		float		(*powf)(float x, float y);
 		int			(*sqrt)(int n);
 		double		(*sqrt_precise)(double n, int precision);
 		long long	(*factorial)(int n);
-		int			(*gcd)(int a, int b);
+		double		(*dfactorial)(int n);
+		int			(*pgcd)(int a, int b);
 		long long	(*lcm)(int a, int b);
+		double		(*sin)(double x);
+		double		(*cos)(double x);
+		double		(*asin)(double x);
+		double		(*acos)(double x);
+		double		(*atan)(double x);
+		double		(*atan2)(double y, double x);
+		float		(*sinf)(float x);
+		float		(*cosf)(float x);
+		float		(*asinf)(float x);
+		float		(*acosf)(float x);
+		float		(*atanf)(float x);
+		float		(*atan2f)(float y, float x);
 	} math;
 	struct			s_gc_functions
 	{
@@ -470,7 +500,7 @@ int							safe_file_line_count(t_libft *libft, const char *filename);
 // Safe math functions
 int							safe_max(t_libft *libft, int a, int b);
 int							safe_min(t_libft *libft, int a, int b);
-long long					safe_pow(t_libft *libft, int base, int exponent);
+double						safe_pow(t_libft *libft, double x, double y);
 int							safe_sqrt(t_libft *libft, int n);
 long long					safe_factorial(t_libft *libft, int n);
 
@@ -550,7 +580,20 @@ long long					safe_max_ll(t_libft *libft, long long a, long long b);
 long long					safe_min_ll(t_libft *libft, long long a, long long b);
 int							safe_abs(t_libft *libft, int n);
 long long					safe_abs_ll(t_libft *libft, long long n);
-long long					safe_pow(t_libft *libft, int base, int exponent);
+double						safe_pow(t_libft *libft, double x, double y);
+float						safe_powf(t_libft *libft, float x, float y);
+double						safe_sin(t_libft *libft, double x);
+float						safe_sinf(t_libft *libft, float x);
+double						safe_cos(t_libft *libft, double x);
+float						safe_cosf(t_libft *libft, float x);
+double						safe_asin(t_libft *libft, double x);
+float						safe_asinf(t_libft *libft, float x);
+double						safe_acos(t_libft *libft, double x);
+float						safe_acosf(t_libft *libft, float x);
+double						safe_atan(t_libft *libft, double x);
+float						safe_atanf(t_libft *libft, float x);
+double						safe_atan2(t_libft *libft, double y, double x);
+float						safe_atan2f(t_libft *libft, float y, float x);
 int							safe_sqrt(t_libft *libft, int n);
 double						safe_sqrt_precise(t_libft *libft, double n, int precision);
 long long					safe_factorial(t_libft *libft, int n);

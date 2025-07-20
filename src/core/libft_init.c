@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 21:10:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 02:59:47 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 15:27:30 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,11 +121,25 @@ static void	init_math_functions(t_libft *libft)
 	libft->math.abs = ft_abs;
 	libft->math.abs_ll = ft_abs_ll;
 	libft->math.pow = ft_pow;
+	libft->math.powf = ft_powf;
 	libft->math.sqrt = ft_sqrt;
 	libft->math.sqrt_precise = ft_sqrt_precise;
 	libft->math.factorial = ft_factorial;
-	libft->math.gcd = ft_gcd;
+	libft->math.dfactorial = ft_dfactorial;
+	libft->math.pgcd = ft_pgcd;
 	libft->math.lcm = ft_lcm;
+	libft->math.sin = ft_sin;
+	libft->math.cos = ft_cos;
+	libft->math.asin = ft_asin;
+	libft->math.acos = ft_acos;
+	libft->math.atan = ft_atan;
+	libft->math.atan2 = ft_atan2;
+	libft->math.sinf = ft_sinf;
+	libft->math.cosf = ft_cosf;
+	libft->math.asinf = ft_asinf;
+	libft->math.acosf = ft_acosf;
+	libft->math.atanf = ft_atanf;
+	libft->math.atan2f = ft_atan2f;
 }
 
 static void	init_gc_functions(t_libft *libft)
