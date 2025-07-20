@@ -1,0 +1,11 @@
+Première ligne du fichier
+Deuxième ligne avec des caractères spéciaux: éàçù
+Troisième ligne avec des chiffres: 123456789
+Quatrième ligne vide
+
+Cinquième ligne après la ligne vide
+Sixième ligne avec des espaces    multiples
+Septième ligne avec des tabulations		ici
+Huitième ligne normale
+Neuvième ligne avec des symboles: !@#$%^&*()
+Dixième et dernière ligne 

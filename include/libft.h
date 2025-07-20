@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 02:29:34 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 03:11:33 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <unistd.h>
 # include <time.h>
 # include <errno.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 /* ************************************************************************* */
 /*                              CHECK FUNCTIONS                              */
@@ -229,6 +231,30 @@ char						*ft_strtrim(const char *s1, const char *set);
 char						*ft_substr(const char *s, unsigned int start,
 								size_t len);
 
+/* ************************************************************************** */
+/*                               FILE FUNCTIONS                               */
+/* ************************************************************************** */
+char						**ft_get_file(const char *filename);
+long long					ft_file_size(const char *filename);
+int							ft_file_exists(const char *filename);
+int							ft_file_line_count(const char *filename);
+
+/* ************************************************************************** */
+/*                              MATH FUNCTIONS                               */
+/* ************************************************************************** */
+int							ft_max(int a, int b);
+int							ft_min(int a, int b);
+long long					ft_max_ll(long long a, long long b);
+long long					ft_min_ll(long long a, long long b);
+int							ft_abs(int n);
+long long					ft_abs_ll(long long n);
+long long					ft_pow(int base, int exponent);
+int							ft_sqrt(int n);
+double						ft_sqrt_precise(double n, int precision);
+long long					ft_factorial(int n);
+int							ft_gcd(int a, int b);
+long long					ft_lcm(int a, int b);
+
 /* ************************************************************************* */
 /*                              ERROR FUNCTIONS                              */
 /* ************************************************************************* */
@@ -378,6 +404,28 @@ typedef struct s_libft
 		char		*(*strtrim)(const char *s1, const char *set);
 		char		*(*substr)(const char *s, unsigned int start, size_t len);
 	} string;
+	struct			s_file
+	{
+		char		**(*get_file)(const char *filename);
+		long long	(*size)(const char *filename);
+		int			(*exists)(const char *filename);
+		int			(*line_count)(const char *filename);
+	} file;
+	struct			s_math
+	{
+		int			(*max)(int a, int b);
+		int			(*min)(int a, int b);
+		long long	(*max_ll)(long long a, long long b);
+		long long	(*min_ll)(long long a, long long b);
+		int			(*abs)(int n);
+		long long	(*abs_ll)(long long n);
+		long long	(*pow)(int base, int exponent);
+		int			(*sqrt)(int n);
+		double		(*sqrt_precise)(double n, int precision);
+		long long	(*factorial)(int n);
+		int			(*gcd)(int a, int b);
+		long long	(*lcm)(int a, int b);
+	} math;
 	struct			s_gc_functions
 	{
 		t_gc_ctx		*(*ctx_init)(void);
@@ -407,11 +455,25 @@ typedef struct s_libft
 /*                                    CORE                                    */
 /* ************************************************************************** */
 t_libft						*libft_init(void);
+t_libft						*safe_libft_init(void);
 void						libft_destroy(t_libft *libft);
 
 /* ************************************************************************* */
 /*                              SAFE FUNCTIONS                               */
 /* ************************************************************************* */
+char						**safe_get_file(t_libft *libft, const char *filename);
+char						**gc_get_file(t_gc_ctx *ctx, const char *filename);
+long long					safe_file_size(t_libft *libft, const char *filename);
+int							safe_file_exists(t_libft *libft, const char *filename);
+int							safe_file_line_count(t_libft *libft, const char *filename);
+
+// Safe math functions
+int							safe_max(t_libft *libft, int a, int b);
+int							safe_min(t_libft *libft, int a, int b);
+long long					safe_pow(t_libft *libft, int base, int exponent);
+int							safe_sqrt(t_libft *libft, int n);
+long long					safe_factorial(t_libft *libft, int n);
+
 int							safe_isalnum(t_libft *libft, int c);
 int							safe_isalpha(t_libft *libft, int c);
 int							safe_isascii(t_libft *libft, int c);
@@ -430,6 +492,7 @@ char						*safe_strdup(t_libft *libft, const char *s);
 char						*safe_strndup(t_libft *libft, const char *s, size_t n);
 void						safe_striteri(t_libft *libft, char *s, void (*f)(unsigned int, char *));
 char						*safe_strjoin(t_libft *libft, const char *s1, const char *s2);
+int							safe_strcmp(t_libft *libft, const char *s1, const char *s2);
 char						*safe_strjoin_f1(t_libft *libft, char *s1, const char *s2);
 char						*safe_strjoin_f2(t_libft *libft, const char *s1, char *s2);
 char						*safe_strjoin_gnl(t_libft *libft, char *s1, const char *s2);
@@ -477,5 +540,21 @@ void						*safe_memdup(t_libft *libft, const void *src, size_t size);
 /* ************************************************************************* */
 void						safe_free_ptr(t_libft *libft, void **ptr);
 void						safe_free_double_ptr(t_libft *libft, void ***ptr);
+
+/* ************************************************************************* */
+/*                            SAFE MATH FUNCTIONS                            */
+/* ************************************************************************* */
+int							safe_max(t_libft *libft, int a, int b);
+int							safe_min(t_libft *libft, int a, int b);
+long long					safe_max_ll(t_libft *libft, long long a, long long b);
+long long					safe_min_ll(t_libft *libft, long long a, long long b);
+int							safe_abs(t_libft *libft, int n);
+long long					safe_abs_ll(t_libft *libft, long long n);
+long long					safe_pow(t_libft *libft, int base, int exponent);
+int							safe_sqrt(t_libft *libft, int n);
+double						safe_sqrt_precise(t_libft *libft, double n, int precision);
+long long					safe_factorial(t_libft *libft, int n);
+int							safe_gcd(t_libft *libft, int a, int b);
+long long					safe_lcm(t_libft *libft, int a, int b);
 
 #endif

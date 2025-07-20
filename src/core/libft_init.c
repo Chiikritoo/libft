@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 21:10:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 02:18:35 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/20 02:59:47 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,30 @@ static void	init_string_functions(t_libft *libft)
 	libft->string.substr = ft_substr;
 }
 
+static void	init_file_functions(t_libft *libft)
+{
+	libft->file.get_file = ft_get_file;
+	libft->file.size = ft_file_size;
+	libft->file.exists = ft_file_exists;
+	libft->file.line_count = ft_file_line_count;
+}
+
+static void	init_math_functions(t_libft *libft)
+{
+	libft->math.max = ft_max;
+	libft->math.min = ft_min;
+	libft->math.max_ll = ft_max_ll;
+	libft->math.min_ll = ft_min_ll;
+	libft->math.abs = ft_abs;
+	libft->math.abs_ll = ft_abs_ll;
+	libft->math.pow = ft_pow;
+	libft->math.sqrt = ft_sqrt;
+	libft->math.sqrt_precise = ft_sqrt_precise;
+	libft->math.factorial = ft_factorial;
+	libft->math.gcd = ft_gcd;
+	libft->math.lcm = ft_lcm;
+}
+
 static void	init_gc_functions(t_libft *libft)
 {
 	libft->gc.ctx_init = gc_ctx_init;
@@ -146,7 +170,6 @@ t_libft	*libft_init(void)
 		ft_free_ptr((void **)&libft);
 		return (NULL);
 	}
-	// init_error_functions(&libft->error);
 	init_check_functions(libft);
 	init_convert_functions(libft);
 	init_free_functions(libft);
@@ -155,6 +178,8 @@ t_libft	*libft_init(void)
 	init_memory_functions(libft);
 	init_print_functions(libft);
 	init_string_functions(libft);
+	init_file_functions(libft);
+	init_math_functions(libft);
 	init_gc_functions(libft);
 	return (libft);
-} 
+}

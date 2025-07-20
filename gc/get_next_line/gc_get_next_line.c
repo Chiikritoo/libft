@@ -30,7 +30,6 @@ static void	update_line_and_buffer(t_gc_ctx *ctx, char **line, char *buffer)
 		tmp = gc_substr(ctx, *line, 0, i);
 		if (!tmp)
 			return ;
-		free(*line);
 		*line = tmp;
 	}
 }
@@ -47,7 +46,7 @@ static int	read_file(int fd, char **line, char *buffer)
 		if (br == -1)
 		{
 			buffer[0] = '\0';
-			free(*line);
+			// Ne pas libérer manuellement, le GC s'en charge
 			*line = NULL;
 			return (br);
 		}
@@ -64,7 +63,7 @@ static int	check(int br, char **line)
 {
 	if (br == -1 || !(*line) || (*line)[0] == '\0')
 	{
-		free(*line);
+		// Ne pas libérer manuellement, le GC s'en charge
 		return (0);
 	}
 	return (1);

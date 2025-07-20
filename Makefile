@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/07/19 22:33:49 by anchikri         ###   ########.fr        #
+#    Updated: 2025/07/20 03:05:11 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,6 +100,17 @@ SRC_STRING =	src/string/ft_strchr.c \
 				src/string/ft_split.c \
 				src/string/ft_striteri.c
 
+SRC_FILE =		src/file/ft_get_file.c \
+				src/file/ft_file_size.c
+
+SRC_MATH =		src/math/ft_max.c \
+				src/math/ft_min.c \
+				src/math/ft_abs.c \
+				src/math/ft_pow.c \
+				src/math/ft_sqrt.c \
+				src/math/ft_factorial.c \
+				src/math/ft_gcd_lcm.c
+
 GC =			gc/garbage/gc_calloc.c \
 				gc/garbage/gc_clear.c \
 				gc/garbage/gc_free.c \
@@ -134,6 +145,8 @@ SRC =			$(SRC_CORE) \
 				$(SRC_LIST) \
 				$(SRC_MEMORY) \
 				$(SRC_STRING) \
+				$(SRC_FILE) \
+				$(SRC_MATH) \
 				$(GC)
 
 BUILD =			build/
