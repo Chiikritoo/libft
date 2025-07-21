@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 23:00:16 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:42:58 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include <limits.h>
+# include "vector.h"
 
 /* ************************************************************************* */
 /*                              CHECK FUNCTIONS                              */

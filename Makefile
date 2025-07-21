@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/07/21 22:54:30 by anchikri         ###   ########.fr        #
+#    Updated: 2025/07/21 23:58:07 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -131,6 +131,38 @@ SRC_MATH =		src/math/ft_max.c \
 				src/math/ft_log.c \
 				src/math/ft_exp.c
 
+SRC_VECTOR =	src/vector/vector_new.c \
+				src/vector/vector_destroy.c \
+				src/vector/vector_clear.c \
+				src/vector/vector_push_back.c \
+				src/vector/vector_pop_back.c \
+				src/vector/vector_at.c \
+				src/vector/vector_front.c \
+				src/vector/vector_back.c \
+				src/vector/vector_size.c \
+				src/vector/vector_capacity.c \
+				src/vector/vector_empty.c \
+				src/vector/vector_reserve.c \
+				src/vector/vector_insert.c \
+				src/vector/vector_erase.c \
+				src/vector/vector_set.c \
+				src/vector/vector_find.c \
+				src/vector/vector_find_if.c \
+				src/vector/vector_count.c \
+				src/vector/vector_sort.c \
+				src/vector/vector_reverse.c \
+				src/vector/vector_swap.c \
+				src/vector/vector_for_each.c \
+				src/vector/vector_clone.c \
+				src/vector/vector_from_array.c \
+				src/vector/vector_resize.c \
+				src/vector/vector_shrink_to_fit.c \
+				src/vector/vector_subvector.c \
+				src/vector/vector_concat.c \
+				src/vector/vector_iterators.c \
+				src/vector/value_helpers.c \
+				src/vector/vector_error.c
+
 GC =			gc/garbage/gc_clear.c \
 				gc/garbage/gc_free.c \
 				gc/garbage/gc_ctx_destroy.c \
@@ -166,6 +198,7 @@ SRC =			$(SRC_CORE) \
 				$(SRC_STRING) \
 				$(SRC_FILE) \
 				$(SRC_MATH) \
+				$(SRC_VECTOR) \
 				$(GC)
 
 BUILD =			build/
@@ -176,7 +209,7 @@ DEPS =			$(SRC:%.c=$(BUILD)%.d)
 # ==================== FLAGS ==================== #
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -Wall -Werror -Wextra -Iinclude -g3
 DEPFLAGS = -MMD -MP
 RM = rm -rf
 AR = ar rcs
