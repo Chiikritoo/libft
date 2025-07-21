@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 21:10:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 16:43:48 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:01:30 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,12 @@ static void	init_math_functions(t_libft *libft)
 	libft->math.powf = ft_powf;
 	libft->math.round = ft_round;
 	libft->math.roundf = ft_roundf;
+	libft->math.floor = ft_floor;
+	libft->math.floorf = ft_floorf;
+	libft->math.ceil = ft_ceil;
+	libft->math.ceilf = ft_ceilf;
+	libft->math.mod = ft_mod;
+	libft->math.modf = ft_modf;
 	libft->math.sqrt = ft_sqrt;
 	libft->math.sqrt_precise = ft_sqrt_precise;
 	libft->math.factorial = ft_factorial;

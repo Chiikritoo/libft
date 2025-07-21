@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 03:06:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 03:10:09 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 11:16:58 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,18 @@ double	ft_sqrt_precise(double n, int precision)
 		precision--;
 	}
 	return (guess);
-} 
+}
+
+int	safe_sqrt(t_libft *libft, int n)
+{
+	if (!libft)
+	{
+		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"libft is NULL");
+		return (0);
+	}
+	return (ft_sqrt(n));
+}
 
 double	safe_sqrt_precise(t_libft *libft, double n, int precision)
 {

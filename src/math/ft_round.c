@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:00:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 16:48:47 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 13:19:00 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,12 @@
  * @note Si la partie décimale est >= 0.5, arrondit vers le haut
  *       Si la partie décimale est < 0.5, arrondit vers le bas
  */
-double	ft_round(double x)
+inline double	ft_round(double x)
 {
-	double	integer_part;
-	double	fractional_part;
-
-	if (x == 0.0)
-		return (0.0);
-	if (x < 0.0)
-		return (-ft_round(-x));
-	integer_part = (double)(long long)x;
-	fractional_part = x - integer_part;
-	if (fractional_part >= 0.5)
-		return (integer_part + 1.0);
-	return (integer_part);
+	if (x >= 0.0)
+		return (double)((long long)(x + 0.5));
+	else
+		return (double)((long long)(x - 0.5));
 }
 
 /**
@@ -44,18 +36,10 @@ double	ft_round(double x)
  */
 float	ft_roundf(float x)
 {
-	float	integer_part;
-	float	fractional_part;
-
-	if (x == 0.0f)
-		return (0.0f);
-	if (x < 0.0f)
-		return (-ft_roundf(-x));
-	integer_part = (float)(long long)x;
-	fractional_part = x - integer_part;
-	if (fractional_part >= 0.5f)
-		return (integer_part + 1.0f);
-	return (integer_part);
+	if (x >= 0.0f)
+		return (float)((long long)(x + 0.5f));
+	else
+		return (float)((long long)(x - 0.5f));
 }
 
 /**
@@ -93,7 +77,7 @@ float	safe_roundf(t_libft *libft, float x)
 	if (!libft)
 	{
 		safe_libft = safe_libft_init();
-		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
+		SET_ERROR(safe_libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
 			"libft is NULL");
 		PRINT_ERROR(safe_libft->error_ctx);
 		libft_destroy(safe_libft);

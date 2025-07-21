@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 08:19:42 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/22 01:15:39 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 11:15:55 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,25 @@ int	ft_dprintf(int fd, const char *s, ...)
 	va_end(ap);
 	len = write(fd, buf.data, buf.length);
 	return (len);
+}
+
+int	safe_dprintf(t_libft *libft, int fd, const char *s, ...)
+{
+	t_libft *safe_libft;
+	int ret;
+	va_list ap;
+
+	if (!libft)
+	{
+		safe_libft = safe_libft_init();
+		SET_ERROR(safe_libft->error_ctx, ERROR_MEMORY, ENOMEM,
+			"libft is null");
+		PRINT_ERROR(safe_libft->error_ctx);
+		libft_destroy(safe_libft);
+		return (-1);
+	}
+	va_start(ap, s);
+	ret = ft_dprintf(fd, s, ap);
+	va_end(ap);
+	return (ret);
 }

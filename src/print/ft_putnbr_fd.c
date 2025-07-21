@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 21:09:57 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 18:30:33 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 11:12:32 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	safe_putnbr_fd(t_libft *libft, int n, int fd)
 		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
 			"file descriptor is invalid");
 		PRINT_ERROR(libft->error_ctx);
-		libft_destroy(safe_libft);
 		return ;
 	}
 	ft_putnbr_fd(n, fd);

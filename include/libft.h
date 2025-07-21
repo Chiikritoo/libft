@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 18:27:10 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:02:12 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -260,18 +260,24 @@ long long					ft_factorial(int n);
 double						ft_dfactorial(int n);
 int							ft_pgcd(int a, int b);
 long long					ft_lcm(int a, int b);
-	double						ft_sin(double x);
-	double						ft_cos(double x);
-	double						ft_asin(double x);
-	double						ft_acos(double x);
-	double						ft_atan(double x);
-	double						ft_atan2(double y, double x);
-	float						ft_sinf(float x);
-	float						ft_cosf(float x);
-	float						ft_asinf(float x);
-	float						ft_acosf(float x);
-	float						ft_atanf(float x);
-	float						ft_atan2f(float y, float x);
+double						ft_sin(double x);
+double						ft_cos(double x);
+double						ft_asin(double x);
+double						ft_acos(double x);
+double						ft_atan(double x);
+double						ft_atan2(double y, double x);
+float						ft_sinf(float x);
+float						ft_cosf(float x);
+float						ft_asinf(float x);
+float						ft_acosf(float x);
+float						ft_atanf(float x);
+float						ft_atan2f(float y, float x);
+double						ft_floor(double x);
+float						ft_floorf(float x);
+double						ft_ceil(double x);
+float						ft_ceilf(float x);
+double						ft_mod(double x, double y);
+double						ft_modf(double x, double *iptr);
 
 /* ************************************************************************* */
 /*                              ERROR FUNCTIONS                              */
@@ -739,6 +745,28 @@ struct s_libft
 			float		(*atan2f)(float y, float x);
 			float		(*satan2f)(t_libft *libft, float y, float x);
 		};
+		union {
+			double		(*floor)(double x);
+			double		(*sfloor)(t_libft *libft, double x);
+		};
+		union {
+			float		(*floorf)(float x);
+			float		(*sfloorf)(t_libft *libft, float x);
+		};
+		union {
+			double		(*ceil)(double x);
+			double		(*sceil)(t_libft *libft, double x);
+		};
+		union {
+			float		(*ceilf)(float x);
+			float		(*sceilf)(t_libft *libft, float x);
+		};
+		union {
+			double		(*mod)(double x, double y);
+		};
+		union {
+			double		(*modf)(double x, double *iptr);
+		};
 	} math;
 	struct			s_gc_functions
 	{
@@ -790,6 +818,8 @@ int							safe_min(t_libft *libft, int a, int b);
 double						safe_pow(t_libft *libft, double x, double y);
 int							safe_sqrt(t_libft *libft, int n);
 long long					safe_factorial(t_libft *libft, int n);
+double						safe_mod(t_libft *libft, double x, double y);
+double						safe_modf(t_libft *libft, double x, double *iptr);
 
 int							safe_isalnum(t_libft *libft, int c);
 int							safe_isalpha(t_libft *libft, int c);
@@ -886,9 +916,13 @@ float						safe_atan2f(t_libft *libft, float y, float x);
 int							safe_sqrt(t_libft *libft, int n);
 double						safe_sqrt_precise(t_libft *libft, double n, int precision);
 long long					safe_factorial(t_libft *libft, int n);
-long long					safe_dfactorial(t_libft *libft, int n);
-int							safe_gcd(t_libft *libft, int a, int b);
+double						safe_dfactorial(t_libft *libft, int n);
+int							safe_pgcd(t_libft *libft, int a, int b);
 long long					safe_lcm(t_libft *libft, int a, int b);
+double						safe_floor(t_libft *libft, double x);
+float						safe_floorf(t_libft *libft, float x);
+double						safe_ceil(t_libft *libft, double x);
+float						safe_ceilf(t_libft *libft, float x);
 
 /* ************************************************************************* */
 /*                              SAFE PRINT FUNCTIONS                         */
