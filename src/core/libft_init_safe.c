@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 02:35:14 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 13:40:08 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:43:14 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ static void	init_safe_math_functions(t_libft *libft)
 	libft->math.spow = safe_pow;
 	libft->math.spowf = safe_powf;
 	libft->math.ssqrt = safe_sqrt;
-	libft->math.ssqrt_precise = safe_sqrt_precise;
+	libft->math.spsqrt = safe_sqrt_precise;
 	libft->math.sfactorial = safe_factorial;
 	libft->math.sdfactorial = safe_dfactorial;
 	libft->math.spgcd = safe_pgcd;
@@ -166,6 +166,9 @@ static void	init_safe_math_functions(t_libft *libft)
 	libft->math.satan2f = safe_atan2f;
 	libft->math.sfloor = safe_floor;
 	libft->math.sfloorf = safe_floorf;
+	libft->math.sclamp = safe_clamp;
+	libft->math.slerp = safe_lerp;
+	libft->math.sclerp = safe_clerp;
 }
 
 t_libft	*safe_libft_init(void)

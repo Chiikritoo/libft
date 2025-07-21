@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 03:06:15 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 11:11:38 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:09:10 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@ long long	ft_factorial(int n)
 {
 	long long	result;
 
-	if (n < 0)
-		return (-1);
-	if (n > 20)
-		return (-1);
+	n = ft_clamp(n, 0, 20);
 	if (n == 0 || n == 1)
 		return (1);
 	result = 1;

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 17:02:12 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:43:38 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,7 +255,7 @@ float						ft_powf(float x, float y);
 double						ft_round(double x);
 float						ft_roundf(float x);
 int							ft_sqrt(int n);
-double						ft_sqrt_precise(double n, int precision);
+double						ft_psqrt(double n, int precision);
 long long					ft_factorial(int n);
 double						ft_dfactorial(int n);
 int							ft_pgcd(int a, int b);
@@ -278,6 +278,9 @@ double						ft_ceil(double x);
 float						ft_ceilf(float x);
 double						ft_mod(double x, double y);
 double						ft_modf(double x, double *iptr);
+int							ft_clamp(int value, int min, int max);
+double						ft_lerp(double a, double b, double t);
+double						ft_clerp(double a, double b, double t);
 
 /* ************************************************************************* */
 /*                              ERROR FUNCTIONS                              */
@@ -678,8 +681,8 @@ struct s_libft
 			int			(*ssqrt)(t_libft *libft, int n);
 		};
 		union {
-			double		(*sqrt_precise)(double n, int precision);
-			double		(*ssqrt_precise)(t_libft *libft, double n, int precision);
+			double		(*psqrt)(double n, int precision);
+			double		(*spsqrt)(t_libft *libft, double n, int precision);
 		};
 		union {
 			long long	(*factorial)(int n);
@@ -767,6 +770,16 @@ struct s_libft
 		union {
 			double		(*modf)(double x, double *iptr);
 		};
+		union {
+			double		(*lerp)(double a, double b, double t);
+			double		(*slerp)(t_libft *libft, double a, double b, double t);
+			double		(*clerp)(double a, double b, double t);
+			double		(*sclerp)(t_libft *libft, double a, double b, double t);
+		};
+		union {
+			int		(*clamp)(int value, int min, int max);
+			int		(*sclamp)(t_libft *libft, int value, int min, int max);
+		};
 	} math;
 	struct			s_gc_functions
 	{
@@ -820,6 +833,7 @@ int							safe_sqrt(t_libft *libft, int n);
 long long					safe_factorial(t_libft *libft, int n);
 double						safe_mod(t_libft *libft, double x, double y);
 double						safe_modf(t_libft *libft, double x, double *iptr);
+int							safe_clamp(t_libft *libft, int value, int min, int max);
 
 int							safe_isalnum(t_libft *libft, int c);
 int							safe_isalpha(t_libft *libft, int c);
@@ -923,6 +937,9 @@ double						safe_floor(t_libft *libft, double x);
 float						safe_floorf(t_libft *libft, float x);
 double						safe_ceil(t_libft *libft, double x);
 float						safe_ceilf(t_libft *libft, float x);
+int							safe_clamp(t_libft *libft, int value, int min, int max);
+double						safe_lerp(t_libft *libft, double a, double b, double t);
+double						safe_clerp(t_libft *libft, double a, double b, double t);
 
 /* ************************************************************************* */
 /*                              SAFE PRINT FUNCTIONS                         */

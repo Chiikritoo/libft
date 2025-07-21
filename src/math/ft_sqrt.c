@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 03:06:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 11:16:58 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:03:41 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	ft_sqrt(int n)
 		return (-1);
 	if (n == 0 || n == 1)
 		return (n);
-	
 	i = 1;
 	while (i <= n / 2)
 	{
@@ -46,7 +45,7 @@ int	ft_sqrt(int n)
  * @return double La racine carrée avec précision
  * @note Retourne -1.0 si n est négatif
  */
-double	ft_sqrt_precise(double n, int precision)
+double	ft_psqrt(double n, int precision)
 {
 	double	x;
 	double	guess;
@@ -55,7 +54,6 @@ double	ft_sqrt_precise(double n, int precision)
 		return (-1.0);
 	if (n == 0)
 		return (0.0);
-	
 	guess = n / 2.0;
 	while (precision > 0)
 	{
@@ -87,5 +85,5 @@ double	safe_sqrt_precise(t_libft *libft, double n, int precision)
 			"libft is NULL");
 		return (0);
 	}
-	return (ft_sqrt_precise(n, precision));
+	return (ft_psqrt(n, precision));
 }

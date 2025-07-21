@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 21:10:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 17:01:30 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:43:12 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ static void	init_math_functions(t_libft *libft)
 	libft->math.mod = ft_mod;
 	libft->math.modf = ft_modf;
 	libft->math.sqrt = ft_sqrt;
-	libft->math.sqrt_precise = ft_sqrt_precise;
+	libft->math.psqrt = ft_psqrt;
 	libft->math.factorial = ft_factorial;
 	libft->math.dfactorial = ft_dfactorial;
 	libft->math.pgcd = ft_pgcd;
@@ -148,6 +148,9 @@ static void	init_math_functions(t_libft *libft)
 	libft->math.acosf = ft_acosf;
 	libft->math.atanf = ft_atanf;
 	libft->math.atan2f = ft_atan2f;
+	libft->math.clamp = ft_clamp;
+	libft->math.lerp = ft_lerp;
+	libft->math.clerp = ft_clerp;
 }
 
 static void	init_gc_functions(t_libft *libft)

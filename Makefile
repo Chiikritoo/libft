@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/07/21 17:01:13 by anchikri         ###   ########.fr        #
+#    Updated: 2025/07/21 18:17:48 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,7 +120,9 @@ SRC_MATH =		src/math/ft_max.c \
 				src/math/ft_cos.c \
 				src/math/ft_asin.c \
 				src/math/ft_acos.c \
-				src/math/ft_atan.c
+				src/math/ft_atan.c \
+				src/math/ft_clamp.c \
+				src/math/ft_lerp.c
 
 GC =			gc/garbage/gc_clear.c \
 				gc/garbage/gc_free.c \
