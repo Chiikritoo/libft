@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:38:49 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:30:24 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:02:05 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (big[i] && (i + ft_strlen(little)) <= len)
 	{
 		if (ft_strncmp(big + i, little, ft_strlen(little)) == 0)
-			return ((char *) big + i);
+			return ((char *)big + i);
 		i++;
 	}
 	return (NULL);
 }
 
-char	*safe_strnstr(t_libft *libft, const char *big, const char *little, size_t len)
+char	*safe_strnstr(t_libft *libft, const char *big, const char *little,
+		size_t len)
 {
 	char	*result;
 

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 15:30:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 15:26:41 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:01:05 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,12 @@ double	ft_atan2(double y, double x)
 	if (x == 0.0 && y == 0.0)
 		return (0.0);
 	if (x == 0.0)
-		return (y > 0.0 ? M_PI / 2.0 : -M_PI / 2.0);
+	{
+		if (y > 0.0)
+			return (M_PI / 2.0);
+		else
+			return (-M_PI / 2.0);
+	}
 	if (x > 0.0)
 		return (ft_atan(y / x));
 	if (x < 0.0)
@@ -117,7 +122,12 @@ float	ft_atan2f(float y, float x)
 	if (x == 0.0f && y == 0.0f)
 		return (0.0f);
 	if (x == 0.0f)
-		return (y > 0.0f ? M_PI / 2.0f : -M_PI / 2.0f);
+	{
+		if (y > 0.0f)
+			return (M_PI / 2.0f);
+		else
+			return (-M_PI / 2.0f);
+	}
 	if (x > 0.0f)
 		return (ft_atanf(y / x));
 	if (x < 0.0f)
@@ -198,4 +208,4 @@ float	safe_atan2f(t_libft *libft, float y, float x)
 		return (0.0f);
 	}
 	return (ft_atan2f(y, x));
-} 
+}

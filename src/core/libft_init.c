@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 21:10:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 18:43:12 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 22:54:30 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,11 @@ static void	init_string_functions(t_libft *libft)
 	libft->string.strrchr = ft_strrchr;
 	libft->string.strtrim = ft_strtrim;
 	libft->string.substr = ft_substr;
+	libft->string.strrev = ft_strrev;
+	libft->string.strtok = ft_strtok;
+	libft->string.strspn = ft_strspn;
+	libft->string.strcspn = ft_strcspn;
+	libft->string.strpbrk = ft_strpbrk;
 }
 
 static void	init_file_functions(t_libft *libft)
@@ -151,6 +156,10 @@ static void	init_math_functions(t_libft *libft)
 	libft->math.clamp = ft_clamp;
 	libft->math.lerp = ft_lerp;
 	libft->math.clerp = ft_clerp;
+	libft->math.log = ft_log;
+	libft->math.logf = ft_logf;
+	libft->math.exp = ft_exp;
+	libft->math.expf = ft_expf;
 }
 
 static void	init_gc_functions(t_libft *libft)

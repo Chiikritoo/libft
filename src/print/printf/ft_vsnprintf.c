@@ -6,12 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 17:55:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 18:18:11 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 22:56:20 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/libft.h"
-#include <limits.h>
 
 static void	vappend_char(t_buffer *buf, char c, size_t max_size)
 {
@@ -81,7 +80,8 @@ static void	vappend_uint(t_buffer *buf, unsigned int n, size_t max_size)
 	free(nb_str);
 }
 
-static void	vappend_base(t_buffer *buf, unsigned long long n, char *base, size_t max_size)
+static void	vappend_base(t_buffer *buf, unsigned long long n, char *base,
+		size_t max_size)
 {
 	int		base_len;
 	int		i;
@@ -115,8 +115,7 @@ static void	vappend_ptr(t_buffer *buf, void *ptr, size_t max_size)
 	}
 }
 
-static void	vhandle_format(va_list ap, t_buffer *buf, char c,
-				size_t max_size)
+static void	vhandle_format(va_list ap, t_buffer *buf, char c, size_t max_size)
 {
 	if (!buf)
 		return ;

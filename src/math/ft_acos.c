@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 15:30:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 15:26:16 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:00:29 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ double	ft_acos(double x)
 	while (i < 15)
 	{
 		term = ft_dfactorial(2 * i) * ft_pow(x, 2 * i + 1);
-		term /= ft_pow(4, i) * ft_dfactorial(i) * ft_dfactorial(i) * (2 * i + 1);
+		term /= ft_pow(4, i) * ft_dfactorial(i) * ft_dfactorial(i) * (2 * i
+				+ 1);
 		result -= term;
 		i++;
 	}
@@ -77,7 +78,8 @@ float	ft_acosf(float x)
 	while (i < 15)
 	{
 		term = ft_dfactorial(2 * i) * ft_powf(x, 2 * i + 1);
-		term /= ft_powf(4, i) * ft_dfactorial(i) * ft_dfactorial(i) * (2 * i + 1);
+		term /= ft_powf(4, i) * ft_dfactorial(i) * ft_dfactorial(i) * (2 * i
+				+ 1);
 		result -= term;
 		i++;
 	}
@@ -128,4 +130,4 @@ float	safe_acosf(t_libft *libft, float x)
 		return (0.0f / 0.0f);
 	}
 	return (ft_acosf(x));
-} 
+}

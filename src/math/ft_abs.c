@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 03:05:30 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 03:08:47 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:01:51 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ long long	ft_abs_ll(long long n)
 	if (n < 0)
 		return (-n);
 	return (n);
-} 
+}
 
 int	safe_abs(t_libft *libft, int n)
 {

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 03:05:45 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 18:15:12 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 22:57:49 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ double	ft_pow(double x, double y)
 	{
 		if (x <= 0.0)
 			return (-1.0);
-		return (exp(y * log(x)));
+		return (ft_exp(y * ft_log(x)));
 	}
 	exponent = (int)y;
 	result = 1.0;
@@ -62,7 +62,7 @@ float	ft_powf(float x, float y)
 	{
 		if (x <= 0.0f)
 			return (-1.0f);
-		return (expf(y * logf(x)));
+		return (ft_expf(y * ft_logf(x)));
 	}
 	exponent = (int)y;
 	result = 1.0f;

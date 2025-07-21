@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 03:05:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 03:10:19 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 22:59:21 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ long long	ft_max_ll(long long a, long long b)
 	if (a > b)
 		return (a);
 	return (b);
-} 
+}
 
 /**
  * @brief Retourne le maximum entre deux entiers de façon sécurisée

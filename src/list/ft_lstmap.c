@@ -6,13 +6,13 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 17:00:01 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 02:16:48 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:01:37 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-// function who creates a new list context and applies 
+// function who creates a new list context and applies
 // the function f to each conrent of the list
 t_lst_ctx	*ft_lstmap(t_lst_ctx *ctx, void *(*f)(void *), void (*del)(void *))
 {
@@ -41,7 +41,8 @@ t_lst_ctx	*ft_lstmap(t_lst_ctx *ctx, void *(*f)(void *), void (*del)(void *))
 	return (new_ctx);
 }
 
-t_lst_ctx	*safe_lstmap(t_libft *libft, t_lst_ctx *ctx, void *(*f)(void *), void (*del)(void *))
+t_lst_ctx	*safe_lstmap(t_libft *libft, t_lst_ctx *ctx, void *(*f)(void *),
+		void (*del)(void *))
 {
 	t_lst_ctx	*result;
 

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 02:35:14 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 18:43:14 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 22:54:30 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,11 @@ static void	init_safe_string_functions(t_libft *libft)
 	libft->string.sstrrchr = safe_strrchr;
 	libft->string.sstrtrim = safe_strtrim;
 	libft->string.ssubstr = safe_substr;
+	libft->string.sstrrev = safe_strrev;
+	libft->string.sstrtok = safe_strtok;
+	libft->string.sstrspn = safe_strspn;
+	libft->string.sstrcspn = safe_strcspn;
+	libft->string.sstrpbrk = safe_strpbrk;
 }
 
 static void	init_safe_gc_functions(t_libft *libft)
@@ -169,6 +174,10 @@ static void	init_safe_math_functions(t_libft *libft)
 	libft->math.sclamp = safe_clamp;
 	libft->math.slerp = safe_lerp;
 	libft->math.sclerp = safe_clerp;
+	libft->math.slog = safe_log;
+	libft->math.slogf = safe_logf;
+	libft->math.sexp = safe_exp;
+	libft->math.sexpf = safe_expf;
 }
 
 t_libft	*safe_libft_init(void)

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 18:45:03 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 18:45:46 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:02:33 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ double	ft_lerp(double a, double b, double t)
 }
 
 /**
+
  * @brief Interpolation linéaire clampée entre a et b selon t (t clampé dans [0,1])
  * @param a Valeur de départ
  * @param b Valeur d'arrivée

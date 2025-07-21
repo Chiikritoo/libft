@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/07/21 18:17:48 by anchikri         ###   ########.fr        #
+#    Updated: 2025/07/21 22:54:30 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,12 @@ SRC_STRING =	src/string/ft_strchr.c \
 				src/string/ft_strtrim.c \
 				src/string/ft_substr.c \
 				src/string/ft_split.c \
-				src/string/ft_striteri.c
+				src/string/ft_striteri.c \
+				src/string/ft_strrev.c \
+				src/string/ft_strtok.c \
+				src/string/ft_strspn.c \
+				src/string/ft_strcspn.c \
+				src/string/ft_strpbrk.c
 
 SRC_FILE =		src/file/ft_get_file.c \
 				src/file/ft_file_size.c
@@ -122,7 +127,9 @@ SRC_MATH =		src/math/ft_max.c \
 				src/math/ft_acos.c \
 				src/math/ft_atan.c \
 				src/math/ft_clamp.c \
-				src/math/ft_lerp.c
+				src/math/ft_lerp.c \
+				src/math/ft_log.c \
+				src/math/ft_exp.c
 
 GC =			gc/garbage/gc_clear.c \
 				gc/garbage/gc_free.c \

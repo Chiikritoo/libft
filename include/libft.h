@@ -6,12 +6,22 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 18:43:38 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:00:16 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
+# define BLUE "\033[34m"
+# define MAGENTA "\033[35m"
+# define CYAN "\033[36m"
+# define WHITE "\033[37m"
+# define RESET "\033[0m"
+# define BOLD "\033[1m"
 
 /* ************************************************************************* */
 /*                            STANDARD INCLUSIONS                            */
@@ -27,6 +37,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <math.h>
+# include <limits.h>
 
 /* ************************************************************************* */
 /*                              CHECK FUNCTIONS                              */
@@ -232,6 +243,11 @@ char						*ft_strrchr(const char *s, int c);
 char						*ft_strtrim(const char *s1, const char *set);
 char						*ft_substr(const char *s, unsigned int start,
 								size_t len);
+char						*ft_strrev(const char *s);
+char						*ft_strtok(char *str, const char *delim, char **nextp);
+size_t						ft_strspn(const char *s, const char *accept);
+size_t						ft_strcspn(const char *s, const char *reject);
+char						*ft_strpbrk(const char *s, const char *accept);
 
 /* ************************************************************************** */
 /*                               FILE FUNCTIONS                               */
@@ -244,6 +260,10 @@ int							ft_file_line_count(const char *filename);
 /* ************************************************************************** */
 /*                              MATH FUNCTIONS                               */
 /* ************************************************************************** */
+
+# define LN2 0.6931471805599453
+# define LN2F 0.69314718056f
+
 int							ft_max(int a, int b);
 int							ft_min(int a, int b);
 long long					ft_max_ll(long long a, long long b);
@@ -281,6 +301,10 @@ double						ft_modf(double x, double *iptr);
 int							ft_clamp(int value, int min, int max);
 double						ft_lerp(double a, double b, double t);
 double						ft_clerp(double a, double b, double t);
+double						ft_log(double x);
+float						ft_logf(float x);
+double						ft_exp(double x);
+float						ft_expf(float x);
 
 /* ************************************************************************* */
 /*                              ERROR FUNCTIONS                              */
@@ -614,6 +638,26 @@ struct s_libft
 			char		*(*substr)(const char *s, unsigned int start, size_t len);
 			char		*(*ssubstr)(t_libft *libft, const char *s, unsigned int start, size_t len);
 		};
+		union {
+			char		*(*strrev)(const char *s);
+			char		*(*sstrrev)(t_libft *libft, const char *s);
+		};
+		union {
+			char		*(*strtok)(char *str, const char *delim, char **nextp);
+			char		*(*sstrtok)(t_libft *libft, char *str, const char *delim, char **nextp);
+		};
+		union {
+			size_t		(*strspn)(const char *s, const char *accept);
+			size_t		(*sstrspn)(t_libft *libft, const char *s, const char *accept);
+		};
+		union {
+			size_t		(*strcspn)(const char *s, const char *reject);
+			size_t		(*sstrcspn)(t_libft *libft, const char *s, const char *reject);
+		};
+		union {
+			char		*(*strpbrk)(const char *s, const char *accept);
+			char		*(*sstrpbrk)(t_libft *libft, const char *s, const char *accept);
+		};
 	} string;
 	struct			s_file
 	{
@@ -780,6 +824,22 @@ struct s_libft
 			int		(*clamp)(int value, int min, int max);
 			int		(*sclamp)(t_libft *libft, int value, int min, int max);
 		};
+		union {
+			double		(*log)(double x);
+			double		(*slog)(t_libft *libft, double x);
+		};
+		union {
+			float		(*logf)(float x);
+			float		(*slogf)(t_libft *libft, float x);
+		};
+		union {
+			double		(*exp)(double x);
+			double		(*sexp)(t_libft *libft, double x);
+		};
+		union {
+			float		(*expf)(float x);
+			float		(*sexpf)(t_libft *libft, float x);
+		};
 	} math;
 	struct			s_gc_functions
 	{
@@ -862,11 +922,16 @@ char						*safe_strtrim(t_libft *libft, const char *s1, const char *set);
 char						*safe_strmapi(t_libft *libft, const char *s, char (*f)(unsigned int, char));
 char						*safe_strnstr(t_libft *libft, const char *big, const char *little, size_t len);
 char						*safe_strrchr(t_libft *libft, const char *s, int c);
-	char						*safe_strchr(t_libft *libft, const char *s, int c);
+char						*safe_strchr(t_libft *libft, const char *s, int c);
 size_t						safe_strlcat(t_libft *libft, char *dst, const char *src, size_t size);
 size_t						safe_strlcpy(t_libft *libft, char *dst, const char *src, size_t size);
 ssize_t						safe_strlen(t_libft *libft, const char *s);
 int							safe_strncmp(t_libft *libft, const char *s1, const char *s2, size_t n);
+char						*safe_strrev(t_libft *libft, const char *s);
+char						*safe_strtok(t_libft *libft, char *str, const char *delim, char **nextp);
+size_t						safe_strspn(t_libft *libft, const char *s, const char *accept);
+size_t							safe_strcspn(t_libft *libft, const char *s, const char *reject);
+char						*safe_strpbrk(t_libft *libft, const char *s, const char *accept);
 
 /* ************************************************************************* */
 /*                              SAFE LIST FUNCTIONS                           */
@@ -940,6 +1005,10 @@ float						safe_ceilf(t_libft *libft, float x);
 int							safe_clamp(t_libft *libft, int value, int min, int max);
 double						safe_lerp(t_libft *libft, double a, double b, double t);
 double						safe_clerp(t_libft *libft, double a, double b, double t);
+double						safe_log(t_libft *libft, double x);
+float						safe_logf(t_libft *libft, float x);
+double						safe_exp(t_libft *libft, double x);
+float						safe_expf(t_libft *libft, float x);
 
 /* ************************************************************************* */
 /*                              SAFE PRINT FUNCTIONS                         */

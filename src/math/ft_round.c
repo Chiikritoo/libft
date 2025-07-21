@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:00:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 13:19:00 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 22:59:47 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 inline double	ft_round(double x)
 {
 	if (x >= 0.0)
-		return (double)((long long)(x + 0.5));
+		return ((double)((long long)(x + 0.5)));
 	else
-		return (double)((long long)(x - 0.5));
+		return ((double)((long long)(x - 0.5)));
 }
 
 /**
@@ -37,9 +37,9 @@ inline double	ft_round(double x)
 float	ft_roundf(float x)
 {
 	if (x >= 0.0f)
-		return (float)((long long)(x + 0.5f));
+		return ((float)((long long)(x + 0.5f)));
 	else
-		return (float)((long long)(x - 0.5f));
+		return ((float)((long long)(x - 0.5f)));
 }
 
 /**

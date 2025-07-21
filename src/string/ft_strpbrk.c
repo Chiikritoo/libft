@@ -1,41 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strpbrk.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 21:53:20 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 21:59:12 by anchikri         ###   ########.fr       */
+/*   Created: 2024/07/21 23:00:00 by anchikri          #+#    #+#             */
+/*   Updated: 2024/07/21 23:00:00 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-// function who compares the strings 's1' and 's2'
-int	ft_strcmp(const char *s1, const char *s2)
+char	*ft_strpbrk(const char *s, const char *accept)
 {
 	size_t	i;
 
+	if (!s || !accept)
+		return (NULL);
 	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
+	while (s[i])
+	{
+		if (ft_strchr(accept, s[i]))
+			return ((char *)&s[i]);
 		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	}
+	return (NULL);
 }
 
-int	safe_strcmp(t_libft *libft, const char *s1, const char *s2)
+char	*safe_strpbrk(t_libft *libft, const char *s, const char *accept)
 {
-	int	result;
+	char		*result;
+	t_error_ctx	*error_ctx;
 
 	if (!libft)
-		return (0);
-	if (!s1 || !s2)
+	{
+		error_ctx = error_ctx_init();
+		SET_ERROR(error_ctx, ERROR_INVALID_PARAM, EINVAL,
+			"safe_strpbrk: invalid input");
+		PRINT_ERROR(error_ctx);
+		return (NULL);
+	}
+	if (!s || !accept)
 	{
 		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"s1 or s2 is null");
+			"safe_strpbrk: invalid input");
 		PRINT_ERROR(libft->error_ctx);
-		return (0);
+		return (NULL);
 	}
-	result = ft_strcmp(s1, s2);
+	result = ft_strpbrk(s, accept);
 	return (result);
 }

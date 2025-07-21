@@ -6,21 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 17:58:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:02:13 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:00:05 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
-
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
-#define MAGENTA "\033[35m"
-#define CYAN    "\033[36m"
-#define WHITE   "\033[37m"
-#define RESET   "\033[0m"
-#define BOLD    "\033[1m"
 
 static const char	*get_error_color(t_error_type type)
 {
@@ -42,7 +32,6 @@ void	print_error_ctx(const t_error_ctx *ctx)
 
 	if (!ctx || !ctx->has_error)
 		return ;
-	
 	if (ctx->message)
 		message = ctx->message;
 	else
@@ -51,9 +40,8 @@ void	print_error_ctx(const t_error_ctx *ctx)
 		file = ctx->file;
 	else
 		file = "unknown file";
-	
-	ft_printf("%s%s:%d:%s %serror:%s %s\n", 
-		BOLD WHITE, file, ctx->line, RESET, BOLD RED, RESET, message);
+	ft_printf("%s%s:%d:%s %serror:%s %s\n", BOLD WHITE, file, ctx->line, RESET,
+		BOLD RED, RESET, message);
 }
 
 void	debug_print_error_ctx(const t_error_ctx *ctx)
@@ -77,11 +65,13 @@ void	debug_print_error_ctx(const t_error_ctx *ctx)
 		get_error_type_name(ctx->type), message, function);
 	if (ctx->file)
 	{
-		ft_printf("    %sat%s %s (%s:%d)\n", CYAN, RESET, function, ctx->file, ctx->line);
+		ft_printf("    %sat%s %s (%s:%d)\n", CYAN, RESET, function, ctx->file,
+			ctx->line);
 	}
 	ft_printf(" %s{%s\n", YELLOW, RESET);
 	ft_printf("   %serrno:%s %d,\n", GREEN, RESET, ctx->code);
-	ft_printf("   %scode:%s '%s',\n", GREEN, RESET, get_error_type_name(ctx->type));
+	ft_printf("   %scode:%s '%s',\n", GREEN, RESET,
+		get_error_type_name(ctx->type));
 	if (ctx->function)
 		ft_printf("   %sfunction:%s '%s',\n", GREEN, RESET, ctx->function);
 	if (ctx->file)

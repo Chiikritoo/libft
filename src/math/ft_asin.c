@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 15:30:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 15:25:56 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/21 23:01:26 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ double	ft_asin(double x)
 		return (-ft_asin(-x));
 	if (x > 0.5)
 		return (M_PI / 2.0 - ft_acos(x));
-	
 	result = 0.0;
 	i = 0;
 	while (i < 15)
 	{
 		term = ft_dfactorial(2 * i) * ft_pow(x, 2 * i + 1);
-		term /= ft_pow(4, i) * ft_dfactorial(i) * ft_dfactorial(i) * (2 * i + 1);
+		term /= ft_pow(4, i) * ft_dfactorial(i) * ft_dfactorial(i) * (2 * i
+				+ 1);
 		result += term;
 		i++;
 	}
@@ -73,13 +73,13 @@ float	ft_asinf(float x)
 		return (-ft_asinf(-x));
 	if (x > 0.5f)
 		return (M_PI / 2.0f - ft_acosf(x));
-	
 	result = 0.0f;
 	i = 0;
 	while (i < 15)
 	{
 		term = ft_dfactorial(2 * i) * ft_powf(x, 2 * i + 1);
-		term /= ft_powf(4, i) * ft_dfactorial(i) * ft_dfactorial(i) * (2 * i + 1);
+		term /= ft_powf(4, i) * ft_dfactorial(i) * ft_dfactorial(i) * (2 * i
+				+ 1);
 		result += term;
 		i++;
 	}
@@ -130,4 +130,4 @@ float	safe_asinf(t_libft *libft, float x)
 		return (0.0f / 0.0f); /* NaN */
 	}
 	return (ft_asinf(x));
-} 
+}
