@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/07/21 23:58:07 by anchikri         ###   ########.fr        #
+#    Updated: 2025/07/24 01:53:52 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC_PRINT =		src/print/ft_putchar_fd.c \
 				src/print/ft_putstr_fd.c \
 				src/print/printf/ft_printf.c \
 				src/print/printf/ft_dprintf.c \
+				src/print/printf/ft_vdprintf.c \
 				src/print/printf/ft_vsnprintf.c \
 				src/print/printf/handle_format.c \
 				src/print/printf/append/append_char.c \
@@ -163,6 +164,20 @@ SRC_VECTOR =	src/vector/vector_new.c \
 				src/vector/value_helpers.c \
 				src/vector/vector_error.c
 
+SRC_LOG =		src/log/init/log_init.c \
+				src/log/levels/log_message.c \
+				src/log/levels/log_info.c \
+				src/log/levels/log_warning.c \
+				src/log/levels/log_error.c \
+				src/log/levels/log_debug.c \
+				src/log/levels/log_level.c \
+				src/log/format/log_prefix.c \
+				src/log/io/log_fd.c \
+				src/log/path/log_path.c \
+				src/log/timestamp/log_timestamp.c \
+				src/log/route/log_route.c \
+				src/log/cleanup/log_cleanup.c
+
 GC =			gc/garbage/gc_clear.c \
 				gc/garbage/gc_free.c \
 				gc/garbage/gc_ctx_destroy.c \
@@ -196,6 +211,7 @@ SRC =			$(SRC_CORE) \
 				$(SRC_LIST) \
 				$(SRC_MEMORY) \
 				$(SRC_STRING) \
+				$(SRC_LOG) \
 				$(SRC_FILE) \
 				$(SRC_MATH) \
 				$(SRC_VECTOR) \

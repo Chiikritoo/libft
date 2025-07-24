@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 23:42:58 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/24 01:53:31 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # include <math.h>
 # include <limits.h>
 # include "vector.h"
+# include "log.h"
 
 /* ************************************************************************* */
 /*                              CHECK FUNCTIONS                              */
@@ -206,6 +207,7 @@ int							buffer_init(t_buffer *buf);
 
 int							ft_printf(const char *s, ...);
 int							ft_dprintf(int fd, const char *s, ...);
+int							ft_vdprintf(int fd, const char *s, va_list ap);
 int							ft_vsnprintf(char *str, size_t size, \
 								const char *format, va_list ap);
 void						handle_format(va_list *ap, t_buffer *buf, char c);
