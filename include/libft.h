@@ -6,22 +6,22 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/24 01:53:31 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/28 00:44:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define RED "\033[31m"
-# define GREEN "\033[32m"
-# define YELLOW "\033[33m"
-# define BLUE "\033[34m"
-# define MAGENTA "\033[35m"
-# define CYAN "\033[36m"
-# define WHITE "\033[37m"
-# define RESET "\033[0m"
-# define BOLD "\033[1m"
+# define ANSI_RED "\033[31m"
+# define ANSI_GREEN "\033[32m"
+# define ANSI_YELLOW "\033[33m"
+# define ANSI_BLUE "\033[34m"
+# define ANSI_MAGENTA "\033[35m"
+# define ANSI_CYAN "\033[36m"
+# define ANSI_WHITE "\033[37m"
+# define ANSI_RESET "\033[0m"
+# define ANSI_BOLD "\033[1m"
 
 /* ************************************************************************* */
 /*                            STANDARD INCLUSIONS                            */
@@ -318,6 +318,8 @@ typedef enum e_error_type
 	ERROR_NONE,
 	ERROR_MEMORY,
 	ERROR_INVALID_PARAM,
+	ERROR_INVALID_INPUT,
+	ERROR_INVALID_ARG,
 	ERROR_IO,
 	ERROR_LOGIC,
 	ERROR_UNKNOWN,

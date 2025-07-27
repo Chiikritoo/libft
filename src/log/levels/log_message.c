@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 23:35:09 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/27 04:59:27 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/28 00:43:37 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	log_message(t_log_level level, const char *tag, const char *fmt, const char
 		if (first_call)
 		{
 			log_write_timestamp(2);
-			ft_dprintf(2, BOLD ANSI_YELLOW"[WARNING]"RESET" log file not opened, writing to stderr only\n");
+			ft_dprintf(2, ANSI_BOLD ANSI_YELLOW"[WARNING]"ANSI_RESET" log file not opened, writing to stderr only\n");
 			first_call = false;
 		}
 	}
@@ -80,9 +80,9 @@ void	log_message(t_log_level level, const char *tag, const char *fmt, const char
 	log_write_timestamp(2);
 	log_write_prefix(2);
 	if (level == LOG_DEBUG)
-		ft_dprintf(2, BOLD"%s%s "RESET"[%s:%d] %s(): ", log_level_to_color(level), tag, file, line, func);
+		ft_dprintf(2, ANSI_BOLD"%s%s "ANSI_RESET"[%s:%d] %s(): ", log_level_to_color(level), tag, file, line, func);
 	else
-		ft_dprintf(2, BOLD"%s%s "RESET, log_level_to_color(level), tag);
+		ft_dprintf(2, ANSI_BOLD"%s%s "ANSI_RESET, log_level_to_color(level), tag);
 	if (ft_vdprintf(2, fmt, args) < 0)
 		ft_dprintf(2, "error: failed to write to stderr\n");
 	ft_dprintf(2, "\n");

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 21:27:54 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/24 02:03:01 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/28 00:43:01 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LOG_H
 
 # include "libft.h"
-// Using libft colors instead of separate color.h
 
 # define BASE_LOG_DIR "logs/"
 
@@ -22,17 +21,6 @@
 # ifndef LOG_AUTO_INIT
 #  define LOG_AUTO_INIT 0
 # endif
-
-// Color definitions for log levels
-# define ANSI_RESET    RESET
-# define ANSI_RED      RED
-# define ANSI_GREEN    GREEN
-# define ANSI_YELLOW   YELLOW
-# define ANSI_BLUE     BLUE
-# define ANSI_MAGENTA  MAGENTA
-# define ANSI_CYAN     CYAN
-# define ANSI_WHITE    WHITE
-# define ANSI_GRAY     "\033[90m"
 
 // BOLD is already defined in libft.h
 
