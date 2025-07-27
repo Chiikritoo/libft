@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/07/24 01:53:52 by anchikri         ###   ########.fr        #
+#    Updated: 2025/07/27 16:19:56 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -242,22 +242,25 @@ all: $(NAME)
 $(BUILD)%.o: %.c 
 	@mkdir -p $(@D)
 	$(eval COUNTER := $(shell echo $$(($(COUNTER)+1))))
-	@printf "$(CYAN)libft $(YELLOW)[$(COUNTER)/$(TOTAL)]$(RESET)\r"
+	@printf "$(GREEN)[$(COUNTER)/$(TOTAL) - %d%%]$(RESET) $(CYAN)Compiling:$(RESET) $<\n" $$(($(COUNTER) * 100 / $(TOTAL)))
 	@$(CC) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ) 
 	@mkdir -p bin
+	@printf "$(GREEN)Creating static library...$(RESET)\n"
 	@$(AR) $(NAME) $(OBJ)
 	@mv $(NAME) bin
-	@printf "\n"
+	@echo "$(GREEN)✓$(RESET) $(BOLD)Static library created:$(RESET) $(CYAN)bin/$(NAME)$(RESET)"
 
 clean:
+	@printf "$(YELLOW)Cleaning object files...$(RESET)\n"
 	@$(RM) $(BUILD)
-	@printf "$(YELLOW)objs $(RED)deleted$(RESET)\n"
+	@echo "$(GREEN)✓$(RESET) $(BOLD)Object files deleted$(RESET)"
 
 fclean:	clean
+	@printf "$(YELLOW)Cleaning binaries...$(RESET)\n"
 	@$(RM) bin
-	@printf "$(CYAN)$(NAME) $(RED)deleted$(RESET)\n"
+	@echo "$(GREEN)✓$(RESET) $(BOLD)All binaries deleted$(RESET)"
 
 re:		fclean all
 
@@ -273,4 +276,5 @@ GREEN = \033[0;32m
 CYAN = \033[0;36m
 YELLOW = \033[0;33m
 RED = \033[0;31m
+BOLD = \033[1m
 RESET = \033[0m
