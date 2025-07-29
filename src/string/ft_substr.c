@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:14:08 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/29 13:13:52 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:41:18 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		return (NULL);
 	len_s = ft_strlen(s);
 	if (start >= len_s)
-		return ("");
+		return (ft_strdup(""));
 	if (len_s - start < len)
 		len = len_s - start;
 	sub = ft_calloc(len + 1, sizeof(char));

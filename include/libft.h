@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:04:43 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/29 13:21:22 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:37:22 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # include <math.h>
 # include <limits.h>
 # include "log.h"
+# include "toml.h"
 
 /* ************************************************************************* */
 /*                              CHECK FUNCTIONS                              */
@@ -54,6 +55,7 @@ int							ft_isspace(int c);
 /*                             CONVERT FUNCTIONS                             */
 /* ************************************************************************* */
 int							ft_atoi(const char *str);
+double						ft_atof(const char *str);
 long long					ft_atoll(const char *str);
 int							len_int(int n);
 int							len_uint(unsigned int n);

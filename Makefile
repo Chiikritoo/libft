@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/07/29 13:19:05 by anchikri         ###   ########.fr        #
+#    Updated: 2025/07/29 14:41:56 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC_CHECK =		src/check/ft_isalnum.c \
 				src/check/ft_isspace.c \
 
 SRC_CONVERT =	src/convert/ft_atoi.c \
+				src/convert/ft_atof.c \
 				src/convert/ft_atoll.c \
 				src/convert/ft_itoa.c \
 				src/convert/ft_toupper.c \
@@ -100,6 +101,14 @@ SRC_STRING =	src/string/ft_strchr.c \
 SRC_FILE =		src/file/ft_get_file.c \
 				src/file/ft_file_size.c
 
+SRC_TOML =		src/parser/toml/toml_parse_value.c \
+				src/parser/toml/toml_parse_line.c \
+				src/parser/toml/toml_parse_section.c \
+				src/parser/toml/toml_parse_file.c \
+				src/parser/toml/toml_get_value.c \
+				src/parser/toml/toml_helpers.c \
+				src/parser/toml/toml_free.c
+
 SRC_LOG =		src/log/init/log_init.c \
 				src/log/levels/log_message.c \
 				src/log/levels/log_info.c \
@@ -149,6 +158,7 @@ SRC =			$(SRC_CORE) \
 				$(SRC_STRING) \
 				$(SRC_LOG) \
 				$(SRC_FILE) \
+				$(SRC_TOML) \
 				$(SRC_MATH) \
 				$(SRC_VECTOR) \
 				$(GC)
@@ -200,7 +210,12 @@ fclean:	clean
 
 re:		fclean all
 
-.PHONY: all clean fclean re bonus
+test_toml: $(NAME)
+	@printf "$(YELLOW)Compiling TOML test...$(RESET)\n"
+	@$(CC) $(CFLAGS) test_toml.c -Lbin -lft -o bin/test_toml
+	@echo "$(GREEN)✓$(RESET) $(BOLD)TOML test compiled:$(RESET) $(CYAN)bin/test_toml$(RESET)"
+
+.PHONY: all clean fclean re bonus test_toml
 
 # ==================== DEPENDENCIES ==================== #
 
