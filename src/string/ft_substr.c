@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:14:08 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/21 23:01:59 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:13:52 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,4 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		return (NULL);
 	ft_strlcpy(sub, s + start, len + 1);
 	return (sub);
-}
-
-char	*safe_substr(t_libft *libft, const char *s, unsigned int start,
-		size_t len)
-{
-	char	*result;
-
-	if (!libft)
-		return (NULL);
-	result = ft_substr(s, start, len);
-	if (!result)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
-			"ft_substr() failed for string '%s' with start '%u' and length '%zu'",
-			s, start, len);
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
 }

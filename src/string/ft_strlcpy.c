@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:27:56 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 02:12:09 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:14:08 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,4 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	dst[i] = '\0';
 	return (ft_strlen(src));
-}
-
-size_t	safe_strlcpy(t_libft *libft, char *dst, const char *src, size_t size)
-{
-	size_t	result;
-
-	if (!libft)
-		return (0);
-	if (!dst || !src)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"dst or src is null");
-		PRINT_ERROR(libft->error_ctx);
-		return (0);
-	}
-	result = ft_strlcpy(dst, src, size);
-	return (result);
 }

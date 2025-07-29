@@ -40,19 +40,3 @@ char	*ft_strjoin_gnl(char *s1, const char *s2)
 	free(s1);
 	return (s3);
 }
-
-char	*safe_strjoin_gnl(t_libft *libft, char *s1, const char *s2)
-{
-	char	*result;
-
-	if (!libft)
-		return (NULL);
-	result = ft_strjoin_gnl(s1, s2);
-	if (!result)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
-			"ft_strjoin_gnl() failed for string '%s' and '%s'", s1, s2);
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
-}

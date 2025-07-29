@@ -27,27 +27,3 @@ char	*ft_strpbrk(const char *s, const char *accept)
 	}
 	return (NULL);
 }
-
-char	*safe_strpbrk(t_libft *libft, const char *s, const char *accept)
-{
-	char		*result;
-	t_error_ctx	*error_ctx;
-
-	if (!libft)
-	{
-		error_ctx = error_ctx_init();
-		SET_ERROR(error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"safe_strpbrk: invalid input");
-		PRINT_ERROR(error_ctx);
-		return (NULL);
-	}
-	if (!s || !accept)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"safe_strpbrk: invalid input");
-		PRINT_ERROR(libft->error_ctx);
-		return (NULL);
-	}
-	result = ft_strpbrk(s, accept);
-	return (result);
-}

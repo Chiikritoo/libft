@@ -26,24 +26,3 @@ void	ft_lstiter(t_lst_ctx *ctx, void (*f)(void *))
 		tmp = tmp->next;
 	}
 }
-
-void	safe_lstiter(t_libft *libft, t_lst_ctx *ctx, void (*f)(void *))
-{
-	if (!libft)
-		return ;
-	if (!ctx)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"list context is null");
-		PRINT_ERROR(libft->error_ctx);
-		return ;
-	}
-	if (!f)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"function pointer is null");
-		PRINT_ERROR(libft->error_ctx);
-		return ;
-	}
-	ft_lstiter(ctx, f);
-}

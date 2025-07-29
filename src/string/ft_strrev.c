@@ -33,26 +33,3 @@ char	*ft_strrev(const char *s)
 	}
 	return (rev);
 }
-
-char	*safe_strrev(t_libft *libft, const char *s)
-{
-	char	*result;
-
-	if (!libft)
-		return (NULL);
-	if (!s)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"safe_strrev: input string is null");
-		PRINT_ERROR(libft->error_ctx);
-		return (NULL);
-	}
-	result = ft_strrev(s);
-	if (!result)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
-			"safe_strrev: memory allocation failed");
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
-}

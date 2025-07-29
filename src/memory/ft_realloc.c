@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 05:34:51 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 02:27:31 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:17:28 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,4 @@ void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 		ft_memcpy(new, ptr, new_size);
 	free(ptr);
 	return (new);
-}
-
-void	*safe_realloc(t_libft *libft, void *ptr, size_t old_size, size_t new_size)
-{
-	void	*result;
-
-	if (!libft)
-		return (NULL);
-	result = ft_realloc(ptr, old_size, new_size);
-	if (!result && new_size > 0)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
-			"ft_realloc() failed for size %zu", new_size);
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
 }

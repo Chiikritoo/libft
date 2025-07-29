@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 02:44:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 02:49:26 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:19:36 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,33 +61,6 @@ char	**ft_get_file(const char *filename)
 	lines[i] = NULL; // Terminer le tableau
 	close(fd);
 	return (lines);
-}
-
-/**
- * @brief Version safe de ft_get_file avec gestion d'erreurs
- * @param libft Instance de libft
- * @param filename Le nom du fichier à lire
- * @return char** Tableau de chaînes, NULL en cas d'erreur
- */
-char	**safe_get_file(t_libft *libft, const char *filename)
-{
-	char	**result;
-
-	if (!libft || !filename)
-	{
-		if (libft)
-			SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-				"filename is null");
-		return (NULL);
-	}
-	result = ft_get_file(filename);
-	if (!result)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_IO, errno,
-			"Failed to read file: %s", filename);
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
 }
 
 /**

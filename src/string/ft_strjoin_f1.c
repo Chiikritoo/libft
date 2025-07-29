@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:41:41 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:27:06 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:13:18 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,4 @@ char	*ft_strjoin_f1(char *s1, const char *s2)
 	ft_strlcat(s3, s2, len_s1 + len_s2 + 1);
 	free(s1);
 	return (s3);
-}
-
-char	*safe_strjoin_f1(t_libft *libft, char *s1, const char *s2)
-{
-	char	*result;
-
-	if (!libft)
-		return (NULL);
-	result = ft_strjoin_f1(s1, s2);
-	if (!result)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
-			"ft_strjoin_f1() failed for string '%s' and '%s'", s1, s2);
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
 }

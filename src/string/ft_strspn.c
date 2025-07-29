@@ -23,27 +23,3 @@ size_t	ft_strspn(const char *s, const char *accept)
 		i++;
 	return (i);
 }
-
-size_t	safe_strspn(t_libft *libft, const char *s, const char *accept)
-{
-	size_t		result;
-	t_error_ctx	*error_ctx;
-
-	if (!libft)
-	{
-		error_ctx = error_ctx_init();
-		SET_ERROR(error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"safe_strspn: invalid input");
-		PRINT_ERROR(error_ctx);
-		return (0);
-	}
-	if (!s || !accept)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"safe_strspn: invalid input");
-		PRINT_ERROR(libft->error_ctx);
-		return (0);
-	}
-	result = ft_strspn(s, accept);
-	return (result);
-}

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:00:11 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 02:27:21 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:16:19 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,4 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		return (NULL);
 	ft_bzero(tab, len);
 	return (tab);
-}
-
-void	*safe_calloc(t_libft *libft, size_t nmemb, size_t size)
-{
-	void	*result;
-
-	if (!libft)
-		return (NULL);
-	result = ft_calloc(nmemb, size);
-	if (!result)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
-			"ft_calloc() failed for %zu elements of size %zu", nmemb, size);
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
 }

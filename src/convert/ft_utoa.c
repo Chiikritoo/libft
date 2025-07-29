@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 23:28:32 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:24:26 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:20:25 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,4 @@ char	*ft_utoa(unsigned int n)
 		n /= 10;
 	}
 	return (tab);
-}
-
-char	*safe_utoa(t_libft *libft, unsigned int n)
-{
-	char	*result;
-
-	if (!libft)
-		return (NULL);
-	result = ft_utoa(n);
-	if (!result)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
-			"ft_utoa() failed for unsigned integer '%u'", n);
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
 }

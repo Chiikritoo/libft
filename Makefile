@@ -6,23 +6,13 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/07/27 16:19:56 by anchikri         ###   ########.fr        #
+#    Updated: 2025/07/29 13:19:05 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 # ==================== SOURCES ==================== #
-
-SRC_CORE =		src/core/libft_init.c \
-				src/core/libft_init_safe.c \
-				src/core/libft_destroy.c
-
-SRC_ERROR =		src/error/ctx.c \
-				src/error/set.c \
-				src/error/get.c \
-				src/error/print.c \
-				src/error/utils.c
 
 SRC_CHECK =		src/check/ft_isalnum.c \
 				src/check/ft_isalpha.c \
@@ -109,60 +99,6 @@ SRC_STRING =	src/string/ft_strchr.c \
 
 SRC_FILE =		src/file/ft_get_file.c \
 				src/file/ft_file_size.c
-
-SRC_MATH =		src/math/ft_max.c \
-				src/math/ft_min.c \
-				src/math/ft_abs.c \
-				src/math/ft_pow.c \
-				src/math/ft_round.c \
-				src/math/ft_floor.c \
-				src/math/ft_ceil.c \
-				src/math/ft_mod.c \
-				src/math/ft_sqrt.c \
-				src/math/ft_factorial.c \
-				src/math/ft_pgcd.c \
-				src/math/ft_lcm.c \
-				src/math/ft_sin.c \
-				src/math/ft_cos.c \
-				src/math/ft_asin.c \
-				src/math/ft_acos.c \
-				src/math/ft_atan.c \
-				src/math/ft_clamp.c \
-				src/math/ft_lerp.c \
-				src/math/ft_log.c \
-				src/math/ft_exp.c
-
-SRC_VECTOR =	src/vector/vector_new.c \
-				src/vector/vector_destroy.c \
-				src/vector/vector_clear.c \
-				src/vector/vector_push_back.c \
-				src/vector/vector_pop_back.c \
-				src/vector/vector_at.c \
-				src/vector/vector_front.c \
-				src/vector/vector_back.c \
-				src/vector/vector_size.c \
-				src/vector/vector_capacity.c \
-				src/vector/vector_empty.c \
-				src/vector/vector_reserve.c \
-				src/vector/vector_insert.c \
-				src/vector/vector_erase.c \
-				src/vector/vector_set.c \
-				src/vector/vector_find.c \
-				src/vector/vector_find_if.c \
-				src/vector/vector_count.c \
-				src/vector/vector_sort.c \
-				src/vector/vector_reverse.c \
-				src/vector/vector_swap.c \
-				src/vector/vector_for_each.c \
-				src/vector/vector_clone.c \
-				src/vector/vector_from_array.c \
-				src/vector/vector_resize.c \
-				src/vector/vector_shrink_to_fit.c \
-				src/vector/vector_subvector.c \
-				src/vector/vector_concat.c \
-				src/vector/vector_iterators.c \
-				src/vector/value_helpers.c \
-				src/vector/vector_error.c
 
 SRC_LOG =		src/log/init/log_init.c \
 				src/log/levels/log_message.c \

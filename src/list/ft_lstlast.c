@@ -19,26 +19,3 @@ t_lst	*ft_lstlast(t_lst_ctx *ctx)
 		return (NULL);
 	return (ctx->tail);
 }
-
-t_lst	*safe_lstlast(t_libft *libft, t_lst_ctx *ctx)
-{
-	t_lst	*result;
-
-	if (!libft)
-		return (NULL);
-	if (!ctx)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"list context is null");
-		PRINT_ERROR(libft->error_ctx);
-		return (NULL);
-	}
-	result = ft_lstlast(ctx);
-	if (!result)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_LOGIC, EINVAL,
-			"list is empty, no last node");
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
-}

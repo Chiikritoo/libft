@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:16:39 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:31:06 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:14:19 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,4 @@ char	*ft_strrchr(const char *s, int c)
 		i--;
 	}
 	return ((char *) &s[i]);
-}
-
-char	*safe_strrchr(t_libft *libft, const char *s, int c)
-{
-	char	*result;
-
-	if (!libft)
-		return (NULL);
-	result = ft_strrchr(s, c);
-	if (!result)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_LOGIC, EINVAL,
-			"string is null");
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
 }

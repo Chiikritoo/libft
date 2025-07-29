@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 02:23:12 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:29:59 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:14:36 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,3 @@ char	*ft_strndup(const char *s, size_t n)
 	return (dup);
 }
 
-char	*safe_strndup(t_libft *libft, const char *s, size_t n)
-{
-	char	*result;
-
-	if (!libft)
-		return (NULL);
-	result = ft_strndup(s, n);
-	if (!result)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
-			"ft_strndup() failed for string '%s' with length '%zu'", s, n);
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
-}

@@ -45,25 +45,3 @@ char	*ft_strtok(char *str, const char *delim, char **nextp)
 	return (start);
 }
 
-char	*safe_strtok(t_libft *libft, char *str, const char *delim, char **nextp)
-{
-	char	*result;
-
-	if (!libft)
-		return (NULL);
-	if ((!str && (!nextp || !*nextp)) || !delim)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"safe_strtok: invalid input");
-		PRINT_ERROR(libft->error_ctx);
-		return (NULL);
-	}
-	result = ft_strtok(str, delim, nextp);
-	if (!result && (str || (nextp && *nextp)))
-	{
-		SET_ERROR(libft->error_ctx, ERROR_LOGIC, 0,
-			"safe_strtok: no more tokens or error");
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
-}

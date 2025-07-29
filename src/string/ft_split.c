@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:48:28 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/19 22:25:29 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:13:14 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,4 @@ char	**ft_split(const char *s, char c)
 			return (NULL);
 	}
 	return (tab);
-}
-
-char	**safe_split(t_libft *libft, const char *s, char c)
-{
-	char	**result;
-
-	if (!libft)
-		return (NULL);
-	result = ft_split(s, c);
-	if (!result)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_MEMORY, ENOMEM,
-			"ft_split() failed for string '%s' with delimiter '%c'", s, c);
-		PRINT_ERROR(libft->error_ctx);
-	}
-	return (result);
 }

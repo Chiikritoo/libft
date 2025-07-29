@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:14:04 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 02:28:01 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:17:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-void	*safe_memset(t_libft *libft, void *s, int c, size_t n)
-{
-	void	*result;
-
-	if (!libft)
-		return (NULL);
-	if (!s)
-	{
-		SET_ERROR(libft->error_ctx, ERROR_INVALID_PARAM, EINVAL,
-			"memory area is null");
-		PRINT_ERROR(libft->error_ctx);
-		return (NULL);
-	}
-	result = ft_memset(s, c, n);
-	return (result);
-}
