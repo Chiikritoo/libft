@@ -6,90 +6,123 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:30:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/29 14:43:12 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 01:12:32 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/libft.h"
 
-// function who parses a TOML value (string, int, float, bool, array, table)
+// function who validates and parses a float number
+bool	parse_float(const char *str, t_toml_value *value)
+{
+	double	num;
+
+	num = ft_atof(str);
+	if (num == 0.0 && str[0] != '0' && str[0] != '-' && str[0] != '+')
+	{
+		LOG(LOG_WARNING, "Invalid float format: %s", str);
+		return (false);
+	}
+	value->type = TOML_FLOAT;
+	value->data.f = num;
+	LOG(LOG_DEBUG, "Parsed float: %f", num);
+	return (true);
+}
+
+// function who validates and parses an integer
+bool	parse_integer(const char *str, t_toml_value *value)
+{
+	int	int_num;
+
+	if (ft_strlen(str) > 10)
+	{
+		LOG(LOG_WARNING, "Integer too large: %s", str);
+		return (false);
+	}
+	int_num = ft_atoi(str);
+	if (int_num == 0 && str[0] != '0' && str[0] != '-' && str[0] != '+')
+	{
+		LOG(LOG_WARNING, "Invalid integer format: %s", str);
+		return (false);
+	}
+	value->type = TOML_INT;
+	value->data.num = int_num;
+	LOG(LOG_DEBUG, "Parsed integer: %d", int_num);
+	return (true);
+}
+
+// function who validates and parses a number
+bool	parse_number(const char *str, t_toml_value *value)
+{
+	if (!str || !value)
+		return (false);
+	
+	if (ft_strchr(str, '.') || ft_strchr(str, 'e') || ft_strchr(str, 'E'))
+		return (parse_float(str, value));
+	else
+		return (parse_integer(str, value));
+}
+
+// function who parses a boolean value
+bool	parse_boolean(const char *str, t_toml_value *value)
+{
+	if (ft_strcmp(str, "true") == 0)
+	{
+		value->type = TOML_BOOL;
+		value->data.b = true;
+		LOG(LOG_DEBUG, "Parsed boolean: true");
+		return (true);
+	}
+	else if (ft_strcmp(str, "false") == 0)
+	{
+		value->type = TOML_BOOL;
+		value->data.b = false;
+		LOG(LOG_DEBUG, "Parsed boolean: false");
+		return (true);
+	}
+	return (false);
+}
+
+// function who parses a string value
+bool	parse_string_value(const char *str, t_toml_value *value)
+{
+	value->type = TOML_STRING;
+	value->data.str = parse_toml_string(str);
+	if (!value->data.str)
+	{
+		LOG(LOG_ERROR, "Failed to parse string value: %s", str);
+		value->type = TOML_STRING;
+		value->data.str = NULL;
+		return (false);
+	}
+	LOG(LOG_DEBUG, "Parsed string: %s", value->data.str);
+	return (true);
+}
+
+// function who parses a TOML value
 t_toml_value	toml_parse_value(const char *str)
 {
 	t_toml_value	value;
 	char		*trimmed;
 
+	value.type = TOML_STRING;
+	value.data.str = NULL;
+	
 	if (!str)
 	{
-		value.type = TOML_STRING;
-		value.data.str = NULL;
+		LOG(LOG_WARNING, "toml_parse_value: input string is NULL");
 		return (value);
 	}
+	
 	trimmed = ft_strtrim(str, " \t");
 	if (!trimmed)
 	{
-		value.type = TOML_STRING;
-		value.data.str = NULL;
+		LOG(LOG_ERROR, "Failed to trim string: %s", str);
 		return (value);
 	}
-	// Check for array
-	if (trimmed[0] == '[' && trimmed[ft_strlen(trimmed) - 1] == ']')
-	{
-		value.type = TOML_ARRAY;
-		value.data.array = toml_parse_array(trimmed);
-	}
-	// Check for table
-	else if (trimmed[0] == '{' && trimmed[ft_strlen(trimmed) - 1] == '}')
-	{
-		value.type = TOML_TABLE;
-		value.data.table = toml_parse_table(trimmed);
-	}
-	// Check for boolean
-	else if (ft_strcmp(trimmed, "true") == 0)
-	{
-		value.type = TOML_BOOL;
-		value.data.b = true;
-	}
-	else if (ft_strcmp(trimmed, "false") == 0)
-	{
-		value.type = TOML_BOOL;
-		value.data.b = false;
-	}
-	// Check for integer
-	else if (ft_isdigit(trimmed[0]) || (trimmed[0] == '-' && ft_isdigit(trimmed[1])))
-	{
-		// Check if it's a float (contains dot)
-		if (ft_strchr(trimmed, '.'))
-		{
-			value.type = TOML_FLOAT;
-			value.data.f = ft_atof(trimmed);
-		}
-		else
-		{
-			value.type = TOML_INT;
-			value.data.num = ft_atoi(trimmed);
-		}
-	}
-	// Default to string
-	else
-	{
-		value.type = TOML_STRING;
-		// Remove quotes if present
-		if (trimmed[0] == '"' && trimmed[ft_strlen(trimmed) - 1] == '"')
-		{
-			value.data.str = ft_substr(trimmed, 1, ft_strlen(trimmed) - 2);
-		}
-		else
-		{
-			value.data.str = ft_strdup(trimmed);
-		}
-		// Remove trailing newline if present
-		if (value.data.str && ft_strlen(value.data.str) > 0)
-		{
-			size_t len = ft_strlen(value.data.str);
-			if (value.data.str[len - 1] == '\n')
-				value.data.str[len - 1] = '\0';
-		}
-	}
+	
+	LOG(LOG_DEBUG, "Parsing value: '%s'", trimmed);
+	value = toml_dispatch_value_parsing(trimmed);
 	free(trimmed);
 	return (value);
 } 

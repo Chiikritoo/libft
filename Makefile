@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/07/29 14:41:56 by anchikri         ###   ########.fr        #
+#    Updated: 2025/07/30 01:22:26 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,6 +104,14 @@ SRC_FILE =		src/file/ft_get_file.c \
 SRC_TOML =		src/parser/toml/toml_parse_value.c \
 				src/parser/toml/toml_parse_line.c \
 				src/parser/toml/toml_parse_section.c \
+				src/parser/toml/toml_parse_utils.c \
+				src/parser/toml/toml_value_types.c \
+				src/parser/toml/toml_array_parsing.c \
+				src/parser/toml/toml_table_parsing.c \
+				src/parser/toml/toml_string_utils.c \
+				src/parser/toml/toml_file_init.c \
+				src/parser/toml/toml_line_processing.c \
+				src/parser/toml/toml_section_utils.c \
 				src/parser/toml/toml_parse_file.c \
 				src/parser/toml/toml_get_value.c \
 				src/parser/toml/toml_helpers.c \
