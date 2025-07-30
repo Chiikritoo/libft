@@ -129,5 +129,4 @@ void	toml_free_table(t_toml_table *table)
 		current = next;
 	}
 	free(table);
-} 
- 
+}

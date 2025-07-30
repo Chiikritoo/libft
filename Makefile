@@ -6,7 +6,7 @@
 #    By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 14:26:25 by anchikri          #+#    #+#              #
-#    Updated: 2025/07/30 01:22:26 by anchikri         ###   ########.fr        #
+#    Updated: 2025/07/30 01:56:32 by anchikri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -217,11 +217,6 @@ fclean:	clean
 	@echo "$(GREEN)✓$(RESET) $(BOLD)All binaries deleted$(RESET)"
 
 re:		fclean all
-
-test_toml: $(NAME)
-	@printf "$(YELLOW)Compiling TOML test...$(RESET)\n"
-	@$(CC) $(CFLAGS) test_toml.c -Lbin -lft -o bin/test_toml
-	@echo "$(GREEN)✓$(RESET) $(BOLD)TOML test compiled:$(RESET) $(CYAN)bin/test_toml$(RESET)"
 
 .PHONY: all clean fclean re bonus test_toml
 

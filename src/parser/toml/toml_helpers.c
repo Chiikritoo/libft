@@ -39,7 +39,8 @@ double	toml_get_float(t_toml_doc *doc, const char *path, double default_val)
 }
 
 // function who gets a string value with default
-char	*toml_get_string(t_toml_doc *doc, const char *path, const char *default_val)
+char	*toml_get_string(t_toml_doc *doc, const char *path,
+		const char *default_val)
 {
 	t_toml_value	*value;
 
@@ -62,4 +63,4 @@ bool	toml_get_bool(t_toml_doc *doc, const char *path, bool default_val)
 	if (!value || value->type != TOML_BOOL)
 		return (default_val);
 	return (value->data.b);
-} 
+}

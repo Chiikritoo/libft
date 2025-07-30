@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:25:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 01:21:42 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:04:41 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,10 @@ int	toml_add_kv_to_section(t_toml_section *section, t_toml_kv *kv)
 {
 	if (!section || !kv)
 		return (0);
-	
-	section->kv = ft_realloc(section->kv,
-		section->count * sizeof(t_toml_kv *),
-		(section->count + 1) * sizeof(t_toml_kv *));
+	section->kv = ft_realloc(section->kv, section->count * sizeof(t_toml_kv *),
+			(section->count + 1) * sizeof(t_toml_kv *));
 	if (!section->kv)
 		return (0);
-	
 	section->kv[section->count] = kv;
 	section->count++;
 	return (1);
@@ -64,17 +61,14 @@ int	toml_add_to_array(t_toml_array *array, t_toml_value value)
 {
 	if (!array)
 		return (0);
-	
-	array->values = ft_realloc(array->values,
-		array->size * sizeof(t_toml_value *),
-		(array->size + 1) * sizeof(t_toml_value *));
+	array->values = ft_realloc(array->values, array->size
+			* sizeof(t_toml_value *), (array->size + 1)
+			* sizeof(t_toml_value *));
 	if (!array->values)
 		return (0);
-	
 	array->values[array->size] = ft_calloc(1, sizeof(t_toml_value));
 	if (!array->values[array->size])
 		return (0);
-	
 	*(array->values[array->size]) = value;
 	array->size++;
 	return (1);
@@ -114,7 +108,6 @@ int	toml_add_to_table(t_toml_table *table, const char *key, t_toml_value value)
 	new_entry = ft_calloc(1, sizeof(t_toml_table));
 	if (!new_entry)
 		return (0);
-	
 	new_entry->key = ft_strdup(key);
 	new_entry->value = ft_calloc(1, sizeof(t_toml_value));
 	if (!new_entry->value)
@@ -127,4 +120,4 @@ int	toml_add_to_table(t_toml_table *table, const char *key, t_toml_value value)
 	new_entry->next = table->next;
 	table->next = new_entry;
 	return (1);
-} 
+}

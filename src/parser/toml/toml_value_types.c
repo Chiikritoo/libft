@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:10:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 01:12:43 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:04:30 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ bool	is_number_format(const char *str)
 {
 	if (!str || !str[0])
 		return (false);
-	return (ft_isdigit(str[0]) || 
-		(str[0] == '-' && ft_isdigit(str[1])) || 
-		(str[0] == '+' && ft_isdigit(str[1])));
+	return (ft_isdigit(str[0]) || (str[0] == '-' && ft_isdigit(str[1]))
+		|| (str[0] == '+' && ft_isdigit(str[1])));
 }
 
 // function who creates array value
@@ -83,7 +82,6 @@ t_toml_value	create_number_or_string_value(const char *str)
 
 	value.type = TOML_STRING;
 	value.data.str = NULL;
-	
 	if (!parse_number(str, &value))
 		parse_string_value(str, &value);
 	return (value);
@@ -96,7 +94,6 @@ t_toml_value	toml_dispatch_value_parsing(const char *str)
 
 	value.type = TOML_STRING;
 	value.data.str = NULL;
-	
 	if (is_array_format(str))
 		return (create_array_value(str));
 	else if (is_table_format(str))
@@ -115,4 +112,4 @@ t_toml_value	toml_dispatch_value_parsing(const char *str)
 		parse_string_value(str, &value);
 		return (value);
 	}
-} 
+}

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:15:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 01:23:21 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:05:48 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,29 @@
 static t_toml_type	determine_array_type(char **elements)
 {
 	t_toml_value	first_value;
-	char		*trimmed;
+	char			*trimmed;
 
 	if (!elements || !elements[0])
 		return (TOML_STRING);
-	
 	trimmed = ft_strtrim(elements[0], " \t");
 	if (!trimmed)
 		return (TOML_STRING);
-	
 	first_value = toml_parse_value(trimmed);
 	free(trimmed);
-	
 	return (first_value.type);
 }
 
 // function who handles type mismatch in array elements
-static t_toml_value	handle_type_mismatch(t_toml_value parsed_value, t_toml_type expected_type)
+static t_toml_value	handle_type_mismatch(t_toml_value parsed_value,
+		t_toml_type expected_type)
 {
 	t_toml_value	converted_value;
-	char		*str_representation;
+	char			*str_representation;
 
 	if (parsed_value.type == expected_type)
 		return (parsed_value);
-	
-	LOG(LOG_WARNING, "Array element type mismatch: expected %d, got %d", expected_type, parsed_value.type);
-	
+	LOG(LOG_WARNING, "Array element type mismatch: expected %d, got %d",
+		expected_type, parsed_value.type);
 	str_representation = toml_value_to_string(&parsed_value);
 	if (!str_representation)
 	{
@@ -49,7 +46,6 @@ static t_toml_value	handle_type_mismatch(t_toml_value parsed_value, t_toml_type 
 		converted_value.data.str = ft_strdup("(error)");
 		return (converted_value);
 	}
-	
 	converted_value.type = TOML_STRING;
 	converted_value.data.str = str_representation;
 	return (converted_value);
@@ -63,17 +59,15 @@ static bool	add_array_element(t_toml_array *array, char *trimmed)
 
 	if (!array || !trimmed)
 		return (false);
-	
 	parsed_value = toml_parse_value(trimmed);
 	final_value = handle_type_mismatch(parsed_value, array->element_type);
-	
-	array->values = ft_realloc(array->values, sizeof(t_toml_value *) * array->size, sizeof(t_toml_value *) * (array->size + 1));
+	array->values = ft_realloc(array->values, sizeof(t_toml_value *)
+			* array->size, sizeof(t_toml_value *) * (array->size + 1));
 	if (!array->values)
 	{
 		LOG(LOG_ERROR, "Failed to reallocate array values");
 		return (false);
 	}
-	
 	array->values[array->size] = ft_calloc(1, sizeof(t_toml_value));
 	if (!array->values[array->size])
 	{
@@ -82,7 +76,6 @@ static bool	add_array_element(t_toml_array *array, char *trimmed)
 	}
 	*(array->values[array->size]) = final_value;
 	array->size++;
-	
 	LOG(LOG_DEBUG, "Added element to array, count now: %zu", array->size);
 	return (true);
 }
@@ -95,7 +88,6 @@ static bool	process_array_elements(t_toml_array *array, char **elements)
 
 	if (!array || !elements)
 		return (false);
-	
 	i = 0;
 	while (elements[i])
 	{
@@ -122,24 +114,22 @@ static char	*validate_and_extract_array_content(const char *str)
 
 	if (!str || ft_strlen(str) < 2)
 	{
-		LOG(LOG_WARNING, "Invalid array format (too short): %s", str ? str : "(null)");
+		LOG(LOG_WARNING, "Invalid array format (too short): %s",
+			str ? str : "(null)");
 		return (NULL);
 	}
-	
 	len = ft_strlen(str);
 	if (str[0] != '[' || str[len - 1] != ']')
 	{
 		LOG(LOG_WARNING, "Invalid array format (missing brackets): %s", str);
 		return (NULL);
 	}
-	
 	content = ft_substr(str, 1, len - 2);
 	if (!content)
 	{
 		LOG(LOG_ERROR, "Failed to extract array content from: %s", str);
 		return (NULL);
 	}
-	
 	return (ft_strtrim(content, " \t"));
 }
 
@@ -161,33 +151,28 @@ static t_toml_array	*create_empty_array(void)
 t_toml_array	*toml_parse_array(const char *str)
 {
 	t_toml_array	*array;
-	char		*content;
-	char		**elements;
+	char			*content;
+	char			**elements;
 
 	LOG(LOG_DEBUG, "Parsing array: %s", str ? str : "(null)");
-	
 	content = validate_and_extract_array_content(str);
 	if (!content)
 		return (NULL);
-	
 	if (ft_strlen(content) == 0)
 	{
 		free(content);
 		return (create_empty_array());
 	}
-	
 	elements = ft_split_array_elements(content);
 	free(content);
 	if (!elements)
 		return (NULL);
-	
 	array = create_empty_array();
 	if (!array)
 	{
 		ft_free_double_ptr((void ***)&elements);
 		return (NULL);
 	}
-	
 	array->element_type = determine_array_type(elements);
 	if (!process_array_elements(array, elements))
 	{
@@ -195,8 +180,7 @@ t_toml_array	*toml_parse_array(const char *str)
 		toml_free_array(array);
 		return (NULL);
 	}
-	
 	ft_free_double_ptr((void ***)&elements);
 	LOG(LOG_DEBUG, "Successfully parsed array with %zu elements", array->size);
 	return (array);
-} 
+}

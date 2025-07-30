@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:30:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 01:12:32 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:04:54 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ bool	parse_number(const char *str, t_toml_value *value)
 {
 	if (!str || !value)
 		return (false);
-	
 	if (ft_strchr(str, '.') || ft_strchr(str, 'e') || ft_strchr(str, 'E'))
 		return (parse_float(str, value));
 	else
@@ -103,26 +102,23 @@ bool	parse_string_value(const char *str, t_toml_value *value)
 t_toml_value	toml_parse_value(const char *str)
 {
 	t_toml_value	value;
-	char		*trimmed;
+	char			*trimmed;
 
 	value.type = TOML_STRING;
 	value.data.str = NULL;
-	
 	if (!str)
 	{
 		LOG(LOG_WARNING, "toml_parse_value: input string is NULL");
 		return (value);
 	}
-	
 	trimmed = ft_strtrim(str, " \t");
 	if (!trimmed)
 	{
 		LOG(LOG_ERROR, "Failed to trim string: %s", str);
 		return (value);
 	}
-	
 	LOG(LOG_DEBUG, "Parsing value: '%s'", trimmed);
 	value = toml_dispatch_value_parsing(trimmed);
 	free(trimmed);
 	return (value);
-} 
+}

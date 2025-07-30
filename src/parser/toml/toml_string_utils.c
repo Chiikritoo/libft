@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:15:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 01:16:35 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:04:35 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ static int	count_elements(const char *str)
 
 	if (!str)
 		return (0);
-	
 	count = 1;
 	depth = 0;
 	in_quotes = false;
 	i = 0;
-	
 	while (str[i])
 	{
 		if (str[i] == '"' && (i == 0 || str[i - 1] != '\\'))
@@ -43,7 +41,6 @@ static int	count_elements(const char *str)
 		}
 		i++;
 	}
-	
 	return (count);
 }
 
@@ -68,42 +65,28 @@ static char	*extract_element(const char *str, int start, int end)
 
 	if (start >= end)
 		return (ft_strdup(""));
-	
 	element = ft_substr(str, start, end - start);
 	if (!element)
 	{
 		LOG(LOG_ERROR, "Failed to extract element");
 		return (NULL);
 	}
-	
 	return (ft_strtrim(element, " \t"));
 }
 
-// function who splits array elements respecting nested structures
-char	**ft_split_array_elements(const char *str)
+static char	**process_array_elements(const char *str, char **result, int count)
 {
-	char	**result;
-	int		count;
 	int		i;
 	int		start;
 	int		depth;
 	bool	in_quotes;
 	int		result_index;
 
-	if (!str)
-		return (NULL);
-	
-	count = count_elements(str);
-	result = allocate_result_array(count);
-	if (!result)
-		return (NULL);
-	
 	i = 0;
 	start = 0;
 	depth = 0;
 	in_quotes = false;
 	result_index = 0;
-	
 	while (str[i] && result_index < count)
 	{
 		if (str[i] == '"' && (i == 0 || str[i - 1] != '\\'))
@@ -128,15 +111,28 @@ char	**ft_split_array_elements(const char *str)
 		}
 		i++;
 	}
-	
 	if (result_index < count)
 		result[result_index] = extract_element(str, start, i);
-	
 	return (result);
 }
 
-// function who splits table pairs respecting nested structures  
+// function who splits array elements respecting nested structures
+char	**ft_split_array_elements(const char *str)
+{
+	char	**result;
+	int		count;
+
+	if (!str)
+		return (NULL);
+	count = count_elements(str);
+	result = allocate_result_array(count);
+	if (!result)
+		return (NULL);
+	return (process_array_elements(str, result, count));
+}
+
+// function who splits table pairs respecting nested structures
 char	**ft_split_table_pairs(const char *str)
 {
 	return (ft_split_array_elements(str));
-} 
+}

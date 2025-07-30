@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:20:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 01:18:13 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:05:44 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,15 @@ bool	add_global_section(t_toml_doc *doc)
 		LOG(LOG_ERROR, "Failed to create global section");
 		return (false);
 	}
-	
-	doc->sections = ft_realloc(doc->sections,
-		doc->section_count * sizeof(t_toml_section *),
-		(doc->section_count + 1) * sizeof(t_toml_section *));
+	doc->sections = ft_realloc(doc->sections, doc->section_count
+			* sizeof(t_toml_section *), (doc->section_count + 1)
+			* sizeof(t_toml_section *));
 	if (!doc->sections)
 	{
 		LOG(LOG_ERROR, "Failed to allocate memory for sections array");
 		toml_free_section(global_section);
 		return (false);
 	}
-	
 	doc->sections[doc->section_count] = global_section;
 	doc->section_count++;
 	LOG(LOG_DEBUG, "Created global section");
@@ -61,16 +59,14 @@ bool	add_section_to_doc(t_toml_doc *doc, t_toml_section *section)
 {
 	if (!doc || !section)
 		return (false);
-	
-	doc->sections = ft_realloc(doc->sections,
-		doc->section_count * sizeof(t_toml_section *),
-		(doc->section_count + 1) * sizeof(t_toml_section *));
+	doc->sections = ft_realloc(doc->sections, doc->section_count
+			* sizeof(t_toml_section *), (doc->section_count + 1)
+			* sizeof(t_toml_section *));
 	if (!doc->sections)
 	{
 		LOG(LOG_ERROR, "Failed to reallocate sections array");
 		return (false);
 	}
-	
 	doc->sections[doc->section_count] = section;
 	doc->section_count++;
 	LOG(LOG_DEBUG, "Added section '%s' to document", section->name);
@@ -89,20 +85,17 @@ t_toml_doc	*init_doc_with_file(const char *filename, char ***lines)
 		LOG(LOG_ERROR, "Failed to read file: %s", filename);
 		return (NULL);
 	}
-
 	doc = init_toml_doc();
 	if (!doc)
 	{
 		ft_free_double_ptr((void ***)lines);
 		return (NULL);
 	}
-
 	if (!add_global_section(doc))
 	{
 		ft_free_double_ptr((void ***)lines);
 		free(doc);
 		return (NULL);
 	}
-
 	return (doc);
-} 
+}
