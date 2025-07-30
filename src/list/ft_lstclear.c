@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 // function who clears the list with the function 'del'
 void	ft_lstclear(t_lst_ctx *ctx, void (*del)(void *))

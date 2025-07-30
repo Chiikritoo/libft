@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 02:23:59 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/21 20:16:09 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:09:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 // function who duplicates the first 'n' characters of the string 's'
 char	*gc_strndup(t_gc_ctx *ctx, char const *s, size_t n)

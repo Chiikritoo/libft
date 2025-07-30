@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 23:28:32 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/20 02:21:52 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:09:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 // function who converts the unsigned integer 'n' to a string
 char	*gc_utoa(t_gc_ctx *ctx, unsigned int n)

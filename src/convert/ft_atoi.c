@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:25:38 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/29 13:11:15 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:09:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 // function who converts the the string pointed by nptr to int
 int	ft_atoi(const char *nptr)

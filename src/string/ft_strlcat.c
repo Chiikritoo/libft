@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:15:39 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/29 13:14:01 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:09:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 // function who concatenates the strings 'dst' and 'src'
 // with the size 'size'

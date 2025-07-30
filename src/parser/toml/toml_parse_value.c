@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:30:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 02:04:54 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:08:43 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "libft.h"
 
 // function who validates and parses a float number
 bool	parse_float(const char *str, t_toml_value *value)

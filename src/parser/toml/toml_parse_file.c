@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:30:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 02:05:13 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:08:43 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "libft.h"
 
 // function who processes a single line
 t_toml_section	*process_single_line(t_toml_doc *doc,

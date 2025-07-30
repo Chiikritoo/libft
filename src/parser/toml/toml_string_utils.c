@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:15:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 02:04:35 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:08:43 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "libft.h"
 
 // function who counts elements in a string for splitting
 static int	count_elements(const char *str)

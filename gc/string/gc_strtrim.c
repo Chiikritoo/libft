@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:33:36 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/21 20:16:32 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:09:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 // function who trims the string 's1' with the characters in 'set'
 char	*gc_strtrim(t_gc_ctx *ctx, char const *s1, char const *set)

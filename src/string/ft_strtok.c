@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 // Thread-safe strtok: nextp doit pointer sur un char* initialisé à NULL au premier appel
 char	*ft_strtok(char *str, const char *delim, char **nextp)

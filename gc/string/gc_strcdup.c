@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 02:26:46 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/21 20:15:45 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:09:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 // function who duplicates the string 's' until the character 'c'
 char	*gc_strcdup(t_gc_ctx *ctx, char const *s, char c)

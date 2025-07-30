@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 08:19:42 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/29 13:11:33 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:08:43 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "libft.h"
 
 int	buffer_init(t_buffer *buffer)
 {

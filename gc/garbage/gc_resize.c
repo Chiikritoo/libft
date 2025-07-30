@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 11:21:50 by anchikri          #+#    #+#             */
-/*   Updated: 2025/06/19 11:37:28 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:09:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 // function who adds a node without checking load factor (for rehashing)
 static int	gc_add_no_resize(t_gc_ctx *ctx, t_gc *node, void *ptr)

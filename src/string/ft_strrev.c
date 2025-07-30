@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 // function who returns a new string which is the reverse of 's'
 char	*ft_strrev(const char *s)

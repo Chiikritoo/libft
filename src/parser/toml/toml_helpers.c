@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "libft.h"
 
 // function who gets an integer value with default
 int	toml_get_int(t_toml_doc *doc, const char *path, int default_val)

@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:41:37 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/29 13:14:17 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:09:09 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 // function who compares the first 'n' characters of the strings 's1' and 's2'
 int	ft_strncmp(const char *s1, const char *s2, size_t n)

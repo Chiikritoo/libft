@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "libft.h"
 
 // function who finds a section by name
 static t_toml_section	*toml_find_section(t_toml_doc *doc,

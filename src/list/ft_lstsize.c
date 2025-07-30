@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 // function who returns the number of elements in the list
 int	ft_lstsize(t_lst_ctx *ctx)

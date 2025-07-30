@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:58:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/02/21 23:44:05 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/07/30 02:08:43 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../include/libft.h"
+#include "../libft.h"
 
 // function who appends the unsigned integer 'n' to the string 'str'
 void	append_uint(t_buffer *buf, unsigned int n)
