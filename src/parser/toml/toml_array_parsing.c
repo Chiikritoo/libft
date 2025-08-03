@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:15:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 02:08:43 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/08/02 18:06:51 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 static t_toml_type	determine_array_type(char **elements)
 {
 	t_toml_value	first_value;
+	t_toml_type		result_type;
 	char			*trimmed;
 
 	if (!elements || !elements[0])
@@ -25,7 +26,9 @@ static t_toml_type	determine_array_type(char **elements)
 		return (TOML_STRING);
 	first_value = toml_parse_value(trimmed);
 	free(trimmed);
-	return (first_value.type);
+	result_type = first_value.type;
+	toml_free_value(&first_value);
+	return (result_type);
 }
 
 // function who handles type mismatch in array elements
@@ -66,12 +69,14 @@ static bool	add_array_element(t_toml_array *array, char *trimmed)
 	if (!array->values)
 	{
 		LOG(LOG_ERROR, "Failed to reallocate array values");
+		toml_free_value(&final_value);
 		return (false);
 	}
 	array->values[array->size] = ft_calloc(1, sizeof(t_toml_value));
 	if (!array->values[array->size])
 	{
 		LOG(LOG_ERROR, "Failed to allocate value");
+		toml_free_value(&final_value);
 		return (false);
 	}
 	*(array->values[array->size]) = final_value;
@@ -110,6 +115,7 @@ static bool	process_array_elements(t_toml_array *array, char **elements)
 static char	*validate_and_extract_array_content(const char *str)
 {
 	char	*content;
+	char	*trimmed;
 	size_t	len;
 
 	if (!str || ft_strlen(str) < 2)
@@ -130,7 +136,9 @@ static char	*validate_and_extract_array_content(const char *str)
 		LOG(LOG_ERROR, "Failed to extract array content from: %s", str);
 		return (NULL);
 	}
-	return (ft_strtrim(content, " \t"));
+	trimmed = ft_strtrim(content, " \t");
+	free(content);
+	return (trimmed);
 }
 
 // function who creates empty array

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:25:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 02:08:43 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/08/02 18:58:07 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ t_toml_section	*toml_create_section(const char *name)
 	section->name = ft_strdup(name);
 	section->kv = NULL;
 	section->count = 0;
+	section->is_array = false;
+	section->table_array = NULL;
+	section->table_counts = NULL;
+	section->table_array_size = 0;
 	return (section);
 }
 
@@ -40,6 +44,36 @@ int	toml_add_kv_to_section(t_toml_section *section, t_toml_kv *kv)
 	section->kv[section->count] = kv;
 	section->count++;
 	return (1);
+}
+
+// function who adds a table to an array section
+bool	toml_add_table_to_array_section(t_toml_section *section,
+		t_toml_kv **table_kv, int table_count)
+{
+	t_toml_kv	***new_array;
+	int			*new_counts;
+
+	if (!section || !table_kv)
+		return (false);
+	section->is_array = true;
+	new_array = ft_realloc(section->table_array,
+			section->table_array_size * sizeof(t_toml_kv **),
+			(section->table_array_size + 1) * sizeof(t_toml_kv **));
+	if (!new_array)
+		return (false);
+	new_counts = ft_realloc(section->table_counts,
+			section->table_array_size * sizeof(int),
+			(section->table_array_size + 1) * sizeof(int));
+	if (!new_counts)
+		return (false);
+	section->table_array = new_array;
+	section->table_counts = new_counts;
+	section->table_array[section->table_array_size] = table_kv;
+	section->table_counts[section->table_array_size] = table_count;
+	section->table_array_size++;
+	LOG(LOG_DEBUG, "Added table to array section '%s', now %d tables",
+		section->name, section->table_array_size);
+	return (true);
 }
 
 // function who creates a new TOML array

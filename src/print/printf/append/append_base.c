@@ -6,11 +6,11 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 22:57:58 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 02:08:43 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/08/02 17:18:26 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 // function who appends the string 'nb_str' to the string 'str'
 void	append_base(t_buffer *buf, unsigned long long n, char *base)

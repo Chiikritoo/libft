@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 02:44:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 02:09:09 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/08/02 18:09:43 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,11 @@ char	**ft_get_file(const char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
-	line_count = 0;
-	while (get_next_line(fd) != NULL)
-		line_count++;
+	line_count = ft_file_line_count(filename);
 	close(fd);
-	// Allouer le tableau
 	lines = ft_calloc(line_count + 1, sizeof(char *));
 	if (!lines)
 		return (NULL);
-	// Deuxième passe : lire les lignes
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
@@ -58,7 +54,7 @@ char	**ft_get_file(const char *filename)
 		lines[i] = line;
 		i++;
 	}
-	lines[i] = NULL; // Terminer le tableau
+	lines[i] = NULL;
 	close(fd);
 	return (lines);
 }

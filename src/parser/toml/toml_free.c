@@ -40,6 +40,7 @@ void	toml_free_kv(t_toml_kv *kv)
 void	toml_free_section(t_toml_section *section)
 {
 	int	i;
+	int	j;
 
 	if (!section)
 		return ;
@@ -54,6 +55,26 @@ void	toml_free_section(t_toml_section *section)
 			i++;
 		}
 		free(section->kv);
+	}
+	if (section->is_array && section->table_array)
+	{
+		i = 0;
+		while (i < section->table_array_size)
+		{
+			if (section->table_array[i])
+			{
+				j = 0;
+				while (j < section->table_counts[i])
+				{
+					toml_free_kv(section->table_array[i][j]);
+					j++;
+				}
+				free(section->table_array[i]);
+			}
+			i++;
+		}
+		free(section->table_array);
+		free(section->table_counts);
 	}
 	free(section);
 }

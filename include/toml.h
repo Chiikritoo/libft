@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:26:32 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 01:19:23 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/08/02 18:51:28 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ typedef struct s_toml_section
 	char			*name;
 	t_toml_kv		**kv;
 	int				count;
+	bool			is_array;
+	t_toml_kv		***table_array;
+	int				*table_counts;
+	int				table_array_size;
 }					t_toml_section;
 
 typedef struct s_toml_doc
@@ -85,6 +89,8 @@ char				*toml_parse_section_name(const char *line);
 t_toml_section		*toml_create_section(const char *name);
 int					toml_add_kv_to_section(t_toml_section *section,
 						t_toml_kv *kv);
+bool				toml_add_table_to_array_section(t_toml_section *section,
+						t_toml_kv **table_kv, int table_count);
 t_toml_doc			*toml_parse_file(const char *filename);
 
 // Array functions
@@ -101,6 +107,7 @@ t_toml_table		*toml_parse_table(const char *str);
 
 // Getter functions
 t_toml_value		*toml_get_value(t_toml_doc *doc, const char *path);
+t_toml_section		*toml_get_section(t_toml_doc *doc, const char *section_name);
 
 // Helper functions
 int					toml_get_int(t_toml_doc *doc, const char *path,
@@ -143,6 +150,9 @@ bool				parse_string_value(const char *str, t_toml_value *value);
 t_toml_doc			*init_toml_doc(void);
 bool				add_global_section(t_toml_doc *doc);
 bool				add_section_to_doc(t_toml_doc *doc, t_toml_section *section);
+bool				handle_array_of_tables_section(t_toml_doc *doc, 
+						const char *section_name);
+t_toml_section		*toml_get_section(t_toml_doc *doc, const char *name);
 t_toml_doc			*init_doc_with_file(const char *filename, char ***lines);
 
 // Line processing functions

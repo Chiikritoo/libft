@@ -49,6 +49,24 @@ static t_toml_kv	*toml_find_kv(t_toml_section *section, const char *key)
 		return (NULL);
 	}
 	LOG(LOG_DEBUG, "Looking for key '%s' in section '%s'", key, section->name);
+	
+	// For array of tables, search in the latest table first
+	if (section->is_array && section->table_array_size > 0)
+	{
+		int latest_table_idx = section->table_array_size - 1;
+		i = 0;
+		while (i < section->table_counts[latest_table_idx])
+		{
+			if (ft_strcmp(section->table_array[latest_table_idx][i]->key, key) == 0)
+			{
+				LOG(LOG_DEBUG, "Found key '%s' in array table %d", key, latest_table_idx);
+				return (section->table_array[latest_table_idx][i]);
+			}
+			i++;
+		}
+	}
+	
+	// Search in regular kv pairs
 	i = 0;
 	while (i < section->count)
 	{
@@ -197,3 +215,5 @@ t_toml_value	*toml_get_value(t_toml_doc *doc, const char *path)
 		LOG(LOG_DEBUG, "Successfully retrieved value for path: %s", path);
 	return (result);
 }
+
+

@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 02:50:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 02:09:09 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/08/02 18:09:32 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ long long	ft_file_size(const char *filename)
 int	ft_file_line_count(const char *filename)
 {
 	int		fd;
+	char	*line;
 	int		line_count;
 
 	if (!filename)
@@ -48,9 +49,11 @@ int	ft_file_line_count(const char *filename)
 		return (-1);
 	
 	line_count = 0;
-	while (get_next_line(fd) != NULL)
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		free(line);
 		line_count++;
-	
+	}
 	close(fd);
 	return (line_count);
 }

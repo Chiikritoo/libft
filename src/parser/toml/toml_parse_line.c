@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 10:30:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 02:08:43 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/08/02 18:02:21 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static char	*extract_key(const char *line, const char *equal_pos)
 static char	*extract_value(const char *equal_pos)
 {
 	char	*value_str;
+	char	*trimmed;
 
 	value_str = ft_strdup(equal_pos + 1);
 	if (!value_str)
@@ -52,8 +53,9 @@ static char	*extract_value(const char *equal_pos)
 		LOG(LOG_ERROR, "Failed to extract value from line");
 		return (NULL);
 	}
-	value_str = ft_strtrim(value_str, " \t\n");
-	return (value_str);
+	trimmed = ft_strtrim(value_str, " \t\n");
+	free(value_str);
+	return (trimmed);
 }
 
 // function who creates a key-value pair

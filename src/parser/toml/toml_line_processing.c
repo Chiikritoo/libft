@@ -6,12 +6,47 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:20:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 02:08:43 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/08/02 18:56:07 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// function who finalizes current table in array section
+static bool	finalize_array_table(t_toml_section *section)
+{
+	t_toml_kv	**table_kv;
+	int			i;
+
+	if (!section || !section->is_array || section->count == 0)
+		return (true);
+	
+	// Copy current kv pairs to create a new table
+	table_kv = ft_calloc(section->count, sizeof(t_toml_kv *));
+	if (!table_kv)
+		return (false);
+	
+	i = 0;
+	while (i < section->count)
+	{
+		table_kv[i] = section->kv[i];
+		i++;
+	}
+	
+	// Add the table to the array
+	if (!toml_add_table_to_array_section(section, table_kv, section->count))
+	{
+		free(table_kv);
+		return (false);
+	}
+	
+	// Reset current kv pairs for next table
+	free(section->kv);
+	section->kv = NULL;
+	section->count = 0;
+	
+	return (true);
+}
 // function who checks if a line should be skipped
 bool	should_skip_line(const char *clean_line)
 {
@@ -53,22 +88,59 @@ t_toml_section	*process_section_line(t_toml_doc *doc, const char *line,
 			line);
 		return (NULL);
 	}
-	section = toml_create_section(section_name);
-	if (!section)
+	
+	// Check if it's an array of tables [[name]]
+	char *trimmed_line = ft_strtrim(line, " \t");
+	bool is_array_of_tables = (ft_strlen(trimmed_line) >= 4 && 
+		trimmed_line[0] == '[' && trimmed_line[1] == '[' && 
+		trimmed_line[ft_strlen(trimmed_line) - 1] == ']' && 
+		trimmed_line[ft_strlen(trimmed_line) - 2] == ']');
+	free(trimmed_line);
+	
+	if (is_array_of_tables)
 	{
-		LOG(LOG_ERROR, "Failed to create section '%s' at line %d", section_name,
-			line_num);
-		free(section_name);
-		return (NULL);
+		if (!handle_array_of_tables_section(doc, section_name))
+		{
+			LOG(LOG_ERROR, "Failed to handle array of tables '%s' at line %d", 
+				section_name, line_num);
+			free(section_name);
+			return (NULL);
+		}
+		section = toml_get_section(doc, section_name);
+		if (section && section->is_array)
+		{
+			// Finalize previous table in this array
+			if (!finalize_array_table(section))
+			{
+				LOG(LOG_ERROR, "Failed to finalize array table at line %d", line_num);
+				free(section_name);
+				return (NULL);
+			}
+		}
+		LOG(LOG_DEBUG, "Processing array of tables '%s' at line %d", 
+			section_name, line_num);
 	}
-	if (!add_section_to_doc(doc, section))
+	else
 	{
-		LOG(LOG_ERROR, "Failed to add section '%s' to document", section_name);
-		toml_free_section(section);
-		free(section_name);
-		return (NULL);
+		section = toml_create_section(section_name);
+		if (!section)
+		{
+			LOG(LOG_ERROR, "Failed to create section '%s' at line %d", 
+				section_name, line_num);
+			free(section_name);
+			return (NULL);
+		}
+		if (!add_section_to_doc(doc, section))
+		{
+			LOG(LOG_ERROR, "Failed to add section '%s' to document", section_name);
+			toml_free_section(section);
+			free(section_name);
+			return (NULL);
+		}
+		LOG(LOG_DEBUG, "Created regular section '%s' at line %d", 
+			section_name, line_num);
 	}
-	LOG(LOG_DEBUG, "Created section '%s' at line %d", section_name, line_num);
+	
 	free(section_name);
 	return (section);
 }
@@ -121,5 +193,11 @@ void	process_all_lines(t_toml_doc *doc, char **lines)
 		current_section = process_single_line(doc, current_section, lines[i], i
 				+ 1);
 		i++;
+	}
+	
+	// Finalize any remaining array table
+	if (current_section && current_section->is_array)
+	{
+		finalize_array_table(current_section);
 	}
 }

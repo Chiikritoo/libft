@@ -6,7 +6,7 @@
 /*   By: anchikri <anchikri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 01:15:00 by anchikri          #+#    #+#             */
-/*   Updated: 2025/07/30 02:08:43 by anchikri         ###   ########.fr       */
+/*   Updated: 2025/08/02 18:02:08 by anchikri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ static char	**allocate_result_array(int count)
 static char	*extract_element(const char *str, int start, int end)
 {
 	char	*element;
+	char	*trimmed;
 
 	if (start >= end)
 		return (ft_strdup(""));
@@ -71,7 +72,9 @@ static char	*extract_element(const char *str, int start, int end)
 		LOG(LOG_ERROR, "Failed to extract element");
 		return (NULL);
 	}
-	return (ft_strtrim(element, " \t"));
+	trimmed = ft_strtrim(element, " \t");
+	free(element);
+	return (trimmed);
 }
 
 static char	**process_array_elements(const char *str, char **result, int count)
